@@ -52,6 +52,14 @@ def served(tmp_path):
     app.dependency_overrides.clear()
 
 
+def test_the_frontend_is_served_at_the_root_and_reads_cards_from_this_server(served):
+    response = served.client.get("/")
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/html")
+    assert "fetch('/cards'" in response.text
+    assert "const DATA = {" not in response.text
+
+
 def test_cards_are_served_as_written(served):
     response = served.client.get("/cards")
     assert (response.status_code, response.json()) == (200, DOCUMENT)

@@ -9,3 +9,6 @@ __pycache__/
 
 # Generated output
 /cards.json
+
+# Mockup screenshots (regenerable)
+/mockups/shots/

@@ -8,6 +8,7 @@ from typing import Annotated
 from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from insights.cards import document, write_cards
@@ -16,6 +17,7 @@ from insights.judge import JudgeError, judged
 from insights.pipeline import context_from_env, run
 
 dashboard_origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+frontend_page = Path(__file__).parent.parent / "frontend" / "index.html"
 
 regenerate_instructions = (
     "You will see a card shown to the account owner about one of their friendships, the messages it is based on, "
@@ -44,6 +46,11 @@ def context() -> Context:
 
 CardsPath = Annotated[Path, Depends(cards_path)]
 Insights = Annotated[Context, Depends(context)]
+
+
+@app.get("/", include_in_schema=False)
+def frontend() -> FileResponse:
+    return FileResponse(frontend_page, media_type="text/html")
 
 
 @app.get("/cards")

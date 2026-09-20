@@ -73,8 +73,8 @@ svg{width:1.2rem;height:1.2rem;fill:none;stroke:currentColor;stroke-width:2.2;st
 /* avatar with story ring */
 .av{flex:none;width:var(--s,3.4rem);height:var(--s,3.4rem);border-radius:50%;background:var(--ig);padding:calc(var(--s,3.4rem)*.065);display:grid}
 .av span{border-radius:50%;background:var(--tile);border:calc(var(--s,3.4rem)*.05) solid var(--tile);box-shadow:inset 0 0 0 99rem rgba(255,255,255,.07);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:calc(var(--s,3.4rem)*.34);letter-spacing:.02em}
-.grad .av,.active .av{background:#fff}
-.grad .av span,.active .av span{background:rgba(20,8,40,.55);border-color:transparent;box-shadow:none}
+.grad .av,.active .av,.share .av{background:#fff}
+.grad .av span,.active .av span,.share .av span{background:rgba(20,8,40,.55);border-color:transparent;box-shadow:none}
 .who{display:flex;align-items:center;gap:.9rem}
 .who b{display:block;font-family:var(--display);font-weight:600;font-size:1.25rem;line-height:1.15}
 .who span.k{display:block;color:var(--mute);font-size:.92rem;line-height:1.3}
@@ -140,7 +140,7 @@ svg{width:1.2rem;height:1.2rem;fill:none;stroke:currentColor;stroke-width:2.2;st
 .msg{display:flex;flex-direction:column;align-items:flex-start;gap:.25rem;max-width:84%}
 .msg.me{align-self:flex-end;align-items:flex-end}
 .bub{padding:.62em 1em;border-radius:1.45em;border-bottom-left-radius:.45em;background:rgba(255,255,255,.085);backdrop-filter:blur(12px);border:2px solid transparent;line-height:1.36;overflow-wrap:anywhere}
-.me .bub{background:var(--mine);border-radius:1.45em;border-bottom-right-radius:.45em}
+.me .bub{background:var(--mine) border-box;border-radius:1.45em;border-bottom-right-radius:.45em}
 .key .bub{background:linear-gradient(#20202C,#20202C) padding-box,var(--ig) border-box;box-shadow:0 0 1.6rem rgba(225,48,108,.28);font-weight:600}
 .me.key .bub{background:var(--mine) padding-box,linear-gradient(135deg,#FFDC80,#FCAF45,#F77737) border-box;box-shadow:0 0 1.6rem rgba(252,175,69,.3)}
 .chat-tag{font-size:.78rem;font-weight:700;letter-spacing:.05em;padding:.22rem .7rem;border-radius:2rem;background:rgba(255,255,255,.08);color:var(--mute)}
@@ -254,7 +254,7 @@ svg{width:1.2rem;height:1.2rem;fill:none;stroke:currentColor;stroke-width:2.2;st
 .panel > header .who{flex:1}
 .x{width:2.8rem;height:2.8rem;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center}
 .x:hover{background:rgba(255,255,255,.18)}
-.panel textarea{width:100%;min-height:11rem;resize:vertical;font:inherit;font-size:1.3rem;line-height:1.45;color:#fff;background:var(--mine);border:2px solid transparent;border-radius:1.8rem 1.8rem .6rem 1.8rem;padding:1.2rem 1.4rem}
+.panel textarea{width:100%;min-height:11rem;resize:none;font:inherit;font-size:1.3rem;line-height:1.45;color:#fff;background:var(--mine);border:2px solid transparent;border-radius:1.8rem 1.8rem .6rem 1.8rem;padding:1.2rem 1.4rem}
 .panel textarea:focus{outline:none;border-color:#FFDC80}
 .panel .btns{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:600;font-size:1.15rem;padding:.85rem 1.5rem;border-radius:2rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
@@ -1948,7 +1948,7 @@ function convoSheet(card) {
 function openModal(html) {
   modal.innerHTML = html;
   modal.hidden = false;
-  modal.querySelector('textarea:not([hidden]), .x')?.focus();
+  (modal.querySelector('textarea:not([hidden])') ?? modal.querySelector('.x'))?.focus();
 }
 
 function closeModal() {
@@ -2030,10 +2030,10 @@ async function start() {
   document.addEventListener('click', onClick);
   document.addEventListener('keydown', onKey);
   addEventListener('resize', fitContent);
-  await Promise.race([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 2500))]);
+  await Promise.race([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 1500))]);
   fitContent();
   if (/&sheet$/.test(hash)) pageEl.querySelector('[data-do=sheet]')?.click();
-  if (/&check$/.test(hash)) requestAnimationFrame(() => requestAnimationFrame(writeOverflowReport));
+  if (/&check$/.test(hash)) setTimeout(writeOverflowReport, 120);
 }
 
 start();

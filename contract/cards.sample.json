@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T04:24:44Z",
+  "generatedAt": "2026-09-20T04:36:33Z",
   "owner": "you",
   "cards": [
     {
@@ -171,66 +171,6 @@
       "action": null
     },
     {
-      "id": "783bf264",
-      "kind": "unanswered",
-      "score": 1.0,
-      "rank": null,
-      "friend": {
-        "name": "Sarah Lin",
-        "threadId": "sarahlin_17520394857612033"
-      },
-      "title": "Sarah asked you to review her portfolio",
-      "body": "Back in April last year Sarah asked if you could look at her portfolio before Friday, and the thread drifted into grain bowls and egg tarts. She never got an answer.",
-      "stats": [
-        {
-          "label": "Asked",
-          "value": "Apr 3, 2025"
-        }
-      ],
-      "evidence": [
-        {
-          "id": "89fd548aba2cdf16",
-          "sender": "Sarah Lin",
-          "isFromOwner": false,
-          "isKey": true,
-          "threadName": "Sarah Lin",
-          "timestamp": "2025-04-03T16:51:00Z",
-          "text": "can you look at my portfolio before friday? i really trust your eye"
-        },
-        {
-          "id": "019517ff46f2a3b1",
-          "sender": "you",
-          "isFromOwner": true,
-          "isKey": false,
-          "threadName": "Sarah Lin",
-          "timestamp": "2025-04-04T16:51:00Z",
-          "text": "the dining hall has a \"build your own grain bowl\" station now and i built something terrible"
-        },
-        {
-          "id": "952909bdff709a13",
-          "sender": "Sarah Lin",
-          "isFromOwner": false,
-          "isKey": false,
-          "threadName": "Sarah Lin",
-          "timestamp": "2025-04-04T16:51:00Z",
-          "text": "omg what did you put in it"
-        },
-        {
-          "id": "b47b27ae7ecf7254",
-          "sender": "you",
-          "isFromOwner": true,
-          "isKey": false,
-          "threadName": "Sarah Lin",
-          "timestamp": "2025-04-04T16:52:00Z",
-          "text": "quinoa, beets, ranch, goldfish crackers"
-        }
-      ],
-      "action": {
-        "label": "Respond",
-        "draft": "ok this might be the latest reply in recorded history but i never actually looked at your portfolio and it's been bugging me. is there a current version? send it over and i'll give you real notes this time"
-      }
-    },
-    {
       "id": "e8860404",
       "kind": "unanswered",
       "score": 1.0,
@@ -239,8 +179,8 @@
         "name": "Priya Raman",
         "threadId": "priyaraman_17612094857102938"
       },
-      "title": "Priya asked if you decided about the summer offer",
-      "body": "Back in April she asked what you decided, right before the deadline. The door sign bit took over and the question never got an answer.",
+      "title": "Priya asked about the summer offer",
+      "body": "Back in April she asked if you'd decided about the summer offer, right before the deadline. The door sign bit took over and the question never got answered.",
       "stats": [
         {
           "label": "Asked",
@@ -287,7 +227,7 @@
       ],
       "action": {
         "label": "Respond",
-        "draft": "priya i just realized you asked me about the summer offer back in APRIL and i answered with a door sign. so, five months late, here's what actually happened with it:"
+        "draft": "priya i just realized i never actually answered you about the summer offer. only five months late lol. here's what happened:"
       }
     },
     {
@@ -300,7 +240,7 @@
         "threadId": "meitanaka_17950517471278735"
       },
       "title": "Mei asked how your Figma interview went",
-      "body": "You mentioned the interview, Mei asked how it went, and then the studio fire took over the thread. It never got answered.",
+      "body": "Back in March, Mei asked twice about the Figma interview and said she'd been thinking about it. The studio fire story took over and the question never got an answer.",
       "stats": [
         {
           "label": "Asked",
@@ -347,7 +287,186 @@
       ],
       "action": {
         "label": "Respond",
-        "draft": "ok so i just realized you asked about the figma interview like a year and a half ago and i never answered. truly unhinged of me. ok here's how it went:"
+        "draft": "ok so i just realized i never actually told you how the figma interview went. only a year and a half late lol. here's the real answer:"
+      }
+    },
+    {
+      "id": "783bf264",
+      "kind": "unanswered",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Sarah asked you to look at her portfolio",
+      "body": "Back in April she asked if you could look over her portfolio before Friday, right after redoing her case study section. The grain bowl talk took over and it never came back around.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Apr 3, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "89fd548aba2cdf16",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-03T16:51:00Z",
+          "text": "can you look at my portfolio before friday? i really trust your eye"
+        },
+        {
+          "id": "019517ff46f2a3b1",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:51:00Z",
+          "text": "the dining hall has a \"build your own grain bowl\" station now and i built something terrible"
+        },
+        {
+          "id": "952909bdff709a13",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:51:00Z",
+          "text": "omg what did you put in it"
+        },
+        {
+          "id": "b47b27ae7ecf7254",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:52:00Z",
+          "text": "quinoa, beets, ranch, goldfish crackers"
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "ok so i am roughly a year and a half late on this but did you ever get eyes on that portfolio? still happy to look if it's useful"
+      }
+    },
+    {
+      "id": "9dbb8c5a",
+      "kind": "unfinished_plans",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Tsuru Ramen with Sarah",
+      "body": "Tsuru on Newbury has come up in four separate conversations since January 2025, and from your DMs it still doesn't look like you two made it there. The last plan was \"july\" and it never got a date.",
+      "stats": [
+        {
+          "label": "Times mentioned",
+          "value": "4"
+        },
+        {
+          "label": "First mentioned",
+          "value": "Jan 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "61d8d2ddda6ec5ca",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-01-18T13:05:00Z",
+          "text": "we HAVE to try TSURU RAMEN on newbury"
+        },
+        {
+          "id": "5d4a46d1e4903068",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-05-09T18:40:00Z",
+          "text": "the noodle place!! when are we going"
+        },
+        {
+          "id": "3d029efb143508cc",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-11-15T12:22:00Z",
+          "text": "still haven't been to tsuru 😭 it's embarrassing"
+        },
+        {
+          "id": "63e233657830cda3",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2026-06-27T19:13:00Z",
+          "text": "that ramen spot we always talk about just got a 9.2 on my list and i haven't even BEEN"
+        }
+      ],
+      "action": {
+        "label": "Make It Happen",
+        "draft": "ok the 9.2 is still fan fiction 💀 pick a day this week and i'll meet you on newbury. i'm getting whatever you tell me to get 🍜"
+      }
+    },
+    {
+      "id": "4a931575",
+      "kind": "unfinished_plans",
+      "score": 0.6,
+      "rank": null,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "The terrible bowl class with Mei",
+      "body": "The pottery class on Elm St came up in three different conversations, most recently right before she settled into Seattle. From your DMs it looks like terrible bowl summer never actually happened.",
+      "stats": [
+        {
+          "label": "Times mentioned",
+          "value": "3"
+        },
+        {
+          "label": "First mentioned",
+          "value": "Feb 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "5d333fc9ea836d9a",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-02-08T19:44:00Z",
+          "text": "we should do that pottery class on elm st"
+        },
+        {
+          "id": "ff51a3803e03a017",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-04-21T16:02:00Z",
+          "text": "ok we actually need to do the pottery thing soon"
+        },
+        {
+          "id": "584bd146e61622f5",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-08-30T12:15:00Z",
+          "text": "still thinking about that ceramics class lol. we never did it"
+        }
+      ],
+      "action": {
+        "label": "Make It Happen",
+        "draft": "ok real talk, when are you visiting? i'll book the elm st class for whatever weekend you pick 😤 terrible bowl winter is still on the table. or we each do one out there and here and compare disasters over facetime"
       }
     }
   ]

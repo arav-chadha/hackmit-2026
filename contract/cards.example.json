@@ -1,0 +1,327 @@
+{
+  "generatedAt": "2026-09-20T02:30:00Z",
+  "owner": "you",
+  "cards": [
+    {
+      "id": "7be01d44",
+      "kind": "your_people",
+      "score": 0.97,
+      "rank": 1,
+      "friend": { "name": "Rafa Ortiz", "threadId": "rafaortiz_17849201938471029" },
+      "title": "Rafa Ortiz",
+      "body": "You've talked almost every week for 4 years. Your most active stretch was summer 2024.",
+      "stats": [
+        { "label": "Messages", "value": "12,480" },
+        { "label": "Talking since", "value": "Aug 2022" },
+        { "label": "Most active month", "value": "July 2024" },
+        { "label": "Usual hours", "value": "11 PM – 2 AM" }
+      ],
+      "evidence": [],
+      "action": null
+    },
+    {
+      "id": "c41a9e07",
+      "kind": "your_people",
+      "score": 0.84,
+      "rank": 2,
+      "friend": { "name": "Priya Raman", "threadId": "priyaraman_17612094857102938" },
+      "title": "Priya Raman",
+      "body": "Three years of steady conversation, though lately she starts most of them.",
+      "stats": [
+        { "label": "Messages", "value": "6,912" },
+        { "label": "Talking since", "value": "Sep 2023" },
+        { "label": "Who starts conversations", "value": "Priya, 71% of the time" }
+      ],
+      "evidence": [],
+      "action": null
+    },
+    {
+      "id": "e2906b3f",
+      "kind": "your_people",
+      "score": 0.78,
+      "rank": 3,
+      "friend": { "name": "Mei Tanaka", "threadId": "meitanaka_17950517471278735" },
+      "title": "Mei Tanaka",
+      "body": "You used to talk daily. It has been quiet since last autumn.",
+      "stats": [
+        { "label": "Messages", "value": "9,305" },
+        { "label": "Talking since", "value": "Jan 2023" },
+        { "label": "Last real conversation", "value": "Oct 2025" }
+      ],
+      "evidence": [],
+      "action": null
+    },
+    {
+      "id": "a3f9c2e1",
+      "kind": "unanswered",
+      "score": 0.91,
+      "rank": null,
+      "friend": { "name": "Mei Tanaka", "threadId": "meitanaka_17950517471278735" },
+      "title": "Mei asked how your interview went",
+      "body": "You kept talking afterward, but you never told her.",
+      "stats": [
+        { "label": "Asked", "value": "Mar 14, 2025" }
+      ],
+      "evidence": [
+        {
+          "id": "m_81c2",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-14T21:32:00Z",
+          "text": "wait how did the interview go??"
+        },
+        {
+          "id": "m_81c3",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T09:05:00Z",
+          "text": "omg did you see what happened in studio today"
+        },
+        {
+          "id": "m_81c4",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T09:11:00Z",
+          "text": "NO what happened"
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "I just realized I literally never told you how that interview went 😭"
+      }
+    },
+    {
+      "id": "5d7720bc",
+      "kind": "unfinished_plans",
+      "score": 0.88,
+      "rank": null,
+      "friend": { "name": "Mei Tanaka", "threadId": "meitanaka_17950517471278735" },
+      "title": "The pottery class with Mei",
+      "body": "You've talked about going 3 different times. You never went.",
+      "stats": [
+        { "label": "Times mentioned", "value": "3" },
+        { "label": "First mentioned", "value": "Feb 2025" }
+      ],
+      "evidence": [
+        {
+          "id": "m_6a10",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-02-08T19:44:00Z",
+          "text": "we should do that pottery class on elm st"
+        },
+        {
+          "id": "m_7f32",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-04-21T16:02:00Z",
+          "text": "ok we actually need to do the pottery thing soon"
+        },
+        {
+          "id": "m_9b05",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-08-30T12:15:00Z",
+          "text": "still thinking about that ceramics class lol"
+        }
+      ],
+      "action": {
+        "label": "Make It Happen",
+        "draft": "Wait we've talked about the pottery class like 3 times 😭 wanna finally go this weekend?"
+      }
+    },
+    {
+      "id": "19c8f4a6",
+      "kind": "both_wanted",
+      "score": 0.86,
+      "rank": null,
+      "friend": { "name": "Priya Raman", "threadId": "priyaraman_17612094857102938" },
+      "title": "You both want to try rock climbing",
+      "body": "Priya mentioned it in March. You said the same thing to someone else in June. Neither of you knows.",
+      "stats": [],
+      "evidence": [
+        {
+          "id": "m_3e91",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Priya Raman",
+          "timestamp": "2025-03-02T18:20:00Z",
+          "text": "I really want to try rock climbing sometime"
+        },
+        {
+          "id": "m_c27d",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-06-19T22:41:00Z",
+          "text": "I've been wanting to try climbing"
+        }
+      ],
+      "action": {
+        "label": "Do It Together",
+        "draft": "ok random but have you still been wanting to try climbing?? because same, let's go"
+      }
+    },
+    {
+      "id": "f0b3d518",
+      "kind": "reconnect",
+      "score": 0.8,
+      "rank": null,
+      "friend": { "name": "Jonas Weber", "threadId": "jonasweber_17398201938475610" },
+      "title": "You and Jonas used to talk about Minecraft all the time",
+      "body": "It hasn't come up in 9 months.",
+      "stats": [
+        { "label": "Mentions", "value": "214" },
+        { "label": "Last mentioned", "value": "Dec 2025" }
+      ],
+      "evidence": [
+        {
+          "id": "m_1d44",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-05-11T23:58:00Z",
+          "text": "get on, the nether portal is finally done"
+        },
+        {
+          "id": "m_2a87",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-09-03T01:12:00Z",
+          "text": "a creeper just blew up the entire storage room i'm going to cry"
+        },
+        {
+          "id": "m_4c19",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2025-12-14T20:30:00Z",
+          "text": "we never finished the castle btw"
+        }
+      ],
+      "action": {
+        "label": "Reconnect",
+        "draft": "Bro I randomly remembered our Minecraft world 😭 we actually need to run it back sometime"
+      }
+    },
+    {
+      "id": "8e52a1c9",
+      "kind": "memory_lane",
+      "score": 0.75,
+      "rank": null,
+      "friend": { "name": "Rafa Ortiz", "threadId": "rafaortiz_17849201938471029" },
+      "title": "The 3 AM road trip plan",
+      "body": "You and Rafa stayed up until 3 AM planning a road trip you were both way too excited about.",
+      "stats": [
+        { "label": "When", "value": "July 12, 2024" }
+      ],
+      "evidence": [
+        {
+          "id": "m_b001",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T05:41:00Z",
+          "text": "ok hear me out. what if we just drove to montreal"
+        },
+        {
+          "id": "m_b002",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T05:42:00Z",
+          "text": "like. this weekend??"
+        },
+        {
+          "id": "m_b003",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T05:42:00Z",
+          "text": "THIS WEEKEND. i already have a spreadsheet"
+        },
+        {
+          "id": "m_b004",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T06:58:00Z",
+          "text": "it is 3am and i have never been more sure of anything in my life"
+        },
+        {
+          "id": "m_b005",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T07:03:00Z",
+          "text": "poutine tab of the spreadsheet is done. goodnight"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "do you remember the 3am montreal spreadsheet 😭 the poutine tab lives in my head"
+      }
+    },
+    {
+      "id": "2ac6e7d0",
+      "kind": "recap",
+      "score": 0.7,
+      "rank": null,
+      "friend": { "name": "Rafa Ortiz", "threadId": "rafaortiz_17849201938471029" },
+      "title": "You + Rafa",
+      "body": "Four years, mostly after midnight, mostly about hackathons and half-planned trips.",
+      "stats": [
+        { "label": "Messages", "value": "12,480" },
+        { "label": "Most active month", "value": "July 2024" },
+        { "label": "Top topic", "value": "Hackathons" },
+        { "label": "Most active time", "value": "11 PM – 2 AM" },
+        { "label": "Unfinished plans", "value": "2" },
+        { "label": "Memories worth revisiting", "value": "3" }
+      ],
+      "evidence": [
+        {
+          "id": "m_b004",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T06:58:00Z",
+          "text": "it is 3am and i have never been more sure of anything in my life"
+        },
+        {
+          "id": "m_d410",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:20:00Z",
+          "text": "we won??? WE WON"
+        }
+      ],
+      "action": { "label": "Share Recap", "draft": null }
+    }
+  ]
+}

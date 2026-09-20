@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
 from insights.inbox import Message, Thread
-from insights.index import IndexNames, bulk_actions, mappings
+from insights.index import IndexNames, bulk_actions, mappings, message_from_hit
 
 ASKED = datetime(2025, 3, 14, 21, 32, tzinfo=timezone.utc)
 NAMES = IndexNames(prefix="test-")
@@ -33,6 +33,10 @@ def test_message_document_carries_what_the_insight_queries_filter_on():
         "timestamp": "2025-03-15T08:32:00+00:00",
         "hour": 8,
         "text": "did you see the fire in studio",
+        "is_question": False,
+        "position": 1,
+        "window_id": actions()[3]["_id"],
+        "has_owner_reply_in_window": False,
     }
 
 
@@ -42,6 +46,24 @@ def test_window_document_holds_the_conversation_for_both_kinds_of_search():
     assert source["semantic"] == source["text"]
     assert (source["message_ids"], source["message_count"]) == (["m1"], 1)
     assert (source["start"], source["end"]) == ("2025-03-14T21:32:00+00:00", "2025-03-14T21:32:00+00:00")
+
+
+def test_a_question_the_owner_replied_to_in_the_same_conversation_is_marked():
+    reply = Message("m3", "mei_1", "you", ASKED + timedelta(minutes=2), "it went great")
+    answered = Thread("mei_1", "Mei Tanaka", ("Mei Tanaka", "you"), (question, reply))
+    asked, replied = (a["_source"] for a in list(bulk_actions([answered], owner="you", names=NAMES))[:2])
+    assert (asked["is_question"], asked["has_owner_reply_in_window"]) == (True, True)
+    assert replied["has_owner_reply_in_window"] is False
+
+
+def test_window_records_who_started_it():
+    first, second = (a["_source"] for a in actions()[2:])
+    assert (first["is_started_by_owner"], second["is_started_by_owner"]) == (False, True)
+
+
+def test_a_search_hit_turns_back_into_the_message():
+    action = actions()[0]
+    assert message_from_hit({"_id": action["_id"], "_source": action["_source"]}) == question
 
 
 def test_every_indexed_field_is_declared_in_the_mappings():

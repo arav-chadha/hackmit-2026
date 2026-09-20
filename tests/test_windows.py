@@ -39,6 +39,13 @@ def test_window_spans_its_first_and_last_message():
     assert (window.start, window.end) == (START, START + timedelta(minutes=9))
 
 
+def test_window_knows_who_started_it():
+    first, second = windowed(thread(0, 1, 600))
+    assert (first.first_sender, second.first_sender) == ("Mei Tanaka", "Mei Tanaka")
+    (shifted,) = windowed(Thread("mei_1", "Mei Tanaka", (), thread(0, 1).messages[1:]))
+    assert shifted.first_sender == "you"
+
+
 def test_every_message_lands_in_exactly_one_window():
     source = thread(0, 1, 2, 600, 601, 2000, 2001, 2002, 9000)
     collected = [message_id for w in windowed(source, max_messages=2) for message_id in w.message_ids]

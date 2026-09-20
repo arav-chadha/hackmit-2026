@@ -2,6 +2,7 @@
 
 from collections.abc import Iterable, Iterator
 from dataclasses import dataclass
+from datetime import datetime
 
 from elasticsearch import Elasticsearch, helpers
 
@@ -35,11 +36,16 @@ def mappings(inference_id: str) -> dict[str, dict]:
         "timestamp": {"type": "date"},
         "hour": {"type": "byte"},
         "text": {"type": "text"},
+        "position": {"type": "integer"},
+        "window_id": {"type": "keyword"},
+        "is_question": {"type": "boolean"},
+        "has_owner_reply_in_window": {"type": "boolean"},
     }
     windows = {
         **thread_fields,
         "start": {"type": "date"},
         "end": {"type": "date"},
+        "is_started_by_owner": {"type": "boolean"},
         "message_ids": {"type": "keyword"},
         "message_count": {"type": "integer"},
         "text": {"type": "text"},
@@ -63,8 +69,9 @@ def ingest(client: Elasticsearch, threads: Iterable[Thread], owner: str, names: 
 
 def bulk_actions(threads: Iterable[Thread], owner: str, names: IndexNames) -> Iterator[dict]:
     for thread in threads:
-        yield from (_action(names.messages, m.id, _message_document(m, thread, owner)) for m in thread.messages)
-        yield from (_action(names.windows, w.id, _window_document(w, thread)) for w in windowed(thread))
+        windows = windowed(thread)
+        yield from (_action(names.messages, m.id, source) for m, source in _message_documents(thread, windows, owner))
+        yield from (_action(names.windows, w.id, _window_document(w, thread, owner)) for w in windows)
 
 
 def _action(index: str, document_id: str, source: dict) -> dict:
@@ -75,6 +82,27 @@ def _thread_fields(thread: Thread) -> dict:
     return {"thread_id": thread.id, "thread_name": thread.name, "is_group": thread.is_group}
 
 
+def message_from_hit(hit: dict) -> Message:
+    source = hit["_source"]
+    timestamp = datetime.fromisoformat(source["timestamp"])
+    return Message(hit["_id"], source["thread_id"], source["sender"], timestamp, source["text"])
+
+
+def _message_documents(thread: Thread, windows: list[Window], owner: str) -> Iterator[tuple[Message, dict]]:
+    positioned = {message.id: (position, message) for position, message in enumerate(thread.messages)}
+    for window in windows:
+        members = [positioned[message_id] for message_id in window.message_ids]
+        last_owner_position = max((position for position, m in members if m.sender == owner), default=-1)
+        yield from (
+            (m, {**_message_document(m, thread, owner), **_placement(window, position, last_owner_position)})
+            for position, m in members
+        )
+
+
+def _placement(window: Window, position: int, last_owner_position: int) -> dict:
+    return {"position": position, "window_id": window.id, "has_owner_reply_in_window": position < last_owner_position}
+
+
 def _message_document(message: Message, thread: Thread, owner: str) -> dict:
     return {
         **_thread_fields(thread),
@@ -83,14 +111,16 @@ def _message_document(message: Message, thread: Thread, owner: str) -> dict:
         "timestamp": message.timestamp.isoformat(),
         "hour": message.timestamp.hour,
         "text": message.text,
+        "is_question": "?" in message.text,
     }
 
 
-def _window_document(window: Window, thread: Thread) -> dict:
+def _window_document(window: Window, thread: Thread, owner: str) -> dict:
     return {
         **_thread_fields(thread),
         "start": window.start.isoformat(),
         "end": window.end.isoformat(),
+        "is_started_by_owner": window.first_sender == owner,
         "message_ids": list(window.message_ids),
         "message_count": len(window.message_ids),
         "text": window.text,

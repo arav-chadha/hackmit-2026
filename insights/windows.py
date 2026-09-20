@@ -16,6 +16,7 @@ class Window:
     thread_id: str
     start: datetime
     end: datetime
+    first_sender: str
     message_ids: tuple[str, ...]
     text: str
 
@@ -35,4 +36,4 @@ def _window(thread_id: str, run: list[Message]) -> Window:
     # Keyed on the first message only, so a window that grows in a newer export keeps its id.
     window_id = hashlib.sha1(f"{thread_id}|{run[0].id}".encode()).hexdigest()[:16]
     text = "\n".join(f"{m.sender}: {m.text}" for m in run)
-    return Window(window_id, thread_id, run[0].timestamp, run[-1].timestamp, tuple(m.id for m in run), text)
+    return Window(window_id, thread_id, run[0].timestamp, run[-1].timestamp, run[0].sender, tuple(m.id for m in run), text)

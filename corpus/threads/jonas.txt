@@ -1,0 +1,401 @@
+# Jonas: best friend from high school, mechanical engineering at Georgia Tech. One intense
+# summer (2024) on a shared Minecraft survival world, then it thinned out once school resumed.
+# Nobody fought. His last message is from December 2025.
+thread: Jonas Weber
+folder: jonasweber_17398201938475610
+speakers: Y=you, J=Jonas Weber
+hours: 20-3
+rate: 2024-06-01..2024-09-15 7
+rate: 2024-09-16..2025-12-10 0.4
+
+== scene 2024-06-05 21:30
+J: i'm home
+Y: since when
+J: an hour ago. my mom has already asked me to fix the printer
+Y: lol welcome back. did you fix it
+J: i'm a mechanical engineering student. it's a printer. no
+Y: 😭
+Y: how was the drive
+J: ten hours. south carolina is 40% billboards for one specific lawyer
+Y: i got back sunday. my room is a storage unit now
+J: mine has an exercise bike in it. nobody will say whose
+Y: come over tmrw, my dad's grilling
+J: fine
+-- 22h
+J: tell your dad the burgers were good
+Y: he's going to bring that up for a year
+
+== scene 2024-06-22 23:50 | reconnect:minecraft
+J*: get on, the nether portal is finally done
+Y: FINALLY
+Y: it took you three days
+J: obsidian is slow. i'm slow. together we're very slow
+Y: loading in
+Y: jonas why is it inside the castle kitchen
+J: it's warm. it's an oven
+Y: that's not
+Y: ok whatever going through
+J: report back
+Y: there's fire everywhere
+J: yes
+Y: there's a pig holding a sword and he's looking at me
+J: don't hit him
+Y: why would i hit him
+J: i've seen how you play
+Y: ok this is actually sick tho
+J: three days
+
+== scene 2024-07-20 02:00 | memory_lane:villager-trial
+Y: court is now in session
+J: i'm the judge
+Y: why are you the judge
+J: i built the courthouse
+Y: it's a dirt hut with a sign
+J: it's a courthouse with a sign. sit down
+Y: the prosecution calls gerald
+J: gerald is already here. gerald can't leave. i put him in a boat
+Y: gerald you are accused of charging 31 emeralds for a mending book that cost 12 yesterday
+J: how does the defendant plead
+Y: he said "hrmm"
+J: let the record show he said hrmm
+Y: that's basically a confession
+J: objection
+Y: you're the judge you can't object
+J*: i'm also his lawyer. he couldn't afford one. because nobody will pay 31 emeralds {💀}
+Y: 😭😭😭
+J: counsel would like to note the price went up right after somebody punched him
+Y: that was an ACCIDENT i was aiming at the zombie
+J: there was no zombie
+Y: there was the IDEA of a zombie
+Y*: your honor i move to strike my own punch from the record
+J: denied. the punch stays. gerald remembers
+Y: ok fine what's the verdict
+J*: guilty. sentenced to life in the boat. which is also his current situation, so time served
+Y: so he's free??
+J: he's in a boat. nobody in a boat is free
+Y: i'm paying the 31 emeralds aren't i
+J: court costs are an additional 4
+Y: i hate this legal system
+
+== scene 2024-08-11 22:40
+J: packed the car
+Y: already?? when do you leave
+J: 6am. my dad wants to beat traffic. there's no traffic at 6am. there's no traffic at 7 either
+Y: lol
+Y: i leave the 28th
+J: boston
+Y: boston
+J: tell it i said nothing
+Y: 💀
+Y: the server stays up right
+J: it's on my laptop. so as long as i never close it, yes
+Y: this summer was kind of great ngl
+J: it was fine
+J: it was good
+Y: wow. emotion
+J: don't tell anyone
+
+== scene 2024-09-03 01:05 | reconnect:minecraft
+Y*: a creeper just blew up the entire storage room i'm going to cry
+J: how entire
+Y: there's a crater. the chests are gone. there's cobblestone floating in the air
+J: the diamonds
+Y: scattered. i'm picking up what i can
+J: gerald
+Y: gerald's fine he's in the boat
+J: good. he's seen enough
+Y: are you getting on
+J: can't. statics problem set due at 8
+Y: ugh ok
+Y: i saved 6 diamonds and like 400 rotten flesh
+J: the essentials
+Y: i put everything in one chest and labeled it "sorry"
+J: that's the most organized it's ever been
+
+== scene 2024-11-16 21:50
+J: there's a guy in my thermo lecture who looks exactly like mr halvorsen
+J: same mustache. same disappointment
+-- 9h
+Y: LMAO
+Y: does he also say "physics doesn't care about your feelings"
+-- 1d
+J: he hasn't spoken. i'm afraid to find out
+
+== scene 2025-03-09 21:15 | control:coop-answered
+J: they have me in steel toe boots
+Y: for the co-op?? pics
+J: no
+Y: 😭
+Y*: wait how is the co-op actually going tho, like do you like it or is it just spreadsheets
+J: walking into a team dinner. forty engineers, one appetizer. later
+-- 2d
+J: ok. co-op. it's good actually
+J: i'm on the test team for commercial ice machines. i run them until they break and then write down how they broke
+J: my manager said i could redesign a hinge if i proved the old one was bad. i proved it. it's my hinge now
+Y: YOUR HINGE
+Y: that's so sick fr
+J: it's a small hinge
+Y: still
+
+== scene 2025-07-19 20:10
+Y: happy birthday!! 21 🎉
+-- 1d
+J: thanks
+J: had a legal beer. tasted the same
+-- 6h
+Y: lol
+
+== scene 2025-10-26 22:05
+Y: >reel guy builds an entire trebuchet in his backyard to launch one (1) pumpkin 🎃 #engineering #fall
+Y: saw this and thought of you
+-- 3d
+J: good arm ratio
+J: halvorsen would've wept
+-- 2d
+Y: fr
+
+== scene 2025-12-14 20:30 | reconnect:minecraft
+J*: we never finished the castle btw
+-- 5h
+Y: don't remind me 😭
+
+== filler 2024-06..2024-09
+J: you on
+Y: loading in rn
+J: bring wood. all of it
+Y: all of what
+J: all the wood you have ever had
+
+== filler 2024-06..2024-09
+Y: why is the east tower of the castle one block taller than the west one
+J: it isn't
+Y: i counted
+J: then the west one is one block shorter. different problem
+Y: 💀
+
+== filler 2024-06..2024-09
+Y: FOUND DIAMONDS
+Y: four of them
+J: where
+Y: under the ravine by the base. y -54
+J: don't move. last time you celebrated into lava
+Y: that was one time
+J: it was twice
+
+== filler 2024-06..2024-09
+J: i died
+Y: how
+J: lava
+Y: what did you have on you
+J: everything. the pickaxe. the good one
+J: i'd like a moment of silence
+Y: 😭 granted
+
+== filler 2024-06..2024-09
+Y: i can see the cobblestone tower from the castle balcony and it's ruining my evening
+J: it's a landmark
+Y: it's 40 blocks of cobblestone with one torch on top
+J: a lighthouse then
+Y: there's no water near it
+J: a lighthouse for the lost
+
+== filler 2024-06..2024-09
+J: the door works
+Y: the redstone door?? no way
+J: it opens
+Y: does it close
+J: no
+J: it's a hole now, technically
+
+== filler 2024-06..2024-09
+Y: what is the redstone thing in the basement supposed to do
+J: sort items
+Y: what does it actually do
+J: puts everything in one chest and makes a clicking noise
+Y: so it's a chest
+J: a chest with 200 repeaters of ambition
+
+== filler 2024-06..2024-09
+Y: gerald is staring at me through the window again
+J: he does that
+Y: it's been like four minutes
+J: he's a librarian. he's reading you
+Y: 💀💀
+
+== filler 2024-06..2024-09
+J: i've been mining for an hour. i have 9 stacks of deepslate, zero diamonds and one emotion
+Y: which emotion
+J: deepslate
+
+== filler 2024-06..2024-09
+Y: jonas why is there a cow in the throne room
+J: he was there when i logged on
+Y: and you just left him
+J: he seemed settled
+Y: he's ON the throne
+J: then it's his castle now. i don't make the rules
+
+== filler 2024-06..2024-09
+Y: my mom just asked why i was yelling
+J: why were you
+Y: skeleton shot me off the castle wall
+J: i saw. you fell past my window
+Y: and you said nothing
+J: i waved
+
+== filler 2024-06..2024-09
+J: enderman took a block out of the castle wall
+Y: which block
+J: front gate, eye level. load-bearing emotionally
+Y: did you fix it
+J: i put cobblestone in. it's the wrong color. i know. don't look at it
+
+== filler 2024-06..2024-09
+Y: how many diamonds do we have
+J: 11
+Y: we had 12 yesterday
+J: i made a jukebox
+Y: WHY
+J: ambiance. we own no discs
+
+== filler 2024-07..2024-09
+Y: there's a ghast outside the nether portal just screaming
+J: that's dave
+Y: you named it
+J: he was here first. we're the ones in his yard
+
+== filler 2024-06..2024-09
+J: gerald had a visitor
+Y: who
+J: a second villager. he stood next to the boat for a full day and then left
+Y: did they trade
+J: no. i think it was a wellness check
+
+== filler
+J: there's a man at the grocery store buying eleven cantaloupes and nothing else
+Y: eleven??
+J: i counted twice
+Y: what's his deal
+J: i don't know. he seemed calm about it. that's what bothers me
+
+== filler
+Y: twin fantasy came on shuffle and i had to sit down
+J: which version
+Y: 2018
+J: correct. the 2011 one sounds like it was recorded inside a vending machine
+Y: that's the charm tho
+J: i said what i said
+
+== filler
+Y: do you remember when mr halvorsen's trebuchet put a pumpkin on the gym roof
+J: it's still up there
+Y: no way
+J: my sister sent a photo. small orange dot. it's a fossil now
+
+== filler
+J: what was the name of the sub who only ever showed finding nemo
+Y: mrs pruitt
+J: pruitt. thank you. that's been bothering me for an hour
+Y: we watched the first 40 minutes like six times
+J: i have never seen him get found
+
+== filler
+J: >reel engineer explains why the bridge is fine (the bridge is not fine) #engineering #fyp
+Y: is this what you'll be like
+J: i'm like this now
+Y: 💀
+
+== filler
+Y: >reel dog sees snow for the first time and immediately regrets it 😭 #dogs #funny
+J: relatable
+Y: that's literally your face in every photo
+J: i have one face. i paid for one
+
+== filler
+Y: i just spent $9 on a coffee
+J: was it good
+Y: it was fine
+J: $9 of fine
+Y: don't
+J: that's $2.25 per sip of fine
+
+== filler
+J: my phone autocorrected "thermodynamics" to "the dynamics"
+J: better name honestly
+Y: lol what are the dynamics
+J: bad
+
+== filler
+Y: what are you up to
+J: staring at a bolt
+Y: on purpose?
+J: it started on purpose
+
+== filler
+J: a bird got into the building today. nobody did anything. it's just in here with us now
+Y: what kind of bird
+J: brown. medium
+Y: great description
+J: i'm an engineer not a poet
+
+== filler
+Y: i still have your hoodie from senior year btw
+J: the grey one
+Y: yeah
+J: keep it. it's been yours longer than it was mine
+
+== filler
+Y: what are you listening to
+J: beach life-in-death. on repeat
+Y: that song is 13 minutes
+J: four times so far. i've lost 52 minutes today and regret none of them
+
+== filler
+J: i have eaten the same sandwich for nine days
+Y: what sandwich
+J: turkey. no further details
+Y: are you ok
+J: i'm consistent
+
+== filler
+Y: someone on my feed just reposted our yearbook page
+J: what was my quote
+Y: "no."
+J: still accurate
+
+== filler
+Y: i walked into a parking meter today
+J: did you apologize to it
+Y: ...yes
+J: i know you
+
+== filler
+J: car seat headrest put out a live version of sober to death
+Y: is it good
+J: he forgets the second verse and the crowd covers for him. so yes
+Y: that's kind of beautiful ngl
+J: it's fine
+
+== filler 2025-04..2025-11
+J: they gave me a badge. in the photo i look like i've just been told something
+Y: told what
+J: unclear. something about the ice machines
+Y: 😭
+
+== filler 2025-04..2025-11
+Y: how's work
+J: i measured the same bracket 60 times today
+Y: did it change
+J: no. that's the good outcome apparently
+
+== filler 2025-04..2025-11
+J: a senior engineer called me "the kid" in a meeting and nobody blinked
+Y: is that your name now
+J: it's on a whiteboard. so yes
+
+== filler 2025-05..2025-09
+J: it's 97 in atlanta. the air has a texture
+Y: it's 71 in boston
+J: i didn't ask
+Y: light breeze too
+J: enjoy it. i'm going to go lie on the tile

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T05:12:44Z",
+  "generatedAt": "2026-09-20T06:29:09Z",
   "owner": "you",
   "cards": [
     {
@@ -32,7 +32,8 @@
         }
       ],
       "evidence": [],
-      "action": null
+      "action": null,
+      "context": null
     },
     {
       "id": "726c36b9",
@@ -64,7 +65,8 @@
         }
       ],
       "evidence": [],
-      "action": null
+      "action": null,
+      "context": null
     },
     {
       "id": "aea05b0b",
@@ -96,7 +98,8 @@
         }
       ],
       "evidence": [],
-      "action": null
+      "action": null,
+      "context": null
     },
     {
       "id": "dfeea8ab",
@@ -132,7 +135,8 @@
         }
       ],
       "evidence": [],
-      "action": null
+      "action": null,
+      "context": null
     },
     {
       "id": "994b5f51",
@@ -168,7 +172,8 @@
         }
       ],
       "evidence": [],
-      "action": null
+      "action": null,
+      "context": null
     },
     {
       "id": "783bf264",
@@ -180,7 +185,7 @@
         "threadId": "sarahlin_17520394857612033"
       },
       "title": "Sarah asked you to look at her portfolio",
-      "body": "Back in April, Sarah asked if you could look over her portfolio before Friday. The grain bowl talk took over and the question never got an answer.",
+      "body": "Back in April last year, Sarah asked if you'd review her portfolio before Friday. The chat moved on to grain bowls and egg tarts and the question never got picked back up.",
       "stats": [
         {
           "label": "Asked",
@@ -227,68 +232,9 @@
       ],
       "action": {
         "label": "Respond",
-        "draft": "ok this is a truly historic delay but i never answered you about the portfolio. is there a current version i can look at? happy to actually give you notes this time"
-      }
-    },
-    {
-      "id": "e8860404",
-      "kind": "unanswered",
-      "score": 1.0,
-      "rank": null,
-      "friend": {
-        "name": "Priya Raman",
-        "threadId": "priyaraman_17612094857102938"
+        "draft": "sarah this is absurdly late but you asked me to look at your portfolio and i never did. still want an eye on it? happy to actually look this time"
       },
-      "title": "Priya asked what you decided about the summer offer",
-      "body": "Back in April she asked if you'd made a call on it, right before the deadline. The door sign bit took over and the question never got an answer.",
-      "stats": [
-        {
-          "label": "Asked",
-          "value": "Apr 7, 2026"
-        }
-      ],
-      "evidence": [
-        {
-          "id": "4ec800be4073e90f",
-          "sender": "Priya Raman",
-          "isFromOwner": false,
-          "isKey": true,
-          "threadName": "Priya Raman",
-          "timestamp": "2026-04-07T13:30:00Z",
-          "text": "Did you ever decide about the summer offer? You seemed really torn"
-        },
-        {
-          "id": "8f7625af00a15ca6",
-          "sender": "Priya Raman",
-          "isFromOwner": false,
-          "isKey": false,
-          "threadName": "Priya Raman",
-          "timestamp": "2026-04-07T13:30:00Z",
-          "text": "No pressure if you're still thinking. I just remembered the deadline was around now."
-        },
-        {
-          "id": "7c1fa10524bd0df7",
-          "sender": "you",
-          "isFromOwner": true,
-          "isKey": false,
-          "threadName": "Priya Raman",
-          "timestamp": "2026-04-07T22:30:00Z",
-          "text": "PRIYA the door sign has a sequel"
-        },
-        {
-          "id": "cb314448e08b8c23",
-          "sender": "you",
-          "isFromOwner": true,
-          "isKey": false,
-          "threadName": "Priya Raman",
-          "timestamp": "2026-04-07T22:30:00Z",
-          "text": "someone taped a smaller sign under it that just says \"no\""
-        }
-      ],
-      "action": {
-        "label": "Respond",
-        "draft": "priya i just realized i never answered you about the summer offer. like five months ago. so here's the update:"
-      }
+      "context": null
     },
     {
       "id": "e8bafb46",
@@ -300,7 +246,7 @@
         "threadId": "meitanaka_17950517471278735"
       },
       "title": "Mei asked how your Figma interview went",
-      "body": "Back in March you mentioned the interview, and Mei asked how it went. A studio fire took over the conversation and it never circled back.",
+      "body": "She asked right after you mentioned it, then the studio fire story took over. It never got answered.",
       "stats": [
         {
           "label": "Asked",
@@ -347,8 +293,70 @@
       ],
       "action": {
         "label": "Respond",
-        "draft": "ok so this is roughly a year and a half late but you did ask about the figma interview lol. answer:"
-      }
+        "draft": "ok so you asked about the figma interview roughly a year and a half ago and i got distracted by a literal fire. better late than never, here's how it actually went:"
+      },
+      "context": null
+    },
+    {
+      "id": "e8860404",
+      "kind": "unanswered",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "Priya asked about the summer offer",
+      "body": "Back in April Priya asked if you'd decided about the summer offer, right before the deadline. The door sign bit took over and the question never got picked back up.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Apr 7, 2026"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "4ec800be4073e90f",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T13:30:00Z",
+          "text": "Did you ever decide about the summer offer? You seemed really torn"
+        },
+        {
+          "id": "8f7625af00a15ca6",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T13:30:00Z",
+          "text": "No pressure if you're still thinking. I just remembered the deadline was around now."
+        },
+        {
+          "id": "7c1fa10524bd0df7",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T22:30:00Z",
+          "text": "PRIYA the door sign has a sequel"
+        },
+        {
+          "id": "cb314448e08b8c23",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T22:30:00Z",
+          "text": "someone taped a smaller sign under it that just says \"no\""
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "priya i just realized you asked me about the summer offer in APRIL and i answered with a door sign. here's what actually happened with it:"
+      },
+      "context": null
     },
     {
       "id": "9dbb8c5a",
@@ -360,7 +368,7 @@
         "threadId": "sarahlin_17520394857612033"
       },
       "title": "Tsuru Ramen with Sarah",
-      "body": "Tsuru on Newbury came up in 4 separate conversations, most recently in June when you two swore it would happen in July. Nothing in your DMs since suggests you made it there.",
+      "body": "Tsuru on Newbury has come up in four separate conversations since January 2025, and from your DMs it still doesn't look like you two made it there. The last plan was July, and nothing after that.",
       "stats": [
         {
           "label": "Times mentioned",
@@ -411,8 +419,9 @@
       ],
       "action": {
         "label": "Make It Happen",
-        "draft": "ok i'm calling it. tsuru this week?? thursday after you're done with work. the 9.2 needs to be verified in person 🍜"
-      }
+        "draft": "ok the spreadsheet has been lying to us for a year and a half 🍜 tsuru this week? i'm free thursday or saturday, pick one and i'll show up hungry"
+      },
+      "context": null
     },
     {
       "id": "4a931575",
@@ -424,7 +433,7 @@
         "threadId": "meitanaka_17950517471278735"
       },
       "title": "The pottery class on elm st with Mei",
-      "body": "This one came up in three separate conversations, from \"terrible bowl summer\" to her Seattle ceramics count. From the messages it doesn't look like either of you ever made the bad bowl.",
+      "body": "This one came up in three separate conversations, from \"terrible bowl summer\" to your last check-in in August. From the DMs alone it looks like it never actually happened.",
       "stats": [
         {
           "label": "Times mentioned",
@@ -466,8 +475,9 @@
       ],
       "action": {
         "label": "Make It Happen",
-        "draft": "ok so terrible bowl summer owes us one. when are you visiting? give me a weekend and i'll book the elm st class for real this time 😭 or we each sign up in our own cities and compare bowls that can't hold soup"
-      }
+        "draft": "ok terrible bowl summer is officially overdue 😭 when are you next back here? pick a weekend and i'll book us the elm st class before we lose another year. or we each take one in our own city and compare bowls over facetime"
+      },
+      "context": null
     },
     {
       "id": "555ee150",
@@ -479,7 +489,7 @@
         "threadId": "priyaraman_17612094857102938"
       },
       "title": "You both want to try rock climbing",
-      "body": "Priya told you she wanted to try it in March 2025, and you said the same thing to Rafa in June 2025. It hasn't come up between the two of you since.",
+      "body": "Priya told you she wanted to try climbing in March 2025, and you said the same to Rafa in June 2025. It hasn't come up between the two of you in your DMs.",
       "stats": [],
       "evidence": [
         {
@@ -503,8 +513,9 @@
       ],
       "action": {
         "label": "Do It Together",
-        "draft": "ngl i've been wanting to try climbing for ages. wanna go sometime?"
-      }
+        "draft": "ngl i've been wanting to try rock climbing for ages. wanna go sometime?"
+      },
+      "context": null
     },
     {
       "id": "eb6b1ff0",
@@ -516,7 +527,7 @@
         "threadId": "rafaortiz_17849201938471029"
       },
       "title": "The 3am Montreal spreadsheet",
-      "body": "Remember when Rafa texted you at 1am proposing a weekend drive to Montreal in his cousin's 190k-mile Corolla, complete with a spreadsheet that had tabs for gas, border, poutine, and an aspirational vibes tab. By 3am you were fully in, despite the check engine light being \"decor\" and Rafa's French consisting of bonjour and croissant.",
+      "body": "Remember when Rafa messaged you at 1am proposing a weekend drive to Montreal with a spreadsheet that had tabs for gas, border, poutine and vibes, plus his cousin's 190k-mile Corolla whose check engine light had been on since 2021. By 3am you were fully in, despite having work at 10 and a combined French vocabulary of \"bonjour\" and \"croissant\".",
       "stats": [
         {
           "label": "When",
@@ -599,8 +610,9 @@
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "just remembered the montreal spreadsheet 💀 tabs for gas border poutine and vibes. was the regrets tab ever filled in or is it still empty"
-      }
+        "draft": "just thought about the montreal spreadsheet. tabs. at 1am. gas border poutine vibes 💀 is the regrets tab still empty"
+      },
+      "context": null
     },
     {
       "id": "47939bb3",
@@ -612,7 +624,7 @@
         "threadId": "jonasweber_17398201938475610"
       },
       "title": "The trial of Gerald the villager",
-      "body": "Remember when you and Jonas put a villager named Gerald on trial in a dirt hut courthouse for charging 31 emeralds for a mending book, and Jonas ruled as judge AND defense lawyer that Gerald's sentence was life in a boat, which counted as time served.",
+      "body": "Remember when you and Jonas put Gerald the villager on trial for hiking his mending book to 31 emeralds, and Jonas declared himself judge AND defense lawyer because he'd built the dirt hut courthouse? The verdict was life in the boat, time served, and you still ended up paying the 31 emeralds plus 4 in court costs.",
       "stats": [
         {
           "label": "When",
@@ -695,8 +707,9 @@
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "just remembered gerald. sentenced to life in a boat, time served, and i still paid the 31 emeralds PLUS 4 in court costs 😭 worst legal system ever devised"
-      }
+        "draft": "still thinking about the time you sentenced gerald to life in a boat and then charged me 4 emeralds in court costs 😭 worst legal system ever"
+      },
+      "context": null
     },
     {
       "id": "6aa7e797",
@@ -707,8 +720,8 @@
         "name": "Sarah Lin",
         "threadId": "sarahlin_17520394857612033"
       },
-      "title": "DESING CLUB",
-      "body": "Remember when the spring showcase posters came back from the printer with \"DESING CLUB\" in 96 point bold, and five people including you and Sarah had proofread it while only checking the grid. With the budget gone, you pitched it as intentional branding and Sarah opened Illustrator to make the \"desing: it's design, but we did it ourselves\" sticker.",
+      "title": "400 posters that said DESING",
+      "body": "Remember when Sarah texted you in the library to say the spring showcase posters came back from the printer with 'DESING CLUB' in 96 point bold, all four hundred of them, after five people including you proofread the grid but not the words? You pitched it as intentional branding and she opened Illustrator to make the 'desing: it's design, but we did it ourselves' sticker while Priya lay on the studio floor.",
       "stats": [
         {
           "label": "When",
@@ -791,11 +804,12 @@
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "just thought about DESING CLUB and lost it again. 400 posters. five proofreaders. and we were all checking the GRID"
-      }
+        "draft": "still thinking about DESING. four hundred of them. in 96 POINT BOLD\n\nwe checked the grid so carefully lmao. i will never recover from marcus reading it and walking straight back out"
+      },
+      "context": null
     },
     {
-      "id": "f407c1cc",
+      "id": "e5be36e8",
       "kind": "memory_lane",
       "score": 1.0,
       "rank": null,
@@ -803,8 +817,8 @@
         "name": "Mei Tanaka",
         "threadId": "meitanaka_17950517471278735"
       },
-      "title": "The grilled cheese fire alarm",
-      "body": "Remember when the 2am fire alarm dragged everyone outside in February because someone on the third floor tried to make grilled cheese with a clothes iron, and Mei showed up with her laptop and exactly one shoe. You stood there in slippers watching the guy hold the iron like evidence while the RA just stared.",
+      "title": "The 2am fire alarm and the iron guy",
+      "body": "Remember when the fire alarm went off at 2am and you ended up outside in slippers while Mei showed up with her laptop and exactly one shoe, all because someone on the third floor tried to make grilled cheese with a clothes iron.",
       "stats": [
         {
           "label": "When",
@@ -865,15 +879,34 @@
           "threadName": "Mei Tanaka",
           "timestamp": "2024-02-11T02:18:00Z",
           "text": "nobody is speaking. the iron speaks for itself"
+        },
+        {
+          "id": "feb5082986d68d9a",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:18:00Z",
+          "text": "mei i'm going to remember the iron guy for the rest of my life"
+        },
+        {
+          "id": "6d2ff0747207532b",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:21:00Z",
+          "text": "we're bonded now. all 200 of us"
         }
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "mei i still think about iron guy. holding it outside like evidence while the RA just stared 😭 and you in ONE shoe with your laptop"
-      }
+        "draft": "mei i still think about iron guy. you standing there with one shoe and a laptop 😭 do you think he ever got the iron back"
+      },
+      "context": null
     },
     {
-      "id": "00cdc7b8",
+      "id": "4e5b0f3d",
       "kind": "memory_lane",
       "score": 1.0,
       "rank": null,
@@ -881,8 +914,8 @@
         "name": "Rafa Ortiz",
         "threadId": "rafaortiz_17849201938471029"
       },
-      "title": "The bathroom line hackathon win",
-      "body": "Remember when your demo crashed on stage for eight seconds and you still won best overall, except Rafa was thirty people deep in the bathroom line when they called your name and had to sprint back while you stalled on stage with no bit.",
+      "title": "Winning while he was in the bathroom line",
+      "body": "Remember when your demo crashed on stage for eight seconds and you still won best overall, except Rafa was stuck in a 30-person bathroom line and you had to stall with no bit while he sprinted back yelling from the doors.",
       "stats": [
         {
           "label": "When",
@@ -891,10 +924,19 @@
       ],
       "evidence": [
         {
+          "id": "fa2375521a027501",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:24:00Z",
+          "text": "they just said our name. they said our actual name"
+        },
+        {
           "id": "41fff2b3dd95b102",
           "sender": "Rafa Ortiz",
           "isFromOwner": false,
-          "isKey": false,
+          "isKey": true,
           "threadName": "Rafa Ortiz",
           "timestamp": "2025-02-16T14:25:00Z",
           "text": "we won??? WE WON"
@@ -952,21 +994,13 @@
           "threadName": "Rafa Ortiz",
           "timestamp": "2025-02-16T14:36:00Z",
           "text": "i do not have a bit"
-        },
-        {
-          "id": "fe8e869c6112d3e9",
-          "sender": "Rafa Ortiz",
-          "isFromOwner": false,
-          "isKey": true,
-          "threadName": "Rafa Ortiz",
-          "timestamp": "2025-02-16T14:37:00Z",
-          "text": "I'M HERE i'm at the doors i'm the guy yelling"
         }
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "still thinking about you sprinting out of that bathroom line yelling while i stood on stage with zero bit. best overall winners btw. we crashed for 8 seconds and they gave it to us anyway"
-      }
+        "draft": "just thinking about the night we won best overall and you were in the bathroom line. \"stall. do a bit\" i did not have a bit rafa. i could hear you yelling from the doors"
+      },
+      "context": null
     },
     {
       "id": "bbaca8de",
@@ -978,7 +1012,7 @@
         "threadId": "jonasweber_17398201938475610"
       },
       "title": "You and Jonas used to talk about Minecraft all the time",
-      "body": "It came up in 155 messages, and the last one was 24 months ago.",
+      "body": "It's been about 24 months since Minecraft last came up between you two, back in September 2024. There's a new update out too: Wilderness Bound landed on September 15 with a Dappled Forest biome, poplar trees and new decorative blocks.",
       "stats": [
         {
           "label": "Mentions",
@@ -1020,7 +1054,13 @@
       ],
       "action": {
         "label": "Reconnect",
-        "draft": "i just remembered gerald staring at me through the window. is he still standing there or did his one visitor come back"
+        "draft": "did you see minecraft got a new update, wilderness bound. there's a dappled forest biome now with poplar trees and new decorative blocks\n\nalso the east tower is still one block taller than the west one and gerald is probably still staring through that window"
+      },
+      "context": {
+        "text": "Minecraft's Wilderness Bound update released on September 15 with a new Dappled Forest biome featuring poplar trees and new decorative blocks.",
+        "source": "GameSpot",
+        "url": "https://www.gamespot.com/articles/next-minecraft-update-release-date/1100-6530316/",
+        "date": "2026-09-15"
       }
     },
     {
@@ -1032,8 +1072,8 @@
         "name": "Priya Raman",
         "threadId": "priyaraman_17612094857102938"
       },
-      "title": "You and Priya used to talk about the NYT Mini all the time",
-      "body": "89 messages of daily times, and the last one was 22 months ago in November 2024.",
+      "title": "You and Priya used to talk about the NYT Mini Crossword all the time",
+      "body": "It's been 22 months since the Mini came up between you two, after 89 messages of daily times.",
       "stats": [
         {
           "label": "Mentions",
@@ -1047,11 +1087,12 @@
       "evidence": [],
       "action": {
         "label": "Reconnect",
-        "draft": "0:47 today. is the spreadsheet still going or did the commissioner shut it down"
-      }
+        "draft": "hey is the mini spreadsheet still going? i just got 0:47 and thought of the day we both lost to the eel"
+      },
+      "context": null
     },
     {
-      "id": "695c53d2",
+      "id": "57980bbf",
       "kind": "recap",
       "score": 0.73,
       "rank": null,
@@ -1060,7 +1101,7 @@
         "threadId": "rafaortiz_17849201938471029"
       },
       "title": "You + Rafa",
-      "body": "Two and a half years of lectures you both blinked through, lab playlists, git problems and 2am quesadillas, almost all of it between 10 PM and 2 AM.",
+      "body": "Two and a half years of late-night lab hours, lecture recaps you both missed, and 2am quesadilla rulings, mostly between 10pm and 2am.",
       "stats": [
         {
           "label": "Messages",
@@ -1103,19 +1144,20 @@
           "text": "the check engine light is on but it's been on since 2021 so it's basically decor"
         },
         {
-          "id": "d19c7001f6114e10",
+          "id": "41fff2b3dd95b102",
           "sender": "Rafa Ortiz",
           "isFromOwner": false,
           "isKey": true,
           "threadName": "Rafa Ortiz",
           "timestamp": "2025-02-16T14:25:00Z",
-          "text": "I'M IN THE BATHROOM LINE"
+          "text": "we won??? WE WON"
         }
       ],
       "action": {
         "label": "Share Recap",
         "draft": null
-      }
+      },
+      "context": null
     },
     {
       "id": "399370eb",
@@ -1127,7 +1169,7 @@
         "threadId": "priyaraman_17612094857102938"
       },
       "title": "You + Priya",
-      "body": "Two and a half years of late-afternoon check-ins about her lab, your rendering laptop, crossword times and geese on the bridge, where you're permanently cast as 'the computer friend'.",
+      "body": "Two and a half years of late-afternoon check-ins, daily crossword times, lab and laptop complaints, and the quiet running joke that you're 'the computer friend' who once fixed her mom's printer.",
       "stats": [
         {
           "label": "Messages",
@@ -1158,7 +1200,8 @@
       "action": {
         "label": "Share Recap",
         "draft": null
-      }
+      },
+      "context": null
     },
     {
       "id": "2608d1e2",
@@ -1170,7 +1213,7 @@
         "threadId": "sarahlin_17520394857612033"
       },
       "title": "You + Sarah",
-      "body": "Two years of after-work check-ins where nothing escapes a number, from smoothies and pan-versus-microwave dinners to shades of blue and the sound of a sizzle.",
+      "body": "Two years of evening check-ins where every meal, font, sound and shade of blue gets a number out of 10, and neither of you has ever questioned the scale.",
       "stats": [
         {
           "label": "Messages",
@@ -1224,7 +1267,8 @@
       "action": {
         "label": "Share Recap",
         "draft": null
-      }
+      },
+      "context": null
     }
   ]
 }

@@ -1,0 +1,448 @@
+# Sarah: Design Club friend, graphic design major, rates every meal out of 10.
+# Steady medium-close friendship, mostly daytime. One restaurant plan that never happens.
+thread: Sarah Lin
+folder: sarahlin_17520394857612033
+speakers: Y=you, S=Sarah Lin
+hours: 11-21
+rate: 2024-09-01..2026-09-12 1.5
+
+== scene 2024-09-14 14:20
+S: hi!! it's sarah from design club, the one who yelled about kerning
+Y: oh i remember the yelling
+S: it was passionate feedback!!
+Y: you said the flyer "had gaps you could park a car in"
+S: and was i wrong
+Y: no 💀
+S: also are you the cs person who knows figma?? because we need you
+Y: i know figma the way a raccoon knows a trash can
+S: that's the most qualified anyone in this club has ever been
+S: welcome aboard!! there are snacks at every meeting, i rate them
+Y: what did today's get
+S: costco cookies. 6/10. soft but no soul 🍪
+Y: harsh but fair
+
+== scene 2024-11-09 17:30
+S: ok how are yours looking
+Y: sarah
+Y: mine look like little crime scenes
+S: SEND A PIC
+Y: i sent it. the one on the left exploded when i looked at it
+S: omg it's OPEN. it's fully open. that's just a salad now
+Y: i followed your pleat video exactly
+S: you did not. i count zero pleats. that's a fist 🥟
+Y: it's rustic
+S: my grandma would make you leave the kitchen
+S: ok boil the ugly ones, pan fry the three that survived
+-- 35m
+Y: update: the ugly ones dissolved. i made pork soup by accident
+S: and how is the accidental soup
+Y: honestly? 7/10
+S: i'm so proud and so ashamed 🥟
+
+== scene 2025-01-18 13:05 | unfinished_plans:ramen
+S: OK. emergency
+S: i walked down newbury today and there's a new place and the line was out the door in JANUARY
+S*: we HAVE to try TSURU RAMEN on newbury
+Y: omg i've seen that place. the window with the giant steaming pot
+S: YES. people on the list app are saying the tonkotsu is a 9. a NINE
+Y: you don't give nines
+S: i have given two nines in my life and one was my mom's cooking
+Y: ok i'm in. after the first week of classes chaos?
+S: yes!! i'll figure out when the line is shortest
+Y: bet 🍜
+S: 🍜🍜🍜
+
+== scene 2025-02-27 20:10 | memory_lane:poster-typo
+S: are you sitting down
+Y: i'm in the library so yes
+S: the posters came back from the printer
+Y: nice!! how do they look
+S: beautiful. the colors are perfect. the paper is gorgeous
+S: look at the pic i just sent. read the top line slowly
+Y: design club spring showc
+Y: oh
+Y: OH NO
+S*: four hundred posters. "DESING CLUB". in 96 point bold {💀}
+Y: SARAH
+Y: who proofread this
+S: five people!! FIVE. including me. including YOU
+Y: i looked at it for ten minutes i was checking the GRID
+S: we all checked the grid. the grid is flawless. nobody read the words
+Y*: we are a club of designers who cannot spell design
+S: priya is lying on the floor of the studio. she hasn't spoken
+Y: can we reprint
+S: the budget is gone. the budget is these posters
+Y: ok what if it's intentional. what if it's a brand
+S: ...
+S*: "desing: it's design, but we did it ourselves" {😂}
+Y: PUT THAT ON A STICKER
+S: i'm literally opening illustrator right now
+Y: honestly 400 typos is a stronger campaign than the real one
+S: marcus just walked in, read it, and walked back out
+Y: i'm crying in the quiet section
+S: we're hanging all 400. no shame. 10/10 disaster 🍰
+
+== scene 2025-04-03 16:45 | unanswered:portfolio
+S: internship apps are eating me alive!!
+Y: how many so far
+S: eleven. each one wants a different pdf size for some reason
+Y: that's criminal
+S: also i redid my whole case study section last night
+S*: can you look at my portfolio before friday? i really trust your eye
+-- 1d
+Y: the dining hall has a "build your own grain bowl" station now and i built something terrible
+S: omg what did you put in it
+Y: quinoa, beets, ranch, goldfish crackers
+S: goldfish as a TOPPING??
+Y: they were right there
+S: 2/10 and the 2 is for bravery
+
+== scene 2025-05-09 18:40 | unfinished_plans:ramen
+Y: just walked past newbury and the line is still around the corner
+Y*: the noodle place!! when are we going
+S: OMG i know. i think about it weekly
+S: finals end the 16th. right after??
+Y: right after. celebration broth
+S: CELEBRATION BROTH 🍜
+S: i'm already planning my order. extra egg. extra everything
+Y: i'm getting whatever you tell me to get
+S: correct answer!!
+Y: ok it's happening this time fr
+
+== scene 2025-07-12 12:10
+S: I GOT IT
+S: the internship!! the branding studio in fort point!!
+Y: SARAH
+Y: the one with the nice letterpress stuff??
+S: YES. i start monday. i get a DESK. with a plant on it
+Y: omg a plant. you've made it
+S: they said my type work was "unusually opinionated"
+Y: that's the nicest way anyone's ever said that
+S: i'm putting it on my tombstone
+Y: i'm so happy for you fr
+S: also there's a bakery downstairs. i've already rated the croissant
+Y: and
+S: 8.5/10!! flaky, slightly too buttery, no regrets 🍰
+
+== scene 2025-10-04 11:30 | control:brunch-happened
+S: are you free tomorrow late morning
+Y: i think so why
+S*: we should do brunch at the paramount sunday
+Y: omg yes. i've never been
+S: NEVER?? ok 11:30. the line moves fast, you order at the counter first
+Y: i'll be there. what do i get
+S: caramel banana pancakes. do not freelance
+Y: i would never freelance
+S: you put goldfish in a grain bowl
+Y: ...11:30. see you there
+
+== scene 2025-10-05 13:40
+S: ok official scores now that i've had time to reflect
+S: pancakes 9/10. caramel was perfect, banana slightly underripe
+Y: i'm still full. i might be full until thursday
+S: your omelet was a 7 and you know it
+Y: it was a solid omelet!!
+S: solid is a 7!! that's what 7 means
+Y: the line really did move fast tho
+S: told you!! the paramount never lies
+Y: thank you for making me go. 10/10 sunday
+S: 🥞🥞 adding it to the list right now
+
+== scene 2025-11-15 12:20 | unfinished_plans:ramen
+S: i'm updating the master spreadsheet. 214 restaurants rated
+Y: that's deranged and i respect it
+S: there's a tab called "shame" for places i keep saying i'll go
+Y: oh no
+Y*: still haven't been to tsuru 😭 it's embarrassing
+S: it's ROW ONE of the shame tab
+S: it's been almost a year!! they've probably changed the menu twice
+Y: ok after thanksgiving break. for real
+S: for real for real. i'm writing it in the spreadsheet
+Y: if it's in the spreadsheet it's law
+S: exactly 🍜
+
+== scene 2026-02-07 15:15
+Y: be honest. is it bad if i use inter for the hackathon deck
+S: bad? no. brave? also no
+Y: it's clean!!
+S: it's the beige wall of typefaces!! it's the font equivalent of plain toast
+Y: plain toast is reliable
+S: you're presenting an app about concerts and you chose TOAST
+Y: what would you use then
+S: something with a pulse!! space grotesk at minimum. give me one weird letter
+Y: the judges are engineers they won't notice
+S: they'll FEEL it. type is felt
+Y: ok i switched the headings. body stays inter. compromise
+S: acceptable. 6/10 compromise. the g has personality at least
+Y: i can't believe i lost a font argument in my own deck
+
+== scene 2026-04-18 16:50
+Y: WE PLACED
+Y: second overall. the judges specifically mentioned the logo
+S: THE LOGO I MADE AT 1AM??
+Y: the 1am logo. one guy said it "looked like a real company"
+S: i'm going to cry. i did that in 40 minutes with cold fries next to me
+Y: i put your name on the last slide
+S: you did NOT
+Y: "identity design: sarah lin". in space grotesk
+S: IN SPACE GROTESK. character development!!
+Y: i've changed
+S: what did you win
+Y: $500 and a backpack with a sponsor logo that's very badly kerned
+S: send me a pic i need to be upset about it
+
+== scene 2026-06-27 19:10 | unfinished_plans:ramen
+S: i need to confess something about the spreadsheet
+Y: go on
+S: i added a "projected score" column. for places i haven't eaten at. based on photos and vibes
+Y: that's not a rating that's fan fiction
+S*: that ramen spot we always talk about just got a 9.2 on my list and i haven't even BEEN
+Y: a 9.2 for a bowl you've never met 💀
+S: i've looked at the broth in 60 photos. i KNOW that broth
+Y: ok this is getting sad. when you're back from your parents' in july
+S: YES. july. i'm so serious
+Y: me too. a year and a half of talking about it
+S: it ends this summer!! 🍜
+
+== scene 2026-09-05 14:30
+S: guess who's design club president
+Y: is it the person who's been acting president for two years
+S: IT'S OFFICIAL NOW. i have a gavel. i bought the gavel myself
+Y: congrats fr!! first order of business?
+S: mandatory spellcheck. two people read every WORD out loud before anything prints
+Y: the desing reforms
+S: never again. we still have 140 of those in the closet
+Y: those are collector's items now
+S: also snack budget is going up. no more 6/10 cookies
+Y: finally. real leadership
+S: senior year!! 🍰
+
+== filler
+S: what did you have for lunch. be specific
+Y: turkey sandwich from the cs building cafe
+S: the one with the wet bread??
+Y: the bread was damp yes
+S: 3/10. i'm sorry that happened to you
+Y: i knew what i was walking into
+
+== filler
+Y: rate my dinner. frozen trader joe's orange chicken
+S: did you do it in the pan or the microwave
+Y: pan
+S: ok then 6.5/10!! respectable!!
+Y: and if i'd said microwave
+S: we wouldn't be speaking
+
+== filler
+S: >reel this man has made croissants every day for 41 years 🥐 #bakery #paris
+S: look at the LAYERS
+Y: i counted like thirty
+S: that's an 11/10 and i've never even smelled it
+Y: you can't rate through a screen
+S: watch me!!
+
+== filler
+Y: i just spent 20 minutes picking between two blues
+S: hex codes. now
+Y: 2B4C7E and 2A4B80
+S: those are the same blue
+Y: they're NOT. one is sadder
+S: ...ok the first one is sadder. go with the second
+
+== filler
+S: dining hall report!! the soft serve machine is working
+Y: for the first time since when
+S: since october i think. i got a swirl. 7/10, slightly icy
+Y: a working machine is a 10 on principle
+S: principle doesn't change texture!!
+
+== filler
+Y: >reel grandma makes 300 dumplings in an hour and doesn't look down once 🥟 #cooking
+S: her pleats are PERFECT. every single one
+Y: mine still look like fists
+S: i know. i've seen them. i think about them
+Y: 💀
+
+== filler
+S: i found a menu today set entirely in papyrus
+Y: where
+S: the smoothie place by the gym
+Y: how was the smoothie
+S: 8/10!! which makes it worse!! they're so close to greatness
+Y: tragic honestly
+
+== filler
+Y: how's studio
+S: i've kerned the same word for an hour
+Y: what word
+S: "the"
+Y: and how's it looking
+S: better!! nobody will ever know. i'll know
+
+== filler
+S: i had the best egg tart of my life in chinatown this morning
+Y: number
+S: 9.5/10!! warm, wobbly, crust shattered everywhere 🍰
+Y: what lost the half point
+S: i only bought one. that's on me
+
+== filler
+Y: my code finally compiled and i said "yes" out loud in the quiet section
+S: did anyone look
+Y: everyone looked
+S: worth it?
+Y: completely worth it
+
+== filler
+S: >reel street vendor flips 12 scallion pancakes at once 😳 #streetfood #satisfying
+Y: the wrist control
+S: i've watched it four times. the sizzle is a 10/10 sound
+Y: you rate sounds now
+S: i rate everything!! you know this
+
+== filler
+S: someone in my type class used comic sans "ironically"
+Y: did it work
+S: no!! irony needs skill. 1/10
+Y: what did the professor say
+S: she just closed her eyes for a while
+
+== filler
+Y: i ate cereal for dinner
+S: which cereal
+Y: honey nut cheerios, oat milk
+S: 5/10 as dinner, 8/10 as cereal
+Y: i'll take the 8
+S: you're welcome 🥣
+
+== filler
+S: i made scallion oil last night and my whole apartment smells amazing
+Y: what did you put it on
+S: rice, eggs, toast, a spoon
+Y: a spoon
+S: no regrets. 9/10. my roommate opened every window
+
+== filler
+Y: my 9am got cancelled
+S: omg the best feeling. what did you do with it
+Y: went back to sleep instantly
+S: 10/10 decision. flawless execution
+
+== filler
+S: i got boba from the place by the T and the pearls were hard
+Y: oh no
+S: 4/10!! they were CRUNCHY. boba shouldn't have a sound
+Y: did you finish it
+S: obviously i finished it. i'm not made of money
+
+== filler
+Y: i just saw a truck with the worst logo i've ever seen
+S: describe it
+Y: gradient. drop shadow. three different fonts. one of them was italic
+S: i feel sick
+Y: it was a plumbing company and honestly i'll never forget the name
+S: ...so it worked. i hate that
+
+== filler
+S: happy friday!! what's the damage this week
+Y: two problem sets, one demo, four hours of sleep last night
+S: did you eat an actual meal
+Y: i had a burrito bowl at 3
+S: ok good. a bowl counts. 🫡
+
+== filler 2024-09..2025-05
+S: design club snack review: someone brought homemade brownies
+Y: i had two. they were incredible
+S: 9/10!! corner piece. crispy edge
+Y: who made them
+S: priya. she's not allowed to graduate
+
+== filler 2024-09..2025-05
+Y: are the meeting slides done
+S: yes!! i stayed up fixing the margins
+Y: nobody looks at the margins
+S: I look at the margins
+Y: fair. they do look good
+
+== filler 2024-09..2025-05
+S: marcus brought grocery store sushi to the meeting again
+Y: the gas station adjacent one?
+S: the very same. he offered me a piece
+Y: did you take it
+S: i did. 3/10. i'm fine so far
+
+== filler 2024-09..2025-06
+Y: >reel pastry chef pipes 200 macarons without a single mistake 🍰 #baking #asmr
+S: the consistency!! every one the same size!!
+Y: thought of you immediately
+S: i'm honored. the pistachio ones look like a 9
+
+== filler 2025-03..2025-06
+S: someone taped a DESING CLUB poster to the dean's door
+Y: was it us
+S: i can neither confirm nor deny
+Y: so it was priya
+S: it was priya!!
+
+== filler 2025-03..2025-05
+S: i've exported the same pdf nine times today
+Y: what keeps changing
+S: nothing!! i just don't trust it
+Y: is the ninth one good
+S: it's identical to the first. i feel better tho
+
+== filler 2025-06..2025-08
+S: intern update: the office has a fancy espresso machine and nobody taught me how to use it
+Y: did you figure it out
+S: i made something. it was brown and hot
+Y: rating
+S: 5/10 but i made it myself so 7
+
+== filler 2025-06..2025-08
+Y: how's the desk plant
+S: thriving!! i named him gerald
+Y: what kind of plant is gerald
+S: a pothos. my manager says they're impossible to kill
+Y: gerald is lucky then
+
+== filler 2025-06..2025-08
+S: the bakery downstairs had a new almond croissant today
+Y: and the verdict
+S: 9/10!! i stood in the lobby eating it like an animal
+Y: did anyone from work see
+S: my manager. she nodded. she understood
+
+== filler 2025-09..2026-05
+Y: design club had so many new people today
+S: i KNOW. i counted 31!!
+Y: did they like the snacks
+S: i upgraded to the bakery cookies. 8/10. one freshman said "whoa"
+Y: that's the review that matters
+
+== filler 2025-09..2026-05
+S: a freshman asked me today why there's a framed poster in the studio that says DESING
+Y: what did you tell them
+S: "history"
+Y: 💀
+S: they nodded very seriously
+
+== filler 2025-11..2026-03
+Y: it's 14 degrees and i just watched someone eat ice cream outside
+S: what flavor
+Y: looked like mint chip
+S: in this weather that's a 10/10 for commitment alone
+Y: i respected it deeply
+
+== filler 2026-01..2026-09
+S: i cooked for my roommates last night. mapo tofu
+Y: how'd it go
+S: 8/10!! i'm being honest, slightly too much peppercorn
+Y: did they agree
+S: one of them couldn't feel her tongue. she said 10
+
+== filler 2026-05..2026-08
+Y: hot take: the dining hall is better in summer because nobody's there
+S: is the food better tho
+Y: no. same food. just quieter
+S: so a 4/10 meal in a 9/10 atmosphere
+Y: exactly that yes

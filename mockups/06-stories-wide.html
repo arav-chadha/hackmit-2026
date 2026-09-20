@@ -141,10 +141,10 @@ h2{font:800 1.5em/1.08 var(--display);letter-spacing:-.025em;text-wrap:balance;p
 .why .src u{text-underline-offset:3px}
 
 /* chat */
-.chat{flex:1;min-height:0;background:rgba(24,4,40,.36);border-radius:1.5em;padding:.8em .7em;display:flex;flex-direction:column}
+.chat{flex:1;min-height:0;background:rgba(24,4,40,.36);border-radius:1.5em;padding:0 .7em;display:flex;flex-direction:column}
 .sep{align-self:center;font-size:.76em;font-weight:600;letter-spacing:.05em;text-transform:uppercase;opacity:.8;margin:.9em 0 .5em}
-.chat>:first-child{margin-top:auto}
-.chat>:last-child{margin-bottom:auto}
+.chat::before,.chat::after{content:"";flex:1 0 .85em}
+.chat>.sep:first-child{margin-top:0}
 .from{font-size:.78em;font-weight:700;margin:.6em 2.4em .3em;align-self:flex-start;padding:.25em .8em;border-radius:999px;background:rgba(255,255,255,.22)}
 .from.me{align-self:flex-end;margin-right:.3em}
 .row{display:flex;align-items:flex-end;gap:.4em;margin-top:.2em}
@@ -174,7 +174,7 @@ h2{font:800 1.5em/1.08 var(--display);letter-spacing:-.025em;text-wrap:balance;p
   .inner.rich .top{grid-area:1/1;gap:1em}
   .inner.rich .top>:first-child{margin-top:auto}
   .inner.rich .top>:last-child{margin-bottom:auto}
-  .inner.rich .chat{grid-area:1/2/3/3;padding:1.2em 1em}
+  .inner.rich .chat{grid-area:1/2/3/3;padding:0 1em}
   .inner.rich .cta-wrap{grid-area:2/1}
   .inner.rich h2{font-size:2em}
   .inner.rich .card-head .avatar{--s:3.8em}
@@ -205,6 +205,7 @@ h2{font:800 1.5em/1.08 var(--display);letter-spacing:-.025em;text-wrap:balance;p
 .k-recap .inner:not(.rich) .stats li{justify-content:center;padding-inline:1.1em}
 .k-recap .inner:not(.rich) .stats li:not(:first-child) .v{font-size:1.9em}
 .k-recap .inner:not(.rich) .stats li:first-child .v{font-size:3.4em}
+.k-recap .inner:not(.rich) .stats li:first-child{justify-content:flex-end;align-items:center}
 .k-recap .stats li{flex:1 1 30%;flex-direction:column-reverse;justify-content:flex-end;gap:.1em;border-radius:1em;padding:.55em .8em;font-size:.8em;background:rgba(40,0,50,.28)}
 .k-recap .stats .v{font:800 1.45em/1.2 var(--display);letter-spacing:-.02em}
 .k-recap .stats li:first-child{flex-basis:100%;flex-direction:row-reverse;justify-content:flex-end;align-items:baseline;gap:.6em;font-size:.95em}
@@ -232,7 +233,7 @@ body.sheet-open .sheet{transform:translate(-50%,-50%);opacity:1;pointer-events:a
 .x{width:38px;height:38px;flex:none;border-radius:50%;background:#f1ecf4;display:grid;place-items:center;color:#1c1024}
 .x:hover{background:#e6dfeb}
 .x svg{width:18px;height:18px}
-.sheet textarea{width:100%;min-height:170px;resize:vertical;border:1.5px solid #e6dfeb;border-radius:22px;padding:16px 18px;font:500 17px/1.45 var(--body);color:#1c1024;background:#faf7fc}
+.sheet textarea{width:100%;min-height:215px;resize:vertical;border:1.5px solid #e6dfeb;border-radius:22px;padding:16px 18px;font:500 17px/1.45 var(--body);color:#1c1024;background:#faf7fc}
 .sheet textarea:focus{outline:none;border-color:#C13584;box-shadow:0 0 0 4px rgba(193,53,132,.14)}
 .hint{font-size:12.5px;color:#6d5f78;margin:8px 4px 16px}
 .btns{display:flex;gap:10px}
@@ -249,7 +250,7 @@ body.sheet-open .sheet{transform:translate(-50%,-50%);opacity:1;pointer-events:a
 .poster p{line-height:1.45;margin:10px 0 16px}
 .poster .stats li{background:rgba(255,255,255,.2)}
 .poster .mark{margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
-.sheet .chat{font-size:15px;color:#fff;background:linear-gradient(160deg,#3a1152,#2a0b3a);padding:16px 12px}
+.sheet .chat{font-size:15px;color:#fff;background:linear-gradient(160deg,#3a1152,#2a0b3a);padding:4px 12px}
 
 #overflow-report{position:fixed;left:0;bottom:0;z-index:9;max-width:100vw;margin:0;padding:4px 8px;font:10px/1.2 monospace;background:rgba(0,0,0,.7);color:#9f9;white-space:pre-wrap}
 
@@ -263,6 +264,7 @@ body.sheet-open .sheet{transform:translate(-50%,-50%);opacity:1;pointer-events:a
   .band{flex-direction:column;align-items:flex-start;gap:8px}
   .band h1{white-space:normal;text-wrap:balance}
   .band .side{text-align:left}
+  .band .no{justify-content:flex-start;flex-direction:row-reverse}
   .cols,.cols.n1,.cols.n2{flex-direction:column;--u:var(--unit)}
   .card{flex:none}
   .keys,.made{display:none}

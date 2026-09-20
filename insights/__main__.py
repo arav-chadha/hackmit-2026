@@ -1,7 +1,7 @@
 """Command line.
 
 python -m insights ingest <inbox folder>    parse an Instagram inbox and index it
-python -m insights cards [--out cards.json] run the insights and write the cards file
+python -m insights cards [--out FILE] [--only INSIGHT]    run the insights and write the cards file
 """
 
 import argparse
@@ -14,6 +14,7 @@ import anthropic
 from dotenv import load_dotenv
 from elasticsearch import Elasticsearch
 
+from insights.both_wanted import both_wanted
 from insights.cards import write_cards
 from insights.context import Context
 from insights.inbox import InboxError, read_inbox
@@ -24,14 +25,16 @@ from insights.unanswered import unanswered
 from insights.unfinished_plans import unfinished_plans
 from insights.your_people import your_people
 
-insights = (your_people, unanswered, unfinished_plans)
+insights = {f.__name__: f for f in (your_people, unanswered, unfinished_plans, both_wanted)}
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="insights")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("ingest").add_argument("inbox", type=Path)
-    commands.add_parser("cards").add_argument("--out", type=Path, default=Path("cards.json"))
+    cards_command = commands.add_parser("cards")
+    cards_command.add_argument("--out", type=Path, default=Path("cards.json"))
+    cards_command.add_argument("--only", choices=sorted(insights), help="run a single insight")
     arguments = parser.parse_args()
 
     load_dotenv(Path.cwd() / ".env")
@@ -64,7 +67,8 @@ def _cards(settings: Settings, arguments: argparse.Namespace) -> str:
         owner=settings.owner,
         now=datetime.now(timezone.utc),
     )
-    cards = [card for insight in insights for card in insight(context)]
+    chosen = [insights[arguments.only]] if arguments.only else list(insights.values())
+    cards = [card for insight in chosen for card in insight(context)]
     write_cards(cards, settings.owner, arguments.out)
     return f"wrote {len(cards)} cards to {arguments.out}"
 

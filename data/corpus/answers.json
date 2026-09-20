@@ -1,0 +1,344 @@
+[
+  {
+    "label": "control:demo-question",
+    "kind": "control",
+    "keys": [
+      {
+        "thread": "Dev Patel",
+        "sender": "Dev Patel",
+        "timestamp": "2025-12-11T22:40:00Z",
+        "text": "Who is presenting the architecture slide, and do you need the staging URL from me before then or are you running the app off your laptop?"
+      }
+    ]
+  },
+  {
+    "label": "reconnect:minecraft",
+    "kind": "reconnect",
+    "keys": [
+      {
+        "thread": "Jonas Weber",
+        "sender": "Jonas Weber",
+        "timestamp": "2024-06-22T23:50:00Z",
+        "text": "get on, the nether portal is finally done"
+      },
+      {
+        "thread": "Jonas Weber",
+        "sender": "you",
+        "timestamp": "2024-09-03T01:05:00Z",
+        "text": "a creeper just blew up the entire storage room i'm going to cry"
+      },
+      {
+        "thread": "Jonas Weber",
+        "sender": "Jonas Weber",
+        "timestamp": "2025-12-14T20:30:00Z",
+        "text": "we never finished the castle btw"
+      }
+    ]
+  },
+  {
+    "label": "memory_lane:villager-trial",
+    "kind": "memory_lane",
+    "keys": [
+      {
+        "thread": "Jonas Weber",
+        "sender": "Jonas Weber",
+        "timestamp": "2024-07-20T02:12:00Z",
+        "text": "i'm also his lawyer. he couldn't afford one. because nobody will pay 31 emeralds"
+      },
+      {
+        "thread": "Jonas Weber",
+        "sender": "you",
+        "timestamp": "2024-07-20T02:15:00Z",
+        "text": "your honor i move to strike my own punch from the record"
+      },
+      {
+        "thread": "Jonas Weber",
+        "sender": "Jonas Weber",
+        "timestamp": "2024-07-20T02:17:00Z",
+        "text": "guilty. sentenced to life in the boat. which is also his current situation, so time served"
+      }
+    ]
+  },
+  {
+    "label": "control:coop-answered",
+    "kind": "control",
+    "keys": [
+      {
+        "thread": "Jonas Weber",
+        "sender": "you",
+        "timestamp": "2025-03-09T21:16:00Z",
+        "text": "wait how is the co-op actually going tho, like do you like it or is it just spreadsheets"
+      }
+    ]
+  },
+  {
+    "label": "memory_lane:fire-alarm",
+    "kind": "memory_lane",
+    "keys": [
+      {
+        "thread": "Mei Tanaka",
+        "sender": "Mei Tanaka",
+        "timestamp": "2024-02-11T02:16:00Z",
+        "text": "they are standing outside holding the iron right now like evidence"
+      },
+      {
+        "thread": "Mei Tanaka",
+        "sender": "you",
+        "timestamp": "2024-02-11T02:18:00Z",
+        "text": "mei i'm going to remember the iron guy for the rest of my life"
+      }
+    ]
+  },
+  {
+    "label": "control:soup-answered",
+    "kind": "control",
+    "keys": [
+      {
+        "thread": "Mei Tanaka",
+        "sender": "Mei Tanaka",
+        "timestamp": "2024-10-19T20:40:00Z",
+        "text": "wait did you ever find out what that soup was at the dining hall"
+      }
+    ]
+  },
+  {
+    "label": "unfinished_plans:pottery",
+    "kind": "unfinished_plans",
+    "keys": [
+      {
+        "thread": "Mei Tanaka",
+        "sender": "Mei Tanaka",
+        "timestamp": "2025-02-08T19:44:00Z",
+        "text": "we should do that pottery class on elm st"
+      },
+      {
+        "thread": "Mei Tanaka",
+        "sender": "you",
+        "timestamp": "2025-04-21T16:02:00Z",
+        "text": "ok we actually need to do the pottery thing soon"
+      },
+      {
+        "thread": "Mei Tanaka",
+        "sender": "Mei Tanaka",
+        "timestamp": "2025-08-30T12:15:00Z",
+        "text": "still thinking about that ceramics class lol. we never did it"
+      }
+    ]
+  },
+  {
+    "label": "unanswered:interview",
+    "kind": "unanswered",
+    "keys": [
+      {
+        "thread": "Mei Tanaka",
+        "sender": "Mei Tanaka",
+        "timestamp": "2025-03-14T21:22:00Z",
+        "text": "wait how did the interview go??"
+      }
+    ]
+  },
+  {
+    "label": "reconnect:crossword",
+    "kind": "reconnect",
+    "keys": [
+      {
+        "thread": "Priya Raman",
+        "sender": "Priya Raman",
+        "timestamp": "2024-03-18T13:11:00Z",
+        "text": "You got 0:34 and I got 0:35. I have been staring at the wall for five minutes."
+      },
+      {
+        "thread": "Priya Raman",
+        "sender": "you",
+        "timestamp": "2024-03-18T13:11:00Z",
+        "text": "i'm putting 0:34 on my resume under awards"
+      },
+      {
+        "thread": "Priya Raman",
+        "sender": "Priya Raman",
+        "timestamp": "2024-10-08T12:54:00Z",
+        "text": "Eight months of doing this crossword every single day and you still haven't learned NEAP. I say this with love."
+      }
+    ]
+  },
+  {
+    "label": "both_wanted:climbing",
+    "kind": "both_wanted",
+    "keys": [
+      {
+        "thread": "Priya Raman",
+        "sender": "Priya Raman",
+        "timestamp": "2025-03-02T18:10:00Z",
+        "text": "I really want to try rock climbing sometime"
+      },
+      {
+        "thread": "Rafa Ortiz",
+        "sender": "you",
+        "timestamp": "2025-06-19T22:43:00Z",
+        "text": "ngl i've been wanting to try climbing"
+      }
+    ]
+  },
+  {
+    "label": "control:answered-next-day",
+    "kind": "control",
+    "keys": [
+      {
+        "thread": "Priya Raman",
+        "sender": "Priya Raman",
+        "timestamp": "2025-09-14T17:00:00Z",
+        "text": "My lab wants me to learn Python for our data analysis this semester. Is that realistic to pick up in a few weeks, or am I going to embarrass myself?"
+      }
+    ]
+  },
+  {
+    "label": "control:marathon",
+    "kind": "control",
+    "keys": [
+      {
+        "thread": "Priya Raman",
+        "sender": "Priya Raman",
+        "timestamp": "2025-11-02T19:25:00Z",
+        "text": "I want to run the Boston Marathon someday. Actually run it, with a bib, not just watch from Heartbreak Hill."
+      }
+    ]
+  },
+  {
+    "label": "unanswered:summer-offer",
+    "kind": "unanswered",
+    "keys": [
+      {
+        "thread": "Priya Raman",
+        "sender": "Priya Raman",
+        "timestamp": "2026-04-07T13:30:00Z",
+        "text": "Did you ever decide about the summer offer? You seemed really torn"
+      }
+    ]
+  },
+  {
+    "label": "memory_lane:montreal",
+    "kind": "memory_lane",
+    "keys": [
+      {
+        "thread": "Rafa Ortiz",
+        "sender": "Rafa Ortiz",
+        "timestamp": "2024-07-12T01:42:00Z",
+        "text": "THIS WEEKEND. i already have a spreadsheet"
+      },
+      {
+        "thread": "Rafa Ortiz",
+        "sender": "you",
+        "timestamp": "2024-07-12T02:58:00Z",
+        "text": "it is 3am and i have never been more sure of anything in my life"
+      }
+    ]
+  },
+  {
+    "label": "memory_lane:bostonhacks-win",
+    "kind": "memory_lane",
+    "keys": [
+      {
+        "thread": "Rafa Ortiz",
+        "sender": "you",
+        "timestamp": "2025-02-16T14:24:00Z",
+        "text": "they just said our name. they said our actual name"
+      },
+      {
+        "thread": "Rafa Ortiz",
+        "sender": "Rafa Ortiz",
+        "timestamp": "2025-02-16T14:25:00Z",
+        "text": "we won??? WE WON"
+      }
+    ]
+  },
+  {
+    "label": "control:tacos",
+    "kind": "control",
+    "keys": [
+      {
+        "thread": "Rafa Ortiz",
+        "sender": "Rafa Ortiz",
+        "timestamp": "2025-10-08T21:53:00Z",
+        "text": "we should get tacos at that truck by the bridge"
+      }
+    ]
+  },
+  {
+    "label": "unfinished_plans:ramen",
+    "kind": "unfinished_plans",
+    "keys": [
+      {
+        "thread": "Sarah Lin",
+        "sender": "Sarah Lin",
+        "timestamp": "2025-01-18T13:05:00Z",
+        "text": "we HAVE to try TSURU RAMEN on newbury"
+      },
+      {
+        "thread": "Sarah Lin",
+        "sender": "you",
+        "timestamp": "2025-05-09T18:40:00Z",
+        "text": "the noodle place!! when are we going"
+      },
+      {
+        "thread": "Sarah Lin",
+        "sender": "you",
+        "timestamp": "2025-11-15T12:22:00Z",
+        "text": "still haven't been to tsuru 😭 it's embarrassing"
+      },
+      {
+        "thread": "Sarah Lin",
+        "sender": "Sarah Lin",
+        "timestamp": "2026-06-27T19:13:00Z",
+        "text": "that ramen spot we always talk about just got a 9.2 on my list and i haven't even BEEN"
+      }
+    ]
+  },
+  {
+    "label": "memory_lane:poster-typo",
+    "kind": "memory_lane",
+    "keys": [
+      {
+        "thread": "Sarah Lin",
+        "sender": "Sarah Lin",
+        "timestamp": "2025-02-27T20:21:00Z",
+        "text": "four hundred posters. \"DESING CLUB\". in 96 point bold"
+      },
+      {
+        "thread": "Sarah Lin",
+        "sender": "you",
+        "timestamp": "2025-02-27T20:24:00Z",
+        "text": "we are a club of designers who cannot spell design"
+      },
+      {
+        "thread": "Sarah Lin",
+        "sender": "Sarah Lin",
+        "timestamp": "2025-02-27T20:33:00Z",
+        "text": "\"desing: it's design, but we did it ourselves\""
+      }
+    ]
+  },
+  {
+    "label": "unanswered:portfolio",
+    "kind": "unanswered",
+    "keys": [
+      {
+        "thread": "Sarah Lin",
+        "sender": "Sarah Lin",
+        "timestamp": "2025-04-03T16:51:00Z",
+        "text": "can you look at my portfolio before friday? i really trust your eye"
+      }
+    ]
+  },
+  {
+    "label": "control:brunch-happened",
+    "kind": "control",
+    "keys": [
+      {
+        "thread": "Sarah Lin",
+        "sender": "Sarah Lin",
+        "timestamp": "2025-10-04T11:31:00Z",
+        "text": "we should do brunch at the paramount sunday"
+      }
+    ]
+  }
+]

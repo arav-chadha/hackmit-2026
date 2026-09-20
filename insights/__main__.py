@@ -22,6 +22,7 @@ from insights.index import IndexNames, ingest, recreate_indexes
 from insights.judge import JudgeError
 from insights.memory_lane import memory_lane
 from insights.parallel import concurrently
+from insights.recap import recap
 from insights.reconnect import reconnect
 from insights.settings import Settings, SettingsError
 from insights.unanswered import unanswered
@@ -73,6 +74,8 @@ def _cards(settings: Settings, arguments: argparse.Namespace) -> str:
     chosen = [insights[arguments.only]] if arguments.only else list(insights.values())
     per_insight = concurrently(lambda insight: insight(context), chosen, workers=len(chosen))
     cards = [card for cards in per_insight for card in cards]
+    if not arguments.only:
+        cards += recap(context, cards)
     write_cards(cards, settings.owner, arguments.out)
     return f"wrote {len(cards)} cards to {arguments.out}"
 

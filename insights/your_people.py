@@ -10,6 +10,7 @@ from pydantic import BaseModel
 from insights.cards import Card, Kind
 from insights.context import Context
 from insights.judge import judged
+from insights.parallel import concurrently
 
 list_size = 5
 sampled_conversations = 5
@@ -46,7 +47,9 @@ class Friendship:
 
 
 def your_people(context: Context) -> list[Card]:
-    personal = [f for f in friendships(context) if is_personal(context, f)]
+    everyone = friendships(context)
+    verdicts = concurrently(lambda f: is_personal(context, f), everyone)
+    personal = [f for f, is_friend in zip(everyone, verdicts) if is_friend]
     top = ranked(personal, context.now)[:list_size]
     return [card(friendship, score, rank, context.now) for rank, (friendship, score) in enumerate(top, start=1)]
 

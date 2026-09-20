@@ -21,6 +21,7 @@ from insights.inbox import InboxError, read_inbox
 from insights.index import IndexNames, ingest, recreate_indexes
 from insights.judge import JudgeError
 from insights.memory_lane import memory_lane
+from insights.parallel import concurrently
 from insights.reconnect import reconnect
 from insights.settings import Settings, SettingsError
 from insights.unanswered import unanswered
@@ -63,14 +64,15 @@ def _cards(settings: Settings, arguments: argparse.Namespace) -> str:
     context = Context(
         search=_search_client(settings),
         names=IndexNames(settings.index_prefix),
-        llm=anthropic.Anthropic(),
+        llm=anthropic.Anthropic(max_retries=6),
         judge_model=settings.judge_model,
         writer_model=settings.writer_model,
         owner=settings.owner,
         now=datetime.now(timezone.utc),
     )
     chosen = [insights[arguments.only]] if arguments.only else list(insights.values())
-    cards = [card for insight in chosen for card in insight(context)]
+    per_insight = concurrently(lambda insight: insight(context), chosen, workers=len(chosen))
+    cards = [card for cards in per_insight for card in cards]
     write_cards(cards, settings.owner, arguments.out)
     return f"wrote {len(cards)} cards to {arguments.out}"
 

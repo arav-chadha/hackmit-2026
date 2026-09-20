@@ -10,6 +10,7 @@ from insights.context import Context
 from insights.conversations import Conversations, fetch_conversations
 from insights.inbox import Message
 from insights.judge import judged
+from insights.parallel import concurrently
 
 commitment_phrases = (
     "we should", "we need to", "we have to", "we gotta", "let's", "lets", "wanna",
@@ -71,9 +72,10 @@ class Unfinished:
 
 
 def unfinished_plans(context: Context) -> list[Card]:
-    found = [plan for conversations in plan_conversations(context) for plan in _unfinished_in(context, conversations)]
+    per_thread = concurrently(lambda conversations: _unfinished_in(context, conversations), plan_conversations(context))
+    found = [plan for plans in per_thread for plan in plans]
     most_mentioned_first = sorted(found, key=lambda plan: len(plan.mentions), reverse=True)
-    return [_card(context, plan) for plan in capped(most_mentioned_first)]
+    return concurrently(lambda plan: _card(context, plan), capped(most_mentioned_first))
 
 
 def plan_conversations(context: Context) -> list[Conversations]:

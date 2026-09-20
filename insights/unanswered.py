@@ -10,6 +10,7 @@ from insights.context import Context
 from insights.inbox import Message
 from insights.index import message_from_hit
 from insights.judge import judged
+from insights.parallel import concurrently
 
 messages_before, messages_after = 3, 15
 evidence_after = 3
@@ -61,8 +62,8 @@ class Candidate:
 
 def unanswered(context: Context) -> list[Card]:
     kept_talking = [c for c in candidates(context) if any(m.sender == context.owner for m in c.after)]
-    verdicts = [(c, judged(context.llm, context.judge_model, judge_instructions, transcript(c, context), Verdict)) for c in kept_talking]
-    return [_card(context, candidate, verdict) for candidate, verdict in selected(verdicts)]
+    verdicts = concurrently(lambda c: judged(context.llm, context.judge_model, judge_instructions, transcript(c, context), Verdict), kept_talking)
+    return concurrently(lambda pair: _card(context, *pair), selected(list(zip(kept_talking, verdicts))))
 
 
 def candidates(context: Context) -> list[Candidate]:

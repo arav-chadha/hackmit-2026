@@ -12,6 +12,7 @@ from insights.conversations import Conversations
 from insights.inbox import Message
 from insights.index import message_from_hit
 from insights.judge import judged
+from insights.parallel import concurrently
 
 faded_for = timedelta(days=183)
 least_messages = 10
@@ -82,9 +83,10 @@ class Faded:
 
 
 def reconnect(context: Context) -> list[Card]:
-    found = [topic for thread_id, last in _threads(context) for topic in _faded_in(context, thread_id, last)]
+    per_thread = concurrently(lambda thread: _faded_in(context, *thread), _threads(context))
+    found = [topic for topics in per_thread for topic in topics]
     strongest_first = sorted(found, key=lambda topic: (topic.strength, topic.mentions), reverse=True)
-    return [_card(context, topic) for topic in capped(strongest_first)]
+    return concurrently(lambda topic: _card(context, topic), capped(strongest_first))
 
 
 def faded_words(words: list[Word]) -> list[str]:

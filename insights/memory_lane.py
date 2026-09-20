@@ -10,6 +10,7 @@ from insights.context import Context
 from insights.conversations import Conversations, fetch_conversations
 from insights.inbox import Message
 from insights.judge import judged
+from insights.parallel import concurrently
 
 least_age = "now-6M"
 least_messages = 12
@@ -63,9 +64,11 @@ class Memory:
 
 
 def memory_lane(context: Context) -> list[Card]:
-    memories = [memory(conversation, _rating(context, conversation)) for conversation in old_long_conversations(context)]
+    conversations = old_long_conversations(context)
+    ratings = concurrently(lambda conversation: _rating(context, conversation), conversations)
+    memories = [memory(conversation, rating) for conversation, rating in zip(conversations, ratings)]
     best_first = sorted(memories, key=lambda found: found.rating, reverse=True)
-    return [_card(context, found) for found in capped(best_first)]
+    return concurrently(lambda found: _card(context, found), capped(best_first))
 
 
 def old_long_conversations(context: Context) -> list[Conversations]:

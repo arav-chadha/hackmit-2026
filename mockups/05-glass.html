@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Afterglow · Your DMs, in review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B0B12;
+  --ink: #F5F3FB;
+  --ink-soft: rgba(245, 243, 251, .72);
+  --ink-faint: rgba(245, 243, 251, .48);
+  --line: rgba(255, 255, 255, .13);
+  --glass: rgba(18, 17, 30, .62);
+  --ig: linear-gradient(100deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+  --ig-warm: linear-gradient(115deg, #FFDC80 0%, #FCAF45 14%, #F56040 34%, #E1306C 54%, #C13584 68%, #833AB4 86%, #5851DB 100%);
+  --ig-ring: conic-gradient(from 200deg, #FFDC80, #FCAF45, #F77737, #F56040, #FD1D1D, #E1306C, #C13584, #833AB4, #5851DB, #405DE6, #FFDC80);
+  --display: "Sora", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --text: "Manrope", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --rail: 236px;
+  --peek: 44px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px solid #FCAF45; outline-offset: 3px; }
+svg { display: block; }
+
+/* drifting mesh */
+.mesh { position: fixed; inset: -20%; z-index: 0; filter: blur(80px) saturate(135%); pointer-events: none; }
+.mesh i { position: absolute; border-radius: 50%; opacity: .95; animation: drift 38s ease-in-out infinite alternate; }
+.mesh i:nth-child(1) { width: 46vw; height: 46vw; left: 4%; top: 2%; background: radial-gradient(circle, #5851DB 0, #5851DB 30%, transparent 70%); }
+.mesh i:nth-child(2) { width: 40vw; height: 40vw; right: 6%; top: 8%; background: radial-gradient(circle, #C13584 0, #C13584 30%, transparent 70%); animation-duration: 46s; animation-delay: -12s; }
+.mesh i:nth-child(3) { width: 38vw; height: 38vw; right: 18%; bottom: 0; background: radial-gradient(circle, #F56040 0, #F56040 30%, transparent 70%); animation-duration: 52s; animation-delay: -20s; opacity: .7; }
+.mesh i:nth-child(4) { width: 30vw; height: 30vw; left: 22%; bottom: 6%; background: radial-gradient(circle, #833AB4 0, #833AB4 30%, transparent 70%); animation-duration: 42s; animation-delay: -30s; }
+.mesh i:nth-child(5) { width: 22vw; height: 22vw; left: 48%; top: 30%; background: radial-gradient(circle, #FCAF45 0, #FCAF45 30%, transparent 70%); animation-duration: 60s; animation-delay: -8s; opacity: .5; }
+@keyframes drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(7vw, -5vh, 0) scale(1.14); }
+  100% { transform: translate3d(-6vw, 7vh, 0) scale(.94); }
+}
+.veil {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(120% 95% at 68% 45%, rgba(11, 11, 18, .0), rgba(11, 11, 18, .62) 85%),
+    linear-gradient(90deg, rgba(11, 11, 18, .70) 0, rgba(11, 11, 18, .30) 46%, rgba(11, 11, 18, .10) 100%);
+}
+
+.app { position: relative; z-index: 1; display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); height: 100%; }
+
+/* rail */
+.rail {
+  display: flex; flex-direction: column; padding: 30px 22px 26px 30px;
+  border-right: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .015));
+  backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: -.03em; }
+.brand-dot { width: 22px; height: 22px; border-radius: 50%; background: var(--ig-ring); display: grid; place-items: center; }
+.brand-dot::after { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); }
+.brand-sub { margin-top: 6px; font-size: 12px; color: var(--ink-faint); letter-spacing: .02em; }
+.steps { position: relative; list-style: none; padding: 0; margin: auto 0; }
+.steps-track, .steps-fill { position: absolute; left: 15px; top: 22px; width: 2px; border-radius: 2px; }
+.steps-track { bottom: 22px; background: rgba(255, 255, 255, .12); }
+.steps-fill { height: 0; background: linear-gradient(180deg, #FFDC80, #F56040, #E1306C, #833AB4, #405DE6); box-shadow: 0 0 12px rgba(225, 48, 108, .8); transition: height .7s var(--ease); }
+.step { position: relative; display: flex; align-items: center; gap: 14px; width: 100%; padding: 9px 0; text-align: left; color: var(--ink-faint); transition: color .3s; }
+.step:hover { color: var(--ink); }
+.step-node {
+  flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--display); font-size: 11px; font-weight: 600; letter-spacing: .02em;
+  background: #15141f; border: 1px solid rgba(255, 255, 255, .16); transition: all .4s var(--ease);
+}
+.step-name { font-weight: 600; font-size: 14px; letter-spacing: -.01em; }
+.step.is-done { color: var(--ink-soft); }
+.step.is-done .step-node { border-color: rgba(225, 48, 108, .7); color: #FFDC80; }
+.step.is-current { color: var(--ink); }
+.step.is-current .step-node {
+  border-color: transparent; color: #fff; transform: scale(1.12);
+  background: linear-gradient(135deg, #F77737, #E1306C 55%, #833AB4);
+  box-shadow: 0 0 0 4px rgba(225, 48, 108, .18), 0 0 26px rgba(225, 48, 108, .85);
+}
+.rail-foot { font-size: 11.5px; color: var(--ink-faint); line-height: 1.7; }
+.keys { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-bottom: 12px; }
+.keys span { display: inline-flex; align-items: center; gap: 5px; }
+kbd { font: 600 10.5px var(--text); min-width: 20px; padding: 2px 5px; text-align: center; border-radius: 6px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); color: var(--ink-soft); }
+
+/* main */
+.main { position: relative; display: flex; flex-direction: column; min-width: 0; height: 100%; overflow: hidden; cursor: default; }
+.topbar { flex: none; display: flex; align-items: center; justify-content: space-between; padding: 26px 72px 0; font-size: 12.5px; color: var(--ink-faint); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
+.counter b { color: var(--ink); font-family: var(--display); font-weight: 600; }
+.edge { position: absolute; top: 50%; z-index: 5; width: 44px; height: 44px; margin-top: -22px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: var(--ink-soft); transition: all .3s var(--ease); }
+.edge:hover { background: rgba(255, 255, 255, .16); color: #fff; transform: scale(1.08); }
+.edge[disabled] { opacity: 0; pointer-events: none; }
+.edge-prev { left: 14px; }
+.edge-next { right: 14px; }
+
+.pages { position: relative; flex: 1; min-height: 0; }
+.page { display: none; height: 100%; padding: 12px 72px 40px; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+.page.is-active { display: grid; }
+
+/* editorial column */
+.editorial > * { animation: rise .8s var(--ease) both; }
+.editorial > :nth-child(2) { animation-delay: .07s; }
+.editorial > :nth-child(3) { animation-delay: .14s; }
+.editorial > :nth-child(4) { animation-delay: .21s; }
+.editorial > :nth-child(5) { animation-delay: .28s; }
+@keyframes rise { from { opacity: 0; transform: translate3d(calc(var(--dir, 1) * 30px), 14px, 0); } to { opacity: 1; transform: none; } }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
+.eyebrow::before { content: ""; width: 28px; height: 2px; border-radius: 2px; background: var(--ig); }
+.headline {
+  margin: 18px 0 22px; font-family: var(--display); font-weight: 800;
+  font-size: clamp(52px, 6.4vw, 104px); line-height: .94; letter-spacing: -.055em;
+  background: var(--ig-warm); -webkit-background-clip: text; background-clip: text; color: transparent;
+  padding-bottom: .08em;
+}
+.lede { max-width: 30em; font-size: 17px; line-height: 1.55; color: var(--ink-soft); }
+.hero { margin-top: 38px; padding-top: 26px; border-top: 1px solid var(--line); max-width: 430px; }
+.hero-value { font-family: var(--display); font-weight: 700; letter-spacing: -.05em; line-height: 1; font-size: 112px; color: #fff; text-shadow: 0 0 60px rgba(225, 48, 108, .45); }
+.hero-value[data-size="m"] { font-size: 76px; }
+.hero-value[data-size="s"] { font-size: 50px; letter-spacing: -.04em; }
+.hero-value.is-swapping { animation: swap .5s var(--ease); }
+@keyframes swap { from { opacity: 0; transform: translateY(12px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+.hero-label { margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.hero-label em { font-style: normal; color: var(--ink-faint); letter-spacing: .04em; text-transform: none; font-weight: 500; font-size: 14px; }
+.replay { margin-top: 28px; display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); font-weight: 600; font-size: 13.5px; }
+.replay:hover { background: rgba(255, 255, 255, .14); }
+
+/* showcase column */
+.showcase { position: relative; height: 100%; min-height: 0; display: flex; align-items: center; justify-content: center; animation: arrive .9s var(--ease) both .08s; }
+@keyframes arrive { from { opacity: 0; transform: translate3d(calc(var(--dir, 1) * 70px), 0, 0) scale(.96); } to { opacity: 1; transform: none; } }
+
+.glass {
+  border: 1px solid var(--line); border-radius: 28px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .03) 42%, rgba(255, 255, 255, .06)), var(--glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), inset 0 0 44px rgba(255, 255, 255, .035), 0 40px 90px -20px rgba(0, 0, 0, .7);
+  backdrop-filter: blur(30px) saturate(150%); -webkit-backdrop-filter: blur(30px) saturate(150%);
+}
+
+/* depth stack */
+.deck { position: relative; width: min(100% - 64px, 580px); padding-top: calc(var(--peek) * (var(--n) - 1)); perspective: 1600px; }
+.card {
+  position: absolute; top: calc(var(--peek) * (var(--n) - 1)); left: 0; right: 0; height: calc(100% - var(--peek) * (var(--n) - 1));
+  display: flex; flex-direction: column; overflow: hidden; cursor: pointer;
+  transform-origin: 50% 0;
+  transform: translate3d(0, calc(var(--d) * var(--peek) * -1), 0) scale(calc(1 - var(--d) * .055));
+  filter: brightness(calc(1 - var(--d) * .12));
+  transition: transform .7s var(--ease), filter .7s var(--ease), box-shadow .7s;
+}
+.card:not(.is-front):hover { filter: brightness(1.1); }
+.card.is-front {
+  position: relative; top: 0; height: auto; cursor: default;
+  max-height: calc(100vh - 150px - var(--peek) * (var(--n) - 1)); min-height: 300px;
+  animation: forward .75s var(--ease);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .26), inset 0 0 44px rgba(255, 255, 255, .04), 0 50px 110px -20px rgba(0, 0, 0, .8), 0 0 80px -30px rgba(225, 48, 108, .55);
+}
+@keyframes forward {
+  0% { transform: translate3d(0, calc(var(--peek) * -1), -120px) rotateX(10deg) scale(.94); }
+  55% { transform: translate3d(0, 10px, 0) rotateX(-2deg) scale(1.01); }
+  100% { transform: none; }
+}
+.card-tab { flex: none; display: flex; align-items: center; gap: 10px; width: 100%; height: var(--peek); padding: 0 22px; text-align: left; font-size: 13px; color: var(--ink-soft); border-bottom: 1px solid transparent; }
+.card.is-front .card-tab { cursor: default; height: 58px; border-bottom-color: rgba(255, 255, 255, .08); }
+.tab-who { font-weight: 700; color: var(--ink); white-space: nowrap; }
+.tab-title { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink-faint); }
+.card.is-front .tab-title { visibility: hidden; }
+.tab-idx { font-family: var(--display); font-size: 11.5px; letter-spacing: .08em; color: var(--ink-faint); }
+.card-main { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 22px 28px 24px; transition: opacity .4s; }
+.card:not(.is-front) .card-main { opacity: 0; pointer-events: none; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 27px; line-height: 1.12; letter-spacing: -.04em; text-wrap: balance; }
+.card[data-kind="recap"] .card-title { font-size: 40px; background: var(--ig-warm); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: 4px; }
+.card-scroll {
+  flex: 1; min-height: 0; overflow-y: auto; margin: 14px -10px 0; padding: 0 10px 26px;
+  scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .22) transparent;
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 30px), transparent); mask-image: linear-gradient(180deg, #000 calc(100% - 30px), transparent);
+}
+.card-body { color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
+.card-foot { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-top: 16px; }
+.foot-note { font-size: 12px; color: var(--ink-faint); }
+
+.stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding: 0; list-style: none; }
+.stat { flex: 1 1 120px; padding: 10px 14px 11px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, .09); background: rgba(255, 255, 255, .05); }
+.stat-value { font-family: var(--display); font-weight: 600; font-size: 17px; letter-spacing: -.03em; color: #fff; }
+.stat-label { margin-top: 2px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); }
+.stat:only-child { flex: 0 1 auto; display: flex; align-items: baseline; gap: 10px; padding: 8px 16px; border-radius: 999px; }
+.stat:only-child .stat-label { order: -1; margin: 0; }
+
+.cta {
+  display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border-radius: 999px;
+  font-weight: 700; font-size: 14.5px; color: #fff; letter-spacing: -.005em;
+  background: linear-gradient(100deg, #5851DB, #C13584 48%, #F56040 86%, #FCAF45);
+  box-shadow: 0 10px 34px -8px rgba(225, 48, 108, .8), inset 0 1px 0 rgba(255, 255, 255, .35);
+  transition: transform .25s var(--ease), box-shadow .25s;
+}
+.cta:hover { transform: translateY(-2px); box-shadow: 0 16px 40px -8px rgba(225, 48, 108, .95), inset 0 1px 0 rgba(255, 255, 255, .35); }
+
+/* why now */
+.why { margin-top: 16px; }
+.why-chip {
+  display: inline-flex; align-items: center; gap: 9px; padding: 7px 14px 7px 11px; border-radius: 999px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: #FFE7B0;
+  border: 1px solid rgba(252, 175, 69, .55); background: rgba(252, 175, 69, .12);
+  box-shadow: 0 0 22px rgba(252, 175, 69, .38), inset 0 0 12px rgba(252, 175, 69, .15);
+}
+.why-chip span { color: var(--ink-soft); font-weight: 500; letter-spacing: 0; }
+.why-chip svg { transition: transform .4s var(--ease); }
+.why.is-open .why-chip svg { transform: rotate(180deg); }
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: #FCAF45; box-shadow: 0 0 0 0 rgba(252, 175, 69, .7); animation: pulse 2s infinite; }
+@keyframes pulse { to { box-shadow: 0 0 0 10px rgba(252, 175, 69, 0); } }
+.why-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s var(--ease), margin .5s var(--ease); }
+.why.is-open .why-panel { grid-template-rows: 1fr; margin-top: 10px; }
+.why-inner { overflow: hidden; }
+.why-link {
+  display: block; padding: 14px 16px; border-radius: 18px; text-decoration: none; color: var(--ink);
+  border: 1px solid transparent;
+  background: linear-gradient(rgba(30, 24, 38, .92), rgba(30, 24, 38, .92)) padding-box, linear-gradient(120deg, #FFDC80, #F56040, #C13584) border-box;
+}
+.why-link:hover .why-go { text-decoration: underline; }
+.why-text { font-size: 14.5px; line-height: 1.5; }
+.why-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; font-size: 12px; color: var(--ink-faint); }
+.why-go { display: inline-flex; align-items: center; gap: 5px; color: #FFDC80; font-weight: 700; }
+
+/* evidence */
+.thread { display: flex; flex-direction: column; gap: 5px; margin-top: 18px; }
+.day { align-self: center; margin: 10px 0 6px; font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--ink-faint); text-transform: uppercase; }
+.day:first-child { margin-top: 0; }
+.msg { display: flex; flex-direction: column; align-items: flex-start; max-width: 80%; }
+.msg.is-owner { align-self: flex-end; align-items: flex-end; }
+.msg-from { margin: 6px 6px 3px; font-size: 11px; font-weight: 600; color: var(--ink-faint); }
+.msg-from b { color: #FFDC80; font-weight: 700; }
+.bubble {
+  padding: 9px 15px 10px; border-radius: 22px; font-size: 14.5px; line-height: 1.42; white-space: pre-wrap; overflow-wrap: anywhere;
+  border: 1px solid rgba(255, 255, 255, .12); background: rgba(255, 255, 255, .10);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom-left-radius: 7px;
+}
+.is-owner .bubble { border-color: transparent; border-radius: 22px; border-bottom-right-radius: 7px; color: #fff; background: linear-gradient(135deg, #405DE6, #833AB4 52%, #C13584); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.msg.is-key .bubble {
+  border: 1.5px solid transparent; font-weight: 600; color: #fff;
+  background: linear-gradient(rgba(42, 34, 58, .94), rgba(42, 34, 58, .94)) padding-box, var(--ig-warm) border-box;
+  box-shadow: 0 0 26px -2px rgba(225, 48, 108, .6), 0 0 0 4px rgba(252, 175, 69, .07);
+}
+.msg.is-key.is-owner .bubble {
+  background: linear-gradient(135deg, #5851DB, #C13584 55%, #F56040) padding-box, linear-gradient(120deg, #FFDC80, #fff 50%, #FCAF45) border-box;
+  box-shadow: 0 0 28px -2px rgba(245, 96, 64, .7), 0 0 0 4px rgba(252, 175, 69, .08);
+}
+
+/* pager */
+.pager { position: absolute; left: -26px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.pager button { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); color: var(--ink-soft); }
+.pager button:hover { background: rgba(255, 255, 255, .16); color: #fff; }
+.pager-dots { display: flex; flex-direction: column; gap: 7px; }
+.pager-dots i { width: 6px; height: 6px; border-radius: 6px; background: rgba(255, 255, 255, .25); transition: all .4s var(--ease); }
+.pager-dots i.is-on { height: 22px; background: linear-gradient(180deg, #FCAF45, #E1306C, #833AB4); box-shadow: 0 0 10px rgba(225, 48, 108, .8); }
+
+/* avatars */
+.avatar { --s: 28px; --rw: 2px; --gap: 2px; position: relative; flex: none; width: var(--s); height: var(--s); border-radius: 50%; display: grid; place-items: center; }
+.avatar::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--ig-ring); }
+.avatar-core {
+  position: relative; display: grid; place-items: center; border-radius: 50%;
+  width: calc(100% - 2 * var(--rw)); height: calc(100% - 2 * var(--rw));
+  border: var(--gap) solid #0f0e18; background: linear-gradient(160deg, #2b2740, #17152a);
+  font-family: var(--display); font-weight: 700; font-size: calc(var(--s) * .34); letter-spacing: -.02em; color: #fff;
+}
+.avatar.is-live::before { animation: spin 5s linear infinite; }
+.avatar.is-live::after { content: ""; position: absolute; inset: -14px; border-radius: 50%; background: var(--ig-ring); filter: blur(26px); opacity: .55; z-index: -1; animation: spin 5s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* podium */
+.people { width: min(100%, 620px); display: flex; flex-direction: column; gap: 14px; }
+.podium { display: grid; grid-template-columns: 1fr 1.25fr 1fr; align-items: end; gap: 12px; }
+.pod { display: flex; flex-direction: column; align-items: center; text-align: center; border-radius: 24px; transition: transform .4s var(--ease); }
+.pod:hover { transform: translateY(-4px); }
+.pod .avatar { --s: 92px; --rw: 4px; --gap: 4px; }
+.pod[data-rank="1"] .avatar { --s: 140px; --rw: 6px; --gap: 5px; }
+.pod-name { margin-top: 12px; font-family: var(--display); font-weight: 700; font-size: 16px; letter-spacing: -.03em; }
+.pod[data-rank="1"] .pod-name { font-size: 21px; }
+.pod-stat { font-size: 12.5px; color: var(--ink-soft); }
+.pedestal { position: relative; width: 100%; margin-top: 12px; height: var(--h); border-radius: 20px 20px 8px 8px; display: grid; place-items: center; overflow: hidden; transition: box-shadow .4s, border-color .4s; }
+.pedestal b { font-family: var(--display); font-weight: 800; font-size: calc(var(--h) * .62); line-height: 1; letter-spacing: -.06em; background: var(--ig-warm); -webkit-background-clip: text; background-clip: text; color: transparent; opacity: .9; }
+.pod.is-selected .pedestal, .runner.is-selected { border-color: rgba(252, 175, 69, .7); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 0 40px -6px rgba(225, 48, 108, .8), 0 0 0 1px rgba(252, 175, 69, .4); }
+.runners { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.runner { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 20px; text-align: left; transition: box-shadow .4s, border-color .4s, transform .4s var(--ease); }
+.runner:hover { transform: translateY(-2px); }
+.runner .avatar { --s: 40px; --rw: 2.5px; --gap: 2.5px; }
+.runner-rank { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -.05em; color: var(--ink-faint); }
+.runner-name { font-weight: 700; font-size: 14.5px; line-height: 1.2; }
+.runner-stat { font-size: 12px; color: var(--ink-faint); }
+.person { padding: 20px 24px 22px; }
+.person.is-swapping { animation: swap .5s var(--ease); }
+.person-head { display: flex; align-items: baseline; gap: 12px; }
+.person-rank { font-family: var(--display); font-weight: 800; font-size: 15px; letter-spacing: .04em; background: var(--ig-warm); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.person-name { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -.04em; }
+.person .card-body { margin-top: 6px; font-size: 14.5px; }
+.person .stats { margin-top: 14px; }
+
+/* sheet */
+.scrim { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; background: rgba(6, 6, 12, .62); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
+.scrim.is-open { opacity: 1; visibility: visible; }
+.sheet { position: relative; width: min(100%, 560px); max-height: calc(100vh - 48px); overflow-y: auto; padding: 28px 30px 26px; transform: translateY(24px) scale(.96); transition: transform .5s var(--ease); background: linear-gradient(155deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .04) 45%), rgba(20, 18, 34, .82); }
+.scrim.is-open .sheet { transform: none; }
+.sheet-close { position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: rgba(255, 255, 255, .07); }
+.sheet-close:hover { background: rgba(255, 255, 255, .18); }
+.sheet-head { display: flex; align-items: center; gap: 14px; padding-right: 44px; }
+.sheet-head .avatar { --s: 50px; --rw: 3px; --gap: 3px; }
+.sheet-kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+.sheet-title { font-family: var(--display); font-weight: 700; font-size: 21px; letter-spacing: -.04em; line-height: 1.15; }
+.draft { display: block; width: 100%; min-height: 150px; margin-top: 20px; padding: 16px 18px; resize: vertical; border-radius: 20px; border: 1px solid var(--line); background: rgba(8, 8, 16, .55); color: var(--ink); font: 500 15.5px/1.55 var(--text); }
+.draft:focus { border-color: rgba(225, 48, 108, .8); outline: none; box-shadow: 0 0 0 4px rgba(225, 48, 108, .18); }
+.sheet-note { margin-top: 10px; font-size: 12.5px; color: var(--ink-faint); }
+.sheet-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 20px; }
+.ghost { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255, 255, 255, .05); font-weight: 600; font-size: 14px; }
+.ghost[disabled] { cursor: not-allowed; color: var(--ink-faint); }
+.ghost small { padding: 2px 7px; border-radius: 999px; background: rgba(255, 255, 255, .1); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.poster { position: relative; margin-top: 20px; padding: 26px 24px 20px; border-radius: 24px; overflow: hidden; background: linear-gradient(150deg, #405DE6, #833AB4 34%, #E1306C 66%, #F77737 92%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 24px 60px -18px rgba(225, 48, 108, .7); }
+.poster::before { content: ""; position: absolute; inset: 0; background: radial-gradient(90% 70% at 100% 0, rgba(255, 220, 128, .55), transparent 60%); }
+.poster > * { position: relative; }
+.poster-title { font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; letter-spacing: -.05em; color: #fff; }
+.poster-body { margin-top: 10px; font-size: 14.5px; line-height: 1.5; color: rgba(255, 255, 255, .94); }
+.poster .stat { background: rgba(10, 8, 24, .30); border-color: rgba(255, 255, 255, .22); }
+.poster .stat-label { color: rgba(255, 255, 255, .78); }
+.poster-sign { margin-top: 16px; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .85); }
+
+/* phone fallback */
+@media (max-width: 900px) {
+  body { overflow: auto; }
+  .app { display: block; height: auto; min-height: 100%; }
+  .rail { position: sticky; top: 0; z-index: 20; padding: 14px 16px 12px; border-right: 0; border-bottom: 1px solid var(--line); background: rgba(11, 11, 18, .72); }
+  .brand { font-size: 15px; }
+  .brand-sub, .rail-foot, .steps-track, .steps-fill, .step-name, .step-node { display: none; }
+  .steps { order: -1; display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 0 0 12px; }
+  .step { padding: 8px 0; }
+  .step::after { content: ""; width: 100%; height: 3px; border-radius: 3px; background: rgba(255, 255, 255, .22); }
+  .step.is-done::after, .step.is-current::after { background: var(--ig); }
+  .step.is-current::after { box-shadow: 0 0 10px rgba(225, 48, 108, .9); }
+  .main { height: auto; min-height: calc(100vh - 70px); overflow: visible; }
+  .topbar { padding: 16px 16px 0; font-size: 11px; }
+  .topbar .hint { display: none; }
+  .edge { display: none; }
+  .page { height: auto; padding: 18px 16px 40px; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; }
+  .headline { font-size: clamp(46px, 14vw, 64px); margin: 12px 0 14px; }
+  .lede { font-size: 15.5px; }
+  .hero { margin-top: 22px; padding-top: 18px; }
+  .hero-value { font-size: 72px; }
+  .hero-value[data-size="m"] { font-size: 56px; }
+  .hero-value[data-size="s"] { font-size: 38px; }
+  .showcase { height: auto; flex-direction: column; gap: 16px; }
+  .deck { width: 100%; }
+  .card.is-front { max-height: none; }
+  .card-scroll { overflow: visible; -webkit-mask-image: none; mask-image: none; padding-bottom: 6px; }
+  .card-main { padding: 18px 18px 20px; }
+  .card-title { font-size: 24px; }
+  .card-foot { position: sticky; bottom: 12px; }
+  .foot-note { display: none; }
+  .cta { width: 100%; justify-content: center; }
+  .pager { position: static; transform: none; flex-direction: row; }
+  .pager-dots { flex-direction: row; }
+  .pager-dots i.is-on { height: 6px; width: 22px; }
+  .pager button svg { transform: rotate(-90deg); }
+  .pod .avatar { --s: 68px; --rw: 3px; --gap: 3px; }
+  .pod[data-rank="1"] .avatar { --s: 100px; --rw: 5px; --gap: 4px; }
+  .pod-name { font-size: 13.5px; }
+  .pod[data-rank="1"] .pod-name { font-size: 16px; }
+  .pedestal { height: calc(var(--h) * .7); }
+  .runners { gap: 8px; }
+  .runner { padding: 9px 10px; gap: 8px; }
+  .runner .avatar { --s: 32px; }
+  .sheet { padding: 24px 20px 22px; }
+  .msg { max-width: 86%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh i { animation-play-state: paused; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+  .editorial > *, .showcase, .card.is-front, .hero-value, .person, .pulse, .avatar.is-live::before, .avatar.is-live::after { animation: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="mesh" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="veil" aria-hidden="true"></div>
+
+<div class="app">
+  <nav class="rail" aria-label="Chapters">
+    <div>
+      <div class="brand"><span class="brand-dot"></span>Afterglow</div>
+      <div class="brand-sub">Your DMs, in review</div>
+    </div>
+    <ol class="steps" id="steps"></ol>
+    <div class="rail-foot">
+      <div class="keys">
+        <span><kbd>&larr;</kbd><kbd>&rarr;</kbd> chapters</span>
+        <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> cards</span>
+      </div>
+      <div id="generated"></div>
+      <div>Made for Instagram DMs</div>
+    </div>
+  </nav>
+
+  <main class="main" id="main">
+    <div class="topbar">
+      <div class="counter" id="counter"></div>
+      <div class="hint">Click either side to turn the page</div>
+    </div>
+    <button class="edge edge-prev" id="prev" aria-label="Previous chapter"></button>
+    <button class="edge edge-next" id="next" aria-label="Next chapter"></button>
+    <div class="pages" id="pages"></div>
+  </main>
+</div>
+
+<div class="scrim" id="scrim" aria-hidden="true">
+  <div class="sheet glass" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"></div>
+</div>
+
+<script>
+const DATA = {
+  "generatedAt": "2026-09-20T06:29:09Z",
+  "owner": "you",
+  "cards": [
+    {
+      "id": "4e97b250",
+      "kind": "your_people",
+      "score": 0.97,
+      "rank": 1,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "Rafa Ortiz",
+      "body": "You've talked in 30 different months since April 2024. Your most active stretch was November 2025.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "3,276"
+        },
+        {
+          "label": "Talking since",
+          "value": "Apr 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "November 2025"
+        },
+        {
+          "label": "Usual hours",
+          "value": "10 PM – 2 AM"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "726c36b9",
+      "kind": "your_people",
+      "score": 0.97,
+      "rank": 2,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "Priya Raman",
+      "body": "You've talked in 32 different months since February 2024. Your most active stretch was September 2024.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "2,387"
+        },
+        {
+          "label": "Talking since",
+          "value": "Feb 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "September 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "4 PM – 8 PM"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "aea05b0b",
+      "kind": "your_people",
+      "score": 0.86,
+      "rank": 3,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Sarah Lin",
+      "body": "You've talked in 25 different months since September 2024. Your most active stretch was April 2026.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "1,756"
+        },
+        {
+          "label": "Talking since",
+          "value": "Sep 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "April 2026"
+        },
+        {
+          "label": "Usual hours",
+          "value": "5 PM – 9 PM"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "dfeea8ab",
+      "kind": "your_people",
+      "score": 0.68,
+      "rank": 4,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "Mei Tanaka",
+      "body": "You've talked in 24 different months since December 2023. Your most active stretch was October 2024. It has been quiet since November 2025.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "2,147"
+        },
+        {
+          "label": "Talking since",
+          "value": "Dec 2023"
+        },
+        {
+          "label": "Most active month",
+          "value": "October 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "6 PM – 10 PM"
+        },
+        {
+          "label": "Quiet since",
+          "value": "Nov 2025"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "994b5f51",
+      "kind": "your_people",
+      "score": 0.57,
+      "rank": 5,
+      "friend": {
+        "name": "Jonas Weber",
+        "threadId": "jonasweber_17398201938475610"
+      },
+      "title": "Jonas Weber",
+      "body": "You've talked in 16 different months since June 2024. Your most active stretch was July 2024. It has been quiet since December 2025.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "1,141"
+        },
+        {
+          "label": "Talking since",
+          "value": "Jun 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "July 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "9 PM – 1 AM"
+        },
+        {
+          "label": "Quiet since",
+          "value": "Dec 2025"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "783bf264",
+      "kind": "unanswered",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Sarah asked you to look at her portfolio",
+      "body": "Back in April last year, Sarah asked if you'd review her portfolio before Friday. The chat moved on to grain bowls and egg tarts and the question never got picked back up.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Apr 3, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "89fd548aba2cdf16",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-03T16:51:00Z",
+          "text": "can you look at my portfolio before friday? i really trust your eye"
+        },
+        {
+          "id": "019517ff46f2a3b1",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:51:00Z",
+          "text": "the dining hall has a \"build your own grain bowl\" station now and i built something terrible"
+        },
+        {
+          "id": "952909bdff709a13",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:51:00Z",
+          "text": "omg what did you put in it"
+        },
+        {
+          "id": "b47b27ae7ecf7254",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:52:00Z",
+          "text": "quinoa, beets, ranch, goldfish crackers"
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "sarah this is absurdly late but you asked me to look at your portfolio and i never did. still want an eye on it? happy to actually look this time"
+      },
+      "context": null
+    },
+    {
+      "id": "e8bafb46",
+      "kind": "unanswered",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "Mei asked how your Figma interview went",
+      "body": "She asked right after you mentioned it, then the studio fire story took over. It never got answered.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Mar 14, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ef7ee65585e93177",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-14T21:22:00Z",
+          "text": "wait how did the interview go??"
+        },
+        {
+          "id": "a6ab7265583819b9",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-14T21:22:00Z",
+          "text": "i've been thinking about it"
+        },
+        {
+          "id": "0ace126860c199f9",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T08:22:00Z",
+          "text": "omg did you see what happened in studio today"
+        },
+        {
+          "id": "be3bf7d30d86ad81",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T08:22:00Z",
+          "text": "NO what happened"
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "ok so you asked about the figma interview roughly a year and a half ago and i got distracted by a literal fire. better late than never, here's how it actually went:"
+      },
+      "context": null
+    },
+    {
+      "id": "e8860404",
+      "kind": "unanswered",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "Priya asked about the summer offer",
+      "body": "Back in April Priya asked if you'd decided about the summer offer, right before the deadline. The door sign bit took over and the question never got picked back up.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Apr 7, 2026"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "4ec800be4073e90f",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T13:30:00Z",
+          "text": "Did you ever decide about the summer offer? You seemed really torn"
+        },
+        {
+          "id": "8f7625af00a15ca6",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T13:30:00Z",
+          "text": "No pressure if you're still thinking. I just remembered the deadline was around now."
+        },
+        {
+          "id": "7c1fa10524bd0df7",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T22:30:00Z",
+          "text": "PRIYA the door sign has a sequel"
+        },
+        {
+          "id": "cb314448e08b8c23",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T22:30:00Z",
+          "text": "someone taped a smaller sign under it that just says \"no\""
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "priya i just realized you asked me about the summer offer in APRIL and i answered with a door sign. here's what actually happened with it:"
+      },
+      "context": null
+    },
+    {
+      "id": "9dbb8c5a",
+      "kind": "unfinished_plans",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Tsuru Ramen with Sarah",
+      "body": "Tsuru on Newbury has come up in four separate conversations since January 2025, and from your DMs it still doesn't look like you two made it there. The last plan was July, and nothing after that.",
+      "stats": [
+        {
+          "label": "Times mentioned",
+          "value": "4"
+        },
+        {
+          "label": "First mentioned",
+          "value": "Jan 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "61d8d2ddda6ec5ca",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-01-18T13:05:00Z",
+          "text": "we HAVE to try TSURU RAMEN on newbury"
+        },
+        {
+          "id": "5d4a46d1e4903068",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-05-09T18:40:00Z",
+          "text": "the noodle place!! when are we going"
+        },
+        {
+          "id": "3d029efb143508cc",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-11-15T12:22:00Z",
+          "text": "still haven't been to tsuru 😭 it's embarrassing"
+        },
+        {
+          "id": "63e233657830cda3",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2026-06-27T19:13:00Z",
+          "text": "that ramen spot we always talk about just got a 9.2 on my list and i haven't even BEEN"
+        }
+      ],
+      "action": {
+        "label": "Make It Happen",
+        "draft": "ok the spreadsheet has been lying to us for a year and a half 🍜 tsuru this week? i'm free thursday or saturday, pick one and i'll show up hungry"
+      },
+      "context": null
+    },
+    {
+      "id": "4a931575",
+      "kind": "unfinished_plans",
+      "score": 0.6,
+      "rank": null,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "The pottery class on elm st with Mei",
+      "body": "This one came up in three separate conversations, from \"terrible bowl summer\" to your last check-in in August. From the DMs alone it looks like it never actually happened.",
+      "stats": [
+        {
+          "label": "Times mentioned",
+          "value": "3"
+        },
+        {
+          "label": "First mentioned",
+          "value": "Feb 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "5d333fc9ea836d9a",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-02-08T19:44:00Z",
+          "text": "we should do that pottery class on elm st"
+        },
+        {
+          "id": "ff51a3803e03a017",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-04-21T16:02:00Z",
+          "text": "ok we actually need to do the pottery thing soon"
+        },
+        {
+          "id": "584bd146e61622f5",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-08-30T12:15:00Z",
+          "text": "still thinking about that ceramics class lol. we never did it"
+        }
+      ],
+      "action": {
+        "label": "Make It Happen",
+        "draft": "ok terrible bowl summer is officially overdue 😭 when are you next back here? pick a weekend and i'll book us the elm st class before we lose another year. or we each take one in our own city and compare bowls over facetime"
+      },
+      "context": null
+    },
+    {
+      "id": "555ee150",
+      "kind": "both_wanted",
+      "score": 0.9,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "You both want to try rock climbing",
+      "body": "Priya told you she wanted to try climbing in March 2025, and you said the same to Rafa in June 2025. It hasn't come up between the two of you in your DMs.",
+      "stats": [],
+      "evidence": [
+        {
+          "id": "e88bc09d0e9d1b85",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Priya Raman",
+          "timestamp": "2025-03-02T18:10:00Z",
+          "text": "I really want to try rock climbing sometime"
+        },
+        {
+          "id": "f8465271ceea4172",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-06-19T22:43:00Z",
+          "text": "ngl i've been wanting to try climbing"
+        }
+      ],
+      "action": {
+        "label": "Do It Together",
+        "draft": "ngl i've been wanting to try rock climbing for ages. wanna go sometime?"
+      },
+      "context": null
+    },
+    {
+      "id": "eb6b1ff0",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "The 3am Montreal spreadsheet",
+      "body": "Remember when Rafa messaged you at 1am proposing a weekend drive to Montreal with a spreadsheet that had tabs for gas, border, poutine and vibes, plus his cousin's 190k-mile Corolla whose check engine light had been on since 2021. By 3am you were fully in, despite having work at 10 and a combined French vocabulary of \"bonjour\" and \"croissant\".",
+      "stats": [
+        {
+          "label": "When",
+          "value": "July 12, 2024"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "238f41b9fb5e9e4e",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:43:00Z",
+          "text": "it has TABS bro"
+        },
+        {
+          "id": "87f1dce5d2c8ab0d",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:44:00Z",
+          "text": "gas, border, poutine, vibes"
+        },
+        {
+          "id": "6085d9bdf7897cf0",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:44:00Z",
+          "text": "what is in the vibes tab"
+        },
+        {
+          "id": "0350fa0c4a9f6c31",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:45:00Z",
+          "text": "nothing yet. it's aspirational"
+        },
+        {
+          "id": "61b99b8cab971503",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:46:00Z",
+          "text": "whose car"
+        },
+        {
+          "id": "2a53e87451b857a2",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:46:00Z",
+          "text": "my cousin's corolla. it has 190k miles and a personality"
+        },
+        {
+          "id": "571a5b34c4d5417d",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:47:00Z",
+          "text": "\"a personality\" is not a feature rafa"
+        },
+        {
+          "id": "59c7803a9e2b92d1",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:48:00Z",
+          "text": "the check engine light is on but it's been on since 2021 so it's basically decor"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "just thought about the montreal spreadsheet. tabs. at 1am. gas border poutine vibes 💀 is the regrets tab still empty"
+      },
+      "context": null
+    },
+    {
+      "id": "47939bb3",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Jonas Weber",
+        "threadId": "jonasweber_17398201938475610"
+      },
+      "title": "The trial of Gerald the villager",
+      "body": "Remember when you and Jonas put Gerald the villager on trial for hiking his mending book to 31 emeralds, and Jonas declared himself judge AND defense lawyer because he'd built the dirt hut courthouse? The verdict was life in the boat, time served, and you still ended up paying the 31 emeralds plus 4 in court costs.",
+      "stats": [
+        {
+          "label": "When",
+          "value": "July 20, 2024"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ae4a9134caee9bdb",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:10:00Z",
+          "text": "that's basically a confession"
+        },
+        {
+          "id": "6de218448cde5d7a",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:11:00Z",
+          "text": "objection"
+        },
+        {
+          "id": "b95e583edfa12902",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:11:00Z",
+          "text": "you're the judge you can't object"
+        },
+        {
+          "id": "59086ad10d1d78d3",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:12:00Z",
+          "text": "i'm also his lawyer. he couldn't afford one. because nobody will pay 31 emeralds"
+        },
+        {
+          "id": "b2b3a4930f03bacd",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:12:00Z",
+          "text": "😭😭😭"
+        },
+        {
+          "id": "1b2ff2ebf29217ee",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:13:00Z",
+          "text": "counsel would like to note the price went up right after somebody punched him"
+        },
+        {
+          "id": "362eee0d78825327",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:14:00Z",
+          "text": "that was an ACCIDENT i was aiming at the zombie"
+        },
+        {
+          "id": "4cefa0f89f30584a",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:15:00Z",
+          "text": "there was no zombie"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "still thinking about the time you sentenced gerald to life in a boat and then charged me 4 emeralds in court costs 😭 worst legal system ever"
+      },
+      "context": null
+    },
+    {
+      "id": "6aa7e797",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "400 posters that said DESING",
+      "body": "Remember when Sarah texted you in the library to say the spring showcase posters came back from the printer with 'DESING CLUB' in 96 point bold, all four hundred of them, after five people including you proofread the grid but not the words? You pitched it as intentional branding and she opened Illustrator to make the 'desing: it's design, but we did it ourselves' sticker while Priya lay on the studio floor.",
+      "stats": [
+        {
+          "label": "When",
+          "value": "February 27, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "24d4f73d9ca70843",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:21:00Z",
+          "text": "OH NO"
+        },
+        {
+          "id": "d091680bcec986ac",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:21:00Z",
+          "text": "four hundred posters. \"DESING CLUB\". in 96 point bold"
+        },
+        {
+          "id": "3d08f9ca6b4f045b",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:22:00Z",
+          "text": "SARAH"
+        },
+        {
+          "id": "ff540355e5b13fb2",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:22:00Z",
+          "text": "who proofread this"
+        },
+        {
+          "id": "ed9b00738256bb3b",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:22:00Z",
+          "text": "five people!! FIVE. including me. including YOU"
+        },
+        {
+          "id": "af45bb20189f0531",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:23:00Z",
+          "text": "i looked at it for ten minutes i was checking the GRID"
+        },
+        {
+          "id": "24fa6ee7289df5f9",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:24:00Z",
+          "text": "we all checked the grid. the grid is flawless. nobody read the words"
+        },
+        {
+          "id": "63cd19a45dcb8a8b",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:24:00Z",
+          "text": "we are a club of designers who cannot spell design"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "still thinking about DESING. four hundred of them. in 96 POINT BOLD\n\nwe checked the grid so carefully lmao. i will never recover from marcus reading it and walking straight back out"
+      },
+      "context": null
+    },
+    {
+      "id": "e5be36e8",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "The 2am fire alarm and the iron guy",
+      "body": "Remember when the fire alarm went off at 2am and you ended up outside in slippers while Mei showed up with her laptop and exactly one shoe, all because someone on the third floor tried to make grilled cheese with a clothes iron.",
+      "stats": [
+        {
+          "label": "When",
+          "value": "February 11, 2024"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "94e702df692f2994",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:11:00Z",
+          "text": "third floor. someone tried to make grilled cheese with an iron"
+        },
+        {
+          "id": "69c822cb6e7a1734",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:15:00Z",
+          "text": "with a CLOTHES iron??"
+        },
+        {
+          "id": "c74e71bca5bdf2bf",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:16:00Z",
+          "text": "they are standing outside holding the iron right now like evidence"
+        },
+        {
+          "id": "44d8b0f11e7f8f25",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:16:00Z",
+          "text": "i can see them omg"
+        },
+        {
+          "id": "4ba841e3e99fce36",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:17:00Z",
+          "text": "the RA is just staring at it"
+        },
+        {
+          "id": "3c374561502efa49",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:18:00Z",
+          "text": "nobody is speaking. the iron speaks for itself"
+        },
+        {
+          "id": "feb5082986d68d9a",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:18:00Z",
+          "text": "mei i'm going to remember the iron guy for the rest of my life"
+        },
+        {
+          "id": "6d2ff0747207532b",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:21:00Z",
+          "text": "we're bonded now. all 200 of us"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "mei i still think about iron guy. you standing there with one shoe and a laptop 😭 do you think he ever got the iron back"
+      },
+      "context": null
+    },
+    {
+      "id": "4e5b0f3d",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "Winning while he was in the bathroom line",
+      "body": "Remember when your demo crashed on stage for eight seconds and you still won best overall, except Rafa was stuck in a 30-person bathroom line and you had to stall with no bit while he sprinted back yelling from the doors.",
+      "stats": [
+        {
+          "label": "When",
+          "value": "February 16, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "fa2375521a027501",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:24:00Z",
+          "text": "they just said our name. they said our actual name"
+        },
+        {
+          "id": "41fff2b3dd95b102",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:25:00Z",
+          "text": "we won??? WE WON"
+        },
+        {
+          "id": "d19c7001f6114e10",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:25:00Z",
+          "text": "I'M IN THE BATHROOM LINE"
+        },
+        {
+          "id": "6bb5cba1b507ccf7",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:26:00Z",
+          "text": "GET OUT OF THE LINE"
+        },
+        {
+          "id": "24444ebe0ee1ca27",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:26:00Z",
+          "text": "I'M RUNNING. a guy just high fived me and he doesn't know why"
+        },
+        {
+          "id": "7db7c9f81eb0423d",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:29:00Z",
+          "text": "they're waiting for you to come on stage. everyone's looking at me"
+        },
+        {
+          "id": "e2cce324445a1317",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:35:00Z",
+          "text": "stall. do a bit"
+        },
+        {
+          "id": "2a85b52720775bb1",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:36:00Z",
+          "text": "i do not have a bit"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "just thinking about the night we won best overall and you were in the bathroom line. \"stall. do a bit\" i did not have a bit rafa. i could hear you yelling from the doors"
+      },
+      "context": null
+    },
+    {
+      "id": "bbaca8de",
+      "kind": "reconnect",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Jonas Weber",
+        "threadId": "jonasweber_17398201938475610"
+      },
+      "title": "You and Jonas used to talk about Minecraft all the time",
+      "body": "It's been about 24 months since Minecraft last came up between you two, back in September 2024. There's a new update out too: Wilderness Bound landed on September 15 with a Dappled Forest biome, poplar trees and new decorative blocks.",
+      "stats": [
+        {
+          "label": "Mentions",
+          "value": "155"
+        },
+        {
+          "label": "Last mentioned",
+          "value": "Sep 2024"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "846619aadc593853",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-06-11T21:50:00Z",
+          "text": "i've been mining for an hour. i have 9 stacks of deepslate, zero diamonds and one emotion"
+        },
+        {
+          "id": "4b44c770075ae910",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-06-21T02:31:00Z",
+          "text": "a lighthouse then"
+        },
+        {
+          "id": "6ed7fb2a7416a4bf",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-06-21T23:20:00Z",
+          "text": "FOUND DIAMONDS"
+        }
+      ],
+      "action": {
+        "label": "Reconnect",
+        "draft": "did you see minecraft got a new update, wilderness bound. there's a dappled forest biome now with poplar trees and new decorative blocks\n\nalso the east tower is still one block taller than the west one and gerald is probably still staring through that window"
+      },
+      "context": {
+        "text": "Minecraft's Wilderness Bound update released on September 15 with a new Dappled Forest biome featuring poplar trees and new decorative blocks.",
+        "source": "GameSpot",
+        "url": "https://www.gamespot.com/articles/next-minecraft-update-release-date/1100-6530316/",
+        "date": "2026-09-15"
+      }
+    },
+    {
+      "id": "96c4958a",
+      "kind": "reconnect",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "You and Priya used to talk about the NYT Mini Crossword all the time",
+      "body": "It's been 22 months since the Mini came up between you two, after 89 messages of daily times.",
+      "stats": [
+        {
+          "label": "Mentions",
+          "value": "89"
+        },
+        {
+          "label": "Last mentioned",
+          "value": "Nov 2024"
+        }
+      ],
+      "evidence": [],
+      "action": {
+        "label": "Reconnect",
+        "draft": "hey is the mini spreadsheet still going? i just got 0:47 and thought of the day we both lost to the eel"
+      },
+      "context": null
+    },
+    {
+      "id": "57980bbf",
+      "kind": "recap",
+      "score": 0.73,
+      "rank": null,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "You + Rafa",
+      "body": "Two and a half years of late-night lab hours, lecture recaps you both missed, and 2am quesadilla rulings, mostly between 10pm and 2am.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "3,276"
+        },
+        {
+          "label": "Most active month",
+          "value": "November 2025"
+        },
+        {
+          "label": "Top topic",
+          "value": "CS school life"
+        },
+        {
+          "label": "Most active time",
+          "value": "10 PM – 2 AM"
+        },
+        {
+          "label": "Memories worth revisiting",
+          "value": "2"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "87f1dce5d2c8ab0d",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:44:00Z",
+          "text": "gas, border, poutine, vibes"
+        },
+        {
+          "id": "59c7803a9e2b92d1",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:48:00Z",
+          "text": "the check engine light is on but it's been on since 2021 so it's basically decor"
+        },
+        {
+          "id": "41fff2b3dd95b102",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:25:00Z",
+          "text": "we won??? WE WON"
+        }
+      ],
+      "action": {
+        "label": "Share Recap",
+        "draft": null
+      },
+      "context": null
+    },
+    {
+      "id": "399370eb",
+      "kind": "recap",
+      "score": 0.73,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "You + Priya",
+      "body": "Two and a half years of late-afternoon check-ins, daily crossword times, lab and laptop complaints, and the quiet running joke that you're 'the computer friend' who once fixed her mom's printer.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "2,387"
+        },
+        {
+          "label": "Most active month",
+          "value": "September 2024"
+        },
+        {
+          "label": "Top topic",
+          "value": "Everyday campus life"
+        },
+        {
+          "label": "Most active time",
+          "value": "4 PM – 8 PM"
+        },
+        {
+          "label": "Unanswered questions",
+          "value": "1"
+        },
+        {
+          "label": "Things you've drifted from",
+          "value": "1"
+        }
+      ],
+      "evidence": [],
+      "action": {
+        "label": "Share Recap",
+        "draft": null
+      },
+      "context": null
+    },
+    {
+      "id": "2608d1e2",
+      "kind": "recap",
+      "score": 0.65,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "You + Sarah",
+      "body": "Two years of evening check-ins where every meal, font, sound and shade of blue gets a number out of 10, and neither of you has ever questioned the scale.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "1,756"
+        },
+        {
+          "label": "Most active month",
+          "value": "April 2026"
+        },
+        {
+          "label": "Top topic",
+          "value": "Rating everything"
+        },
+        {
+          "label": "Most active time",
+          "value": "5 PM – 9 PM"
+        },
+        {
+          "label": "Unfinished plans",
+          "value": "1"
+        },
+        {
+          "label": "Unanswered questions",
+          "value": "1"
+        },
+        {
+          "label": "Memories worth revisiting",
+          "value": "1"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "d091680bcec986ac",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:21:00Z",
+          "text": "four hundred posters. \"DESING CLUB\". in 96 point bold"
+        },
+        {
+          "id": "63cd19a45dcb8a8b",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:24:00Z",
+          "text": "we are a club of designers who cannot spell design"
+        }
+      ],
+      "action": {
+        "label": "Share Recap",
+        "draft": null
+      },
+      "context": null
+    }
+  ]
+};
+
+const PAGES = [
+  { kind: 'your_people', name: 'Your people', headline: 'Your people.', lede: 'Five chats carried most of your year. Here is who you keep coming back to, ranked by how much of your life runs through them.', unit: 'people in your circle' },
+  { kind: 'memory_lane', name: 'Memory lane', headline: 'Memory lane.', lede: 'Moments buried deep in your chats that still deserve a laugh. Send one back and see what happens.', unit: 'moments worth reliving' },
+  { kind: 'reconnect', name: 'Reconnect', headline: 'Pick it back up.', lede: 'You two used to never stop talking about this. It went quiet, and there may be a perfect excuse to bring it back.', unit: 'threads gone quiet' },
+  { kind: 'both_wanted', name: 'Both wanted', headline: 'Great minds.', lede: 'You each said it out loud to someone. Just never to each other.', unit: 'wish you both share' },
+  { kind: 'unfinished_plans', name: 'Unfinished plans', headline: 'Still pending.', lede: 'Plans you keep making and never quite keep. Consider this the nudge.', unit: 'plans on hold' },
+  { kind: 'unanswered', name: 'Unanswered', headline: 'Left on read.', lede: 'They asked, the chat wandered off. It is not too late to answer.', unit: 'questions left hanging' },
+  { kind: 'recap', name: 'Recap', headline: 'The recap.', lede: 'Whole friendships, distilled to one card each. Made to be shared.', unit: 'friendships in review' }
+];
+
+const ICONS = {
+  left: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  right: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>',
+  up: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l7-7 7 7"/></svg>',
+  down: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg>',
+  close: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  send: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z"/></svg>',
+  copy: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="3"/><path d="M5 15V7a3 3 0 013-3h8"/></svg>',
+  redo: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 10-2.3 5.7M20 4v7h-7"/></svg>',
+  out: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>'
+};
+
+const maxCards = 4;
+const breakGapMs = 4 * 60 * 60 * 1000;
+const dayFormat = new Intl.DateTimeFormat('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric' });
+const timeFormat = new Intl.DateTimeFormat('en-US', { timeZone: 'UTC', hour: 'numeric', minute: '2-digit' });
+
+const state = { page: 0, views: [], sheetCard: null };
+
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  for (const [key, value] of Object.entries(attrs || {})) setAttr(el, key, value);
+  el.append(...kids.filter(Boolean));
+  return el;
+}
+
+function setAttr(el, key, value) {
+  if (key === 'class') return void (el.className = value);
+  if (key === 'text') return void (el.textContent = value);
+  if (key === 'html') return void (el.innerHTML = value);
+  if (key.startsWith('on')) return void el.addEventListener(key.slice(2), value);
+  el.setAttribute(key, value);
+}
+
+function initials(name) {
+  return name.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
+}
+
+function avatar(name, isLive) {
+  return h('span', { class: 'avatar' + (isLive ? ' is-live' : ''), 'aria-hidden': 'true' },
+    h('span', { class: 'avatar-core', text: initials(name) }));
+}
+
+function pad(number) {
+  return String(number).padStart(2, '0');
+}
+
+function cardsFor(kind) {
+  const cards = DATA.cards.filter(card => card.kind === kind);
+  if (kind === 'your_people') return cards.sort((a, b) => a.rank - b.rank);
+  return cards.sort((a, b) => b.score - a.score).slice(0, maxCards);
+}
+
+/* ---------- shared card parts ---------- */
+
+function buildStats(stats) {
+  if (!stats.length) return null;
+  return h('ul', { class: 'stats' }, ...stats.map(stat =>
+    h('li', { class: 'stat' },
+      h('div', { class: 'stat-value', text: stat.value }),
+      h('div', { class: 'stat-label', text: stat.label }))));
+}
+
+function buildContext(context) {
+  if (!context) return null;
+  const wrap = h('div', { class: 'why' });
+  const chip = h('button', { class: 'why-chip', type: 'button', 'aria-expanded': 'false' },
+    h('i', { class: 'pulse' }), 'Why now', h('span', { text: context.source }), h('span', { html: ICONS.down }));
+  chip.addEventListener('click', () => {
+    const isOpen = wrap.classList.toggle('is-open');
+    chip.setAttribute('aria-expanded', String(isOpen));
+  });
+  const link = h('a', { class: 'why-link', href: context.url, target: '_blank', rel: 'noopener noreferrer' },
+    h('div', { class: 'why-text', text: context.text }),
+    h('div', { class: 'why-meta' },
+      h('span', { text: context.source + ' · ' + dayFormat.format(new Date(context.date)) }),
+      h('span', { class: 'why-go' }, 'Read the story', h('span', { html: ICONS.out }))));
+  wrap.append(chip, h('div', { class: 'why-panel' }, h('div', { class: 'why-inner' }, link)));
+  return wrap;
+}
+
+function isBreak(previous, current) {
+  if (!previous) return true;
+  const before = new Date(previous.timestamp);
+  const after = new Date(current.timestamp);
+  if (dayFormat.format(before) !== dayFormat.format(after)) return true;
+  return after - before >= breakGapMs;
+}
+
+function buildMessage(message, card, isLabelled) {
+  const classes = ['msg', message.isFromOwner ? 'is-owner' : '', message.isKey ? 'is-key' : ''];
+  const row = h('div', { class: classes.join(' ').trim() });
+  if (isLabelled) {
+    const isElsewhere = message.threadName !== card.friend.name;
+    row.append(h('div', { class: 'msg-from' },
+      message.sender + (isElsewhere ? ', in another chat: ' : ', in chat with '),
+      h('b', { text: message.threadName })));
+  }
+  row.append(h('div', { class: 'bubble', text: message.text }));
+  return row;
+}
+
+function buildEvidence(card) {
+  if (!card.evidence.length) return null;
+  const isLabelled = card.evidence.some(message => message.threadName !== card.friend.name);
+  const thread = h('div', { class: 'thread' });
+  card.evidence.forEach((message, index) => {
+    if (isBreak(card.evidence[index - 1], message)) {
+      const when = new Date(message.timestamp);
+      thread.append(h('div', { class: 'day', text: dayFormat.format(when) + ' · ' + timeFormat.format(when) }));
+    }
+    thread.append(buildMessage(message, card, isLabelled));
+  });
+  return thread;
+}
+
+function buildAction(card) {
+  if (!card.action) return null;
+  const button = h('button', { class: 'cta', type: 'button' }, h('span', { html: ICONS.send }), card.action.label);
+  button.addEventListener('click', () => openSheet(card));
+  const note = card.action.draft === null ? 'Opens a shareable summary' : 'Opens an editable draft';
+  return h('div', { class: 'card-foot' }, button, h('span', { class: 'foot-note', text: note }));
+}
+
+function buildCard(card, index, total) {
+  const tab = h('button', { class: 'card-tab', type: 'button' },
+    avatar(card.friend.name),
+    h('span', { class: 'tab-who', text: card.friend.name }),
+    h('span', { class: 'tab-title', text: card.title }),
+    h('span', { class: 'tab-idx', text: pad(index + 1) + ' / ' + pad(total) }));
+  const scroll = h('div', { class: 'card-scroll' },
+    h('p', { class: 'card-body', text: card.body }),
+    buildStats(card.stats), buildContext(card.context), buildEvidence(card));
+  const main = h('div', { class: 'card-main' },
+    h('h2', { class: 'card-title', text: card.title }), scroll, buildAction(card));
+  return h('article', { class: 'card glass', 'data-kind': card.kind, 'data-id': card.id }, tab, main);
+}
+
+/* ---------- editorial column ---------- */
+
+function buildEditorial(page, pageIndex, isLast) {
+  const hero = h('div', { class: 'hero' },
+    h('div', { class: 'hero-value' }), h('div', { class: 'hero-label' }));
+  const column = h('section', { class: 'editorial' },
+    h('div', { class: 'eyebrow', text: 'Chapter ' + pad(pageIndex + 1) + ' of ' + pad(PAGES.length) }),
+    h('h1', { class: 'headline', text: page.headline }),
+    h('p', { class: 'lede', text: page.lede }),
+    hero);
+  if (isLast) column.append(h('button', { class: 'replay', type: 'button', onclick: () => showPage(0) },
+    h('span', { html: ICONS.redo }), 'Watch it again'));
+  return column;
+}
+
+function heroSize(value) {
+  if (value.length <= 5) return 'l';
+  return value.length <= 9 ? 'm' : 's';
+}
+
+function updateHero(view, card) {
+  const stat = card && card.stats[0];
+  const value = stat ? stat.value : String(view.cards.length);
+  const valueEl = view.el.querySelector('.hero-value');
+  const labelEl = view.el.querySelector('.hero-label');
+  valueEl.textContent = value;
+  valueEl.dataset.size = heroSize(value);
+  labelEl.textContent = stat ? stat.label + ' ' : view.page.unit;
+  if (stat) labelEl.append(h('em', { text: '· ' + card.friend.name }));
+  replay(valueEl);
+}
+
+function replay(el) {
+  el.classList.remove('is-swapping');
+  void el.offsetWidth;
+  el.classList.add('is-swapping');
+}
+
+/* ---------- depth stack ---------- */
+
+function buildDeck(view) {
+  const total = view.cards.length;
+  const deck = h('div', { class: 'deck', style: '--n:' + total });
+  view.cardEls = view.cards.map((card, index) => buildCard(card, index, total));
+  view.cardEls.forEach((el, index) => el.addEventListener('click', () => selectCard(view, index)));
+  deck.append(...view.cardEls);
+  const showcase = h('section', { class: 'showcase' }, deck);
+  if (total > 1) showcase.append(buildPager(view));
+  return showcase;
+}
+
+function buildPager(view) {
+  view.dots = view.cards.map(() => h('i'));
+  return h('div', { class: 'pager' },
+    h('button', { type: 'button', 'aria-label': 'Previous card', html: ICONS.up, onclick: () => stepCard(-1) }),
+    h('div', { class: 'pager-dots' }, ...view.dots),
+    h('button', { type: 'button', 'aria-label': 'Next card', html: ICONS.down, onclick: () => stepCard(1) }));
+}
+
+function layoutDeck(view) {
+  const total = view.cards.length;
+  view.cardEls.forEach((el, index) => {
+    const depth = (index - view.active + total) % total;
+    el.style.setProperty('--d', depth);
+    el.style.zIndex = total - depth;
+    el.classList.toggle('is-front', depth === 0);
+    el.querySelector('.card-tab').tabIndex = depth === 0 ? -1 : 0;
+  });
+  (view.dots || []).forEach((dot, index) => dot.classList.toggle('is-on', index === view.active));
+}
+
+/* ---------- your people podium ---------- */
+
+function firstStat(card) {
+  return card.stats[0] ? card.stats[0].value + ' ' + card.stats[0].label.toLowerCase() : '';
+}
+
+function buildPod(view, index, height) {
+  const card = view.cards[index];
+  if (!card) return h('span');
+  const pod = h('button', { class: 'pod', type: 'button', 'data-rank': card.rank, onclick: () => selectCard(view, index) },
+    avatar(card.friend.name, index === 0),
+    h('span', { class: 'pod-name', text: card.title }),
+    h('span', { class: 'pod-stat', text: firstStat(card) }),
+    h('span', { class: 'pedestal glass', style: '--h:' + height + 'px' }, h('b', { text: String(card.rank) })));
+  view.cardEls[index] = pod;
+  return pod;
+}
+
+function buildRunner(view, index) {
+  const card = view.cards[index];
+  const runner = h('button', { class: 'runner glass', type: 'button', onclick: () => selectCard(view, index) },
+    h('span', { class: 'runner-rank', text: String(card.rank) }),
+    avatar(card.friend.name),
+    h('span', {}, h('span', { class: 'runner-name', text: card.title }), h('br'), h('span', { class: 'runner-stat', text: firstStat(card) })));
+  view.cardEls[index] = runner;
+  return runner;
+}
+
+function buildPeople(view) {
+  view.cardEls = [];
+  view.panel = h('div', { class: 'person glass', 'aria-live': 'polite' });
+  const podium = h('div', { class: 'podium' }, buildPod(view, 1, 92), buildPod(view, 0, 132), buildPod(view, 2, 68));
+  const runners = h('div', { class: 'runners' }, ...view.cards.slice(3).map((card, offset) => buildRunner(view, offset + 3)));
+  return h('section', { class: 'showcase' }, h('div', { class: 'people' }, podium, runners, view.panel));
+}
+
+function layoutPeople(view) {
+  const card = view.cards[view.active];
+  view.cardEls.forEach((el, index) => el.classList.toggle('is-selected', index === view.active));
+  view.panel.replaceChildren(
+    h('div', { class: 'person-head' },
+      h('span', { class: 'person-rank', text: 'No. ' + card.rank }),
+      h('h2', { class: 'person-name', text: card.title })),
+    h('p', { class: 'card-body', text: card.body }));
+  const extras = [buildStats(card.stats), buildEvidence(card), buildAction(card)].filter(Boolean);
+  view.panel.append(...extras);
+  replay(view.panel);
+}
+
+/* ---------- pages and navigation ---------- */
+
+function buildPage(page, pageIndex) {
+  const view = { page, cards: cardsFor(page.kind), active: 0, isRanked: page.kind === 'your_people' };
+  view.el = h('div', { class: 'page', 'data-kind': page.kind });
+  view.el.append(buildEditorial(page, pageIndex, pageIndex === PAGES.length - 1));
+  if (view.cards.length) view.el.append(view.isRanked ? buildPeople(view) : buildDeck(view));
+  return view;
+}
+
+function selectCard(view, index) {
+  const total = view.cards.length;
+  if (!total) return updateHero(view, null);
+  view.active = (index + total) % total;
+  if (view.isRanked) layoutPeople(view);
+  else layoutDeck(view);
+  updateHero(view, view.cards[view.active]);
+}
+
+function stepCard(delta) {
+  const view = state.views[state.page];
+  selectCard(view, view.active + delta);
+}
+
+function buildRail() {
+  const list = document.getElementById('steps');
+  list.append(h('span', { class: 'steps-track' }), h('span', { class: 'steps-fill', id: 'fill' }));
+  PAGES.forEach((page, index) => {
+    const step = h('button', { class: 'step', type: 'button', 'aria-label': 'Chapter ' + (index + 1) + ', ' + page.name, onclick: () => showPage(index) },
+      h('span', { class: 'step-node', text: pad(index + 1) }),
+      h('span', { class: 'step-name', text: page.name }));
+    list.append(h('li', {}, step));
+  });
+}
+
+function updateRail() {
+  const steps = [...document.querySelectorAll('.step')];
+  steps.forEach((step, index) => {
+    step.classList.toggle('is-done', index < state.page);
+    step.classList.toggle('is-current', index === state.page);
+    step.setAttribute('aria-current', index === state.page ? 'step' : 'false');
+  });
+  const first = steps[0].getBoundingClientRect();
+  const current = steps[state.page].getBoundingClientRect();
+  document.getElementById('fill').style.height = (current.top - first.top) + 'px';
+  document.getElementById('counter').replaceChildren(
+    h('b', { text: pad(state.page + 1) }), ' / ' + pad(PAGES.length) + '  ·  ' + PAGES[state.page].name);
+  document.getElementById('prev').disabled = state.page === 0;
+  document.getElementById('next').disabled = state.page === PAGES.length - 1;
+}
+
+function showPage(index) {
+  const target = Math.max(0, Math.min(PAGES.length - 1, index));
+  document.getElementById('main').style.setProperty('--dir', target < state.page ? -1 : 1);
+  state.page = target;
+  state.views.forEach((view, viewIndex) => view.el.classList.toggle('is-active', viewIndex === target));
+  selectCard(state.views[target], state.views[target].active);
+  updateRail();
+  history.replaceState(null, '', '#' + (target + 1));
+  window.scrollTo(0, 0);
+}
+
+/* ---------- action sheet ---------- */
+
+function buildDraft(card) {
+  const draft = h('textarea', { class: 'draft', id: 'draft', 'aria-label': 'Message draft', spellcheck: 'false' });
+  draft.value = card.action.draft;
+  return [draft, h('p', { class: 'sheet-note', text: 'Nothing sends from here. Edit it, copy it, then paste it into your chat with ' + card.friend.name + '.' })];
+}
+
+function buildPoster(card) {
+  return [h('div', { class: 'poster' },
+    h('div', { class: 'poster-title', text: card.title }),
+    h('p', { class: 'poster-body', text: card.body }),
+    buildStats(card.stats),
+    h('div', { class: 'poster-sign', text: 'Afterglow · Your DMs, in review' }))];
+}
+
+function summaryText(card) {
+  const lines = card.stats.map(stat => stat.label + ': ' + stat.value);
+  return [card.title, card.body, ...lines].join('\n');
+}
+
+function openSheet(card) {
+  const isShare = card.action.draft === null;
+  const copyButton = h('button', { class: 'cta', type: 'button' }, h('span', { html: ICONS.copy }), h('span', { text: isShare ? 'Copy summary' : 'Copy message' }));
+  copyButton.addEventListener('click', () => copyFrom(card, copyButton.lastChild));
+  const redo = isShare ? null : h('button', { class: 'ghost', type: 'button', disabled: '', title: 'Needs the live backend' },
+    h('span', { html: ICONS.redo }), 'Regenerate', h('small', { text: 'Soon' }));
+  document.getElementById('sheet').replaceChildren(
+    h('button', { class: 'sheet-close', type: 'button', 'aria-label': 'Close', html: ICONS.close, onclick: closeSheet }),
+    h('div', { class: 'sheet-head' }, avatar(card.friend.name),
+      h('div', {}, h('div', { class: 'sheet-kicker', text: card.action.label }),
+        h('div', { class: 'sheet-title', id: 'sheet-title', text: isShare ? 'Ready to share' : 'To ' + card.friend.name }))),
+    ...(isShare ? buildPoster(card) : buildDraft(card)),
+    h('div', { class: 'sheet-actions' }, copyButton, redo));
+  state.sheetCard = card;
+  const scrim = document.getElementById('scrim');
+  scrim.classList.add('is-open');
+  scrim.setAttribute('aria-hidden', 'false');
+  copyButton.focus();
+}
+
+function closeSheet() {
+  const scrim = document.getElementById('scrim');
+  scrim.classList.remove('is-open');
+  scrim.setAttribute('aria-hidden', 'true');
+  state.sheetCard = null;
+}
+
+async function copyFrom(card, labelEl) {
+  const draft = document.getElementById('draft');
+  const text = card.action.draft === null ? summaryText(card) : draft.value;
+  try {
+    await navigator.clipboard.writeText(text);
+    labelEl.textContent = 'Copied';
+  } catch (error) {
+    console.warn('Clipboard write failed', error);
+    if (draft) draft.select();
+    labelEl.textContent = 'Press Cmd+C to copy';
+  }
+}
+
+/* ---------- input ---------- */
+
+const keyActions = {
+  ArrowRight: () => showPage(state.page + 1),
+  ArrowLeft: () => showPage(state.page - 1),
+  ArrowDown: () => stepCard(1),
+  ArrowUp: () => stepCard(-1)
+};
+
+function onKey(event) {
+  if (event.key === 'Escape') return closeSheet();
+  if (state.sheetCard || event.target.closest('textarea')) return;
+  const action = keyActions[event.key];
+  if (!action) return;
+  event.preventDefault();
+  action();
+}
+
+function onStageClick(event) {
+  if (event.target.closest('.card, .people, .pager, button, a, textarea')) return;
+  const box = event.currentTarget.getBoundingClientRect();
+  showPage(state.page + (event.clientX < box.left + box.width / 2 ? -1 : 1));
+}
+
+function applyHash() {
+  const [pageToken, cardToken, flag] = location.hash.slice(1).split('-');
+  const pageIndex = (parseInt(pageToken, 10) || 1) - 1;
+  showPage(pageIndex);
+  const view = state.views[state.page];
+  selectCard(view, (parseInt(cardToken, 10) || 1) - 1);
+  const card = view.cards[view.active];
+  if (flag === 'sheet' && card && card.action) openSheet(card);
+  if (flag === 'why') view.el.querySelectorAll('.is-front .why-chip').forEach(chip => chip.click());
+}
+
+function init() {
+  buildRail();
+  state.views = PAGES.map(buildPage);
+  document.getElementById('pages').append(...state.views.map(view => view.el));
+  document.getElementById('prev').innerHTML = ICONS.left;
+  document.getElementById('next').innerHTML = ICONS.right;
+  document.getElementById('prev').addEventListener('click', () => showPage(state.page - 1));
+  document.getElementById('next').addEventListener('click', () => showPage(state.page + 1));
+  document.getElementById('main').addEventListener('click', onStageClick);
+  document.getElementById('scrim').addEventListener('click', event => { if (event.target.id === 'scrim') closeSheet(); });
+  document.getElementById('generated').textContent = 'Generated ' + dayFormat.format(new Date(DATA.generatedAt)) + ' for ' + DATA.owner;
+  document.addEventListener('keydown', onKey);
+  window.addEventListener('hashchange', applyHash);
+  window.addEventListener('resize', updateRail);
+  applyHash();
+}
+
+init();
+</script>
+</body>
+</html>

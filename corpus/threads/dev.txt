@@ -1,0 +1,290 @@
+# Dev: assigned capstone partner for two semesters (campus shuttle tracker app). NEGATIVE
+# CONTROL. Huge message count, all logistics, nothing personal. Colleagues, not friends.
+# Should rank near the bottom of any closeness ranking despite the volume.
+thread: Dev Patel
+folder: devpatel_17093847561029384
+speakers: Y=you, D=Dev Patel
+hours: 9-23
+rate: 2025-09-05..2026-05-10 5
+
+== scene 2025-09-05 14:10
+D: Hi, this is Dev from 4500. Looks like we got paired for capstone
+Y: hey! yep saw the email
+D: I made a repo and added you. shuttle-tracker, you should have an invite
+Y: accepted
+D: Proposal is due the 19th. I can draft the backend section if you take the app side
+Y: works. i'll do the screens and the user flow part
+D: Good. I also made a shared doc for standup notes, link is in the repo readme
+Y: got it. when do you want to meet
+D: Tuesdays and Thursdays at 3 after lecture? Room 32-124 is usually open
+Y: tues thurs at 3 works
+D: Great. See you Tuesday
+Y: 👍
+
+== scene 2025-12-11 22:40 | control:demo-question
+D: Going through the demo checklist for Monday
+D*: Who is presenting the architecture slide, and do you need the staging URL from me before then or are you running the app off your laptop?
+-- 14h
+Y: sorry, was heads down on the algo final
+Y: you take the architecture slide, you know the backend better. i'll do the live walkthrough
+Y: and yes pls send the staging url, i'm running it off staging not my laptop. local db is out of date
+D: Makes sense. URL is in the doc under "demo", along with the test login
+Y: found it. logged in fine
+D: Good. Then we're set for Monday {👍}
+
+== scene 2026-03-18 21:35
+D: Staging is down
+Y: what
+D: Deploy from 20 minutes ago. The migration ran halfway and the API won't start
+Y: that was my merge. the stops table change
+D: Yes. It's failing on the not null column, existing rows have no value
+Y: ok. i can add a default and redeploy
+D: I would rather roll back first so we have something working for 10am
+Y: fair. rolling back now
+D: Thanks
+-- 25m
+Y: rolled back. api is up, app loads, routes show
+D: Confirmed on my end. ETAs are loading too
+Y: fix is on a branch with a default value. tested the migration on a copy of the staging db, it passes
+D: I'll review it now
+-- 20m
+D: Approved. Deploy it and I'll watch the logs
+Y: deploying
+Y: done. migration ran clean
+D: Logs look fine. Health check is green
+D: For the demo I'd still freeze staging now. No more merges until after 10
+Y: agreed. freezing
+D: Ok. See you at 9:45 in the lab
+Y: 👍
+
+== scene 2026-05-08 16:20
+D: Final report is exported. 31 pages with the appendix
+Y: reading the last section now
+Y: fig 7 caption still says "prototype", changed it to "final build"
+D: Good catch. Re-exporting
+D: Repo is tagged v1.0. Readme has the setup steps and the demo video link
+Y: video link works, i checked it logged out
+D: Then I think that's everything on the rubric. Report, repo, video, peer eval
+Y: peer eval is separate, each of us submits our own
+D: Right. I'll do mine tonight
+Y: submitting the rest now
+Y: submitted. 4:41, deadline is 5
+D: I see the confirmation email. Thanks
+Y: 👍
+
+== scene 2026-05-10 23:30
+D: Peer eval is in. I think that closes everything out
+Y: mine too
+D: Good working with you this year
+Y: you too. good luck with the summer
+D: Thanks, same to you {👍}
+
+== filler
+D: Pushed
+Y: pulling now
+Y: builds fine on my end
+D: Good
+
+== filler
+Y: can you review the PR when you get a sec
+D: Looking now
+D: Two small comments, otherwise fine
+Y: fixed both
+D: Approved
+
+== filler
+D: Meeting moved to 4, my lab section is running over
+Y: 4 works
+D: Same room
+Y: 👍
+
+== filler
+D: Room 32-124 is taken, using the library
+Y: which floor
+D: Third, the group tables by the windows
+Y: ok heading over
+
+== filler
+D: Did you merge main
+Y: not yet, doing it now
+Y: one conflict in the routes file, resolved
+D: Thanks. I'll rebase on top of that
+
+== filler
+Y: tests are red again
+D: Which ones
+Y: the eta ones. looks like the fixture timestamps
+D: That's mine. Fixing
+D: Green now
+
+== filler
+D: Standup notes are in the doc
+Y: read them. nothing to add
+D: Ok
+
+== filler
+Y: ci has been queued for 20 min
+D: The department runner is backed up. It happened yesterday too
+Y: ok i'll just wait
+D: It picked up. Running now
+
+== filler
+D: Can you take the ticket for the stop list screen
+Y: yep assigning myself
+Y: should be done by thursday
+D: Thursday is fine
+
+== filler
+Y: is the api up? getting 502s
+D: Restarting it, I was changing the env config
+D: Try now
+Y: works
+
+== filler
+D: I left a comment on line 88
+Y: saw it. you're right, that should be a guard clause
+Y: pushed the change
+D: Resolved
+
+== filler
+Y: running 5 min late
+D: No problem. I'm at the table by the printers
+Y: here
+
+== filler
+D: Branch name for the notifications work?
+Y: feature/notifications
+D: Found it. Checking it out
+
+== filler
+Y: which port is the dev server on
+D: 8080. It's in the readme under setup
+Y: got it thanks
+
+== filler
+D: Board is updated. Three tickets in review, two in progress
+Y: the map one can move to done, it merged this morning
+D: Moved
+
+== filler
+Y: pushed a fix for the crash on the route screen
+D: What was it
+Y: null stop name from the feed. defaulting to the stop id now
+D: Fine. Approved
+
+== filler
+D: Are you in lecture today
+Y: yes, back row
+D: I'll hand you the sprint printout after
+Y: 👍
+
+== filler
+Y: linter is failing on your branch
+D: Line length?
+Y: unused import in the client file
+D: Removed. Pushed
+
+== filler
+D: Professor wants the sprint report by Friday 5pm
+Y: i'll write the app half tonight
+D: I'll do the backend half and merge them Friday morning
+Y: works
+
+== filler
+Y: can't make 3 today, exam review got scheduled over it
+D: 5 instead?
+Y: 5 works
+D: Ok, 5 in the library
+
+== filler
+D: Staging is redeployed with your change
+Y: checked it. stops load, map pins are right
+D: Good
+
+== filler
+Y: did you change the response format for /routes
+D: Yes, stops are nested under each route now. It's in the notes from Tuesday
+Y: ah missed that. updating the client
+Y: done lol
+D: Thanks
+
+== filler 2025-09..2025-10
+D: Requirements doc needs one more use case
+Y: i can add "rider checks next arrival from a saved stop"
+D: That covers it. Add it as UC-6
+Y: added
+
+== filler 2025-09..2025-10
+Y: do we have access to the shuttle gps feed yet
+D: Transportation office replied this morning. Key is in the shared vault
+Y: got it. feed returns data
+D: Good
+
+== filler 2025-09..2025-11
+D: Proposal feedback is back. 2 comments on scope
+Y: reading
+Y: they want the admin dashboard cut. fine by me
+D: Agreed. I'll update the scope section
+
+== filler 2025-10..2025-12
+Y: map screen is up on my branch if you want to look
+D: Pulled it. Pins render, tap targets are small on my phone
+Y: bumping them to 44pt
+D: Better
+
+== filler 2025-10..2025-12
+D: GPS ingestion job is running every 15 seconds now
+Y: is that within the rate limit
+D: Limit is one request per 10 seconds. We're under it
+Y: ok good
+
+== filler 2025-11..2025-12
+D: Slides for the fall demo are in the drive
+Y: added two screenshots to slide 5
+D: Saw them. Those work
+
+== filler 2025-11..2025-12
+Y: prototype build is on testflight
+D: Installed. Login works, route list works
+D: Arrival times are blank for the red line
+Y: feed has no red line data after 8pm, that's expected
+D: Ok. I'll note it in the known issues
+
+== filler 2026-01..2026-02
+D: Spring schedule. I have lab Tuesdays until 4 now
+Y: mondays and thursdays at 4?
+D: That works for me
+Y: ok updating the calendar invite
+
+== filler 2026-01..2026-03
+D: ETA model is merged. It uses the last five arrivals per stop
+Y: how far off is it
+D: About 90 seconds on average against last week's data
+Y: good enough for the milestone
+D: Agreed
+
+== filler 2026-02..2026-04
+Y: push notifications work on ios. android is still pending
+D: What's blocking android
+Y: firebase config. need the server key from you
+D: Sent it through the vault
+Y: got it, android works now
+
+== filler 2026-02..2026-04
+D: Usability test sign-up sheet has 6 people
+Y: rubric says minimum 5 so we're fine
+D: I'll book the lab for Thursday
+Y: 👍
+
+== filler 2026-04..2026-05
+D: Final report outline is in the doc
+Y: i'll take sections 3 and 5
+D: I have 2, 4 and 6. Intro and conclusion together at the end
+Y: works
+
+== filler 2026-04..2026-05
+Y: poster draft is in the drive
+D: Architecture diagram is outdated, it still shows the polling service
+Y: can you send the current one
+D: Exported it to the same folder
+Y: swapped it in

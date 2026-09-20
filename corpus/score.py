@@ -11,16 +11,28 @@ from corpus.build import output_dir
 
 
 def score(cards: list[dict], planted: list[dict]) -> list[tuple[str, str]]:
-    key_texts = {(card["kind"], item["text"]) for card in cards for item in card["evidence"] if item["isKey"]}
-    flagged_texts = {text for _, text in key_texts}
-    return [(moment["label"], _outcome(moment, key_texts, flagged_texts)) for moment in planted]
+    return [(moment["label"], _outcome(moment, cards)) for moment in planted]
 
 
-def _outcome(moment: dict, key_texts: set[tuple[str, str]], flagged_texts: set[str]) -> str:
-    texts = [key["text"] for key in moment["keys"]]
+def unplanted(cards: list[dict], planted: list[dict]) -> list[dict]:
+    real = [moment for moment in planted if moment["kind"] != "control"]
+    return [card for card in cards if card["evidence"] and not any(_shows(card, moment) for moment in real)]
+
+
+def _outcome(moment: dict, cards: list[dict]) -> str:
     if moment["kind"] == "control":
-        return "WRONGLY FLAGGED" if any(text in flagged_texts for text in texts) else "correctly ignored"
-    return "found" if any((moment["kind"], text) in key_texts for text in texts) else "MISSED"
+        texts = {key["text"] for key in moment["keys"]}
+        is_flagged = any(item["isKey"] and item["text"] in texts for card in cards for item in card["evidence"])
+        return "WRONGLY FLAGGED" if is_flagged else "correctly ignored"
+    return "found" if any(_shows(card, moment) for card in cards) else "MISSED"
+
+
+def _shows(card: dict, moment: dict) -> bool:
+    # Same kind, and some evidence comes from the same chat on the same day as a planted line.
+    # Matching on exact text would fail a memory whose judge chose different highlight lines.
+    planted_days = {(key["thread"], key["timestamp"][:10]) for key in moment["keys"]}
+    shown_days = {(item["threadName"], item["timestamp"][:10]) for item in card["evidence"]}
+    return card["kind"] == moment["kind"] and bool(planted_days & shown_days)
 
 
 def main() -> int:
@@ -29,8 +41,7 @@ def main() -> int:
     outcomes = score(cards, planted)
     for label, outcome in outcomes:
         print(f"{outcome:18} {label}")
-    expected = {key["text"] for moment in planted for key in moment["keys"]}
-    extras = [c for c in cards if c["evidence"] and not any(e["isKey"] and e["text"] in expected for e in c["evidence"])]
+    extras = unplanted(cards, planted)
     for card in extras:
         print(f"{'NOT PLANTED':18} {card['kind']}: {card['title']}")
     failures = sum(outcome in ("MISSED", "WRONGLY FLAGGED") for _, outcome in outcomes)

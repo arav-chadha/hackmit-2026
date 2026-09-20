@@ -3,7 +3,7 @@
 import hashlib
 import json
 from collections.abc import Iterable
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from enum import StrEnum
 from pathlib import Path
@@ -35,6 +35,14 @@ class Action:
 
 
 @dataclass(frozen=True)
+class Hook:
+    text: str
+    source: str
+    url: str
+    date: str
+
+
+@dataclass(frozen=True)
 class Card:
     kind: Kind
     thread_id: str
@@ -46,6 +54,7 @@ class Card:
     stats: tuple[tuple[str, str], ...] = ()
     evidence: tuple[Evidence, ...] = ()
     action: Action | None = None
+    context: Hook | None = None
 
 
 def document(cards: Iterable[Card], owner: str, generated_at: datetime) -> dict:
@@ -74,6 +83,7 @@ def _card(card: Card, owner: str) -> dict:
         "stats": [{"label": label, "value": value} for label, value in card.stats],
         "evidence": [_evidence(item, owner) for item in evidence],
         "action": {"label": card.action.label, "draft": card.action.draft} if card.action else None,
+        "context": asdict(card.context) if card.context else None,
     }
 
 

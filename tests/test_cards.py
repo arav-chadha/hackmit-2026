@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from insights.cards import Action, Card, Evidence, Kind, document, write_cards
+from insights.cards import Action, Card, Evidence, Hook, Kind, document, write_cards
 from insights.inbox import Message
 
 CONTRACT = json.loads((Path(__file__).parent.parent / "contract" / "cards.example.json").read_text())
@@ -59,6 +59,14 @@ def test_a_bare_card_uses_null_and_empty_lists():
     bare = Card(kind=Kind.your_people, thread_id="mei_1", friend="Mei Tanaka", title="Mei Tanaka", body="Quiet lately.", score=0.5, rank=3)
     card = document([bare], owner="you", generated_at=NOW)["cards"][0]
     assert (card["stats"], card["evidence"], card["action"], card["rank"]) == ([], [], None, 3)
+
+
+def test_context_is_null_unless_the_card_has_a_news_hook():
+    hook = Hook("A new update came out.", "GameSpot", "https://www.gamespot.com/x", "2026-09-15")
+    with_hook = Card(kind=Kind.reconnect, thread_id="jonas_1", friend="Jonas Weber", title="t", body="b", score=1.0, context=hook)
+    plain, hooked = document([full_card(), with_hook], owner="you", generated_at=NOW)["cards"]
+    assert plain["context"] is None
+    assert hooked["context"] == {"text": "A new update came out.", "source": "GameSpot", "url": "https://www.gamespot.com/x", "date": "2026-09-15"}
 
 
 def test_id_is_stable_and_depends_on_the_evidence():

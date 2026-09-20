@@ -40,6 +40,7 @@ Every key is **always present**. "Empty" is `null` or `[]`, never a missing key.
 | `body` | string | Display-ready one or two sentences |
 | `stats` | `{ label, value }[]` | Pre-formatted label/value pairs, both strings. Render as a list or grid. You do not need to know which labels exist. Often `[]` |
 | `evidence` | Evidence[] | The real messages that prove the claim, oldest first. Often the most compelling part of the card. May be `[]` |
+| `context` | `{ text, source, url, date }` or null | A recent real-world news hook that gives a reason to reach out now, found by web search. `text` is one sentence, `source` is the publication, `url` links to it, `date` is `YYYY-MM-DD`. Show it with the link so the claim can be checked. `null` on most cards; today only `reconnect` cards can have one. Added after the first version of this contract, so treat a missing key as `null` |
 | `action` | `{ label, draft }` or null | A button. `label` is the button text. `draft` is a suggested message the user can edit, or `null` when the button has no message (e.g. Share) |
 
 ## Evidence (one message)

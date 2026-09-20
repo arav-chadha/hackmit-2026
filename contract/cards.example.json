@@ -7,60 +7,108 @@
       "kind": "your_people",
       "score": 0.97,
       "rank": 1,
-      "friend": { "name": "Rafa Ortiz", "threadId": "rafaortiz_17849201938471029" },
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
       "title": "Rafa Ortiz",
       "body": "You've talked almost every week for 4 years. Your most active stretch was summer 2024.",
       "stats": [
-        { "label": "Messages", "value": "12,480" },
-        { "label": "Talking since", "value": "Aug 2022" },
-        { "label": "Most active month", "value": "July 2024" },
-        { "label": "Usual hours", "value": "11 PM – 2 AM" }
+        {
+          "label": "Messages",
+          "value": "12,480"
+        },
+        {
+          "label": "Talking since",
+          "value": "Aug 2022"
+        },
+        {
+          "label": "Most active month",
+          "value": "July 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "11 PM – 2 AM"
+        }
       ],
       "evidence": [],
-      "action": null
+      "action": null,
+      "context": null
     },
     {
       "id": "c41a9e07",
       "kind": "your_people",
       "score": 0.84,
       "rank": 2,
-      "friend": { "name": "Priya Raman", "threadId": "priyaraman_17612094857102938" },
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
       "title": "Priya Raman",
       "body": "Three years of steady conversation, though lately she starts most of them.",
       "stats": [
-        { "label": "Messages", "value": "6,912" },
-        { "label": "Talking since", "value": "Sep 2023" },
-        { "label": "Who starts conversations", "value": "Priya, 71% of the time" }
+        {
+          "label": "Messages",
+          "value": "6,912"
+        },
+        {
+          "label": "Talking since",
+          "value": "Sep 2023"
+        },
+        {
+          "label": "Who starts conversations",
+          "value": "Priya, 71% of the time"
+        }
       ],
       "evidence": [],
-      "action": null
+      "action": null,
+      "context": null
     },
     {
       "id": "e2906b3f",
       "kind": "your_people",
       "score": 0.78,
       "rank": 3,
-      "friend": { "name": "Mei Tanaka", "threadId": "meitanaka_17950517471278735" },
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
       "title": "Mei Tanaka",
       "body": "You used to talk daily. It has been quiet since last autumn.",
       "stats": [
-        { "label": "Messages", "value": "9,305" },
-        { "label": "Talking since", "value": "Jan 2023" },
-        { "label": "Last real conversation", "value": "Oct 2025" }
+        {
+          "label": "Messages",
+          "value": "9,305"
+        },
+        {
+          "label": "Talking since",
+          "value": "Jan 2023"
+        },
+        {
+          "label": "Last real conversation",
+          "value": "Oct 2025"
+        }
       ],
       "evidence": [],
-      "action": null
+      "action": null,
+      "context": null
     },
     {
       "id": "a3f9c2e1",
       "kind": "unanswered",
       "score": 0.91,
       "rank": null,
-      "friend": { "name": "Mei Tanaka", "threadId": "meitanaka_17950517471278735" },
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
       "title": "Mei asked how your interview went",
       "body": "You kept talking afterward, but you never told her.",
       "stats": [
-        { "label": "Asked", "value": "Mar 14, 2025" }
+        {
+          "label": "Asked",
+          "value": "Mar 14, 2025"
+        }
       ],
       "evidence": [
         {
@@ -94,19 +142,29 @@
       "action": {
         "label": "Respond",
         "draft": "I just realized I literally never told you how that interview went 😭"
-      }
+      },
+      "context": null
     },
     {
       "id": "5d7720bc",
       "kind": "unfinished_plans",
       "score": 0.88,
       "rank": null,
-      "friend": { "name": "Mei Tanaka", "threadId": "meitanaka_17950517471278735" },
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
       "title": "The pottery class with Mei",
       "body": "You've talked about going 3 different times. You never went.",
       "stats": [
-        { "label": "Times mentioned", "value": "3" },
-        { "label": "First mentioned", "value": "Feb 2025" }
+        {
+          "label": "Times mentioned",
+          "value": "3"
+        },
+        {
+          "label": "First mentioned",
+          "value": "Feb 2025"
+        }
       ],
       "evidence": [
         {
@@ -140,14 +198,18 @@
       "action": {
         "label": "Make It Happen",
         "draft": "Wait we've talked about the pottery class like 3 times 😭 wanna finally go this weekend?"
-      }
+      },
+      "context": null
     },
     {
       "id": "19c8f4a6",
       "kind": "both_wanted",
       "score": 0.86,
       "rank": null,
-      "friend": { "name": "Priya Raman", "threadId": "priyaraman_17612094857102938" },
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
       "title": "You both want to try rock climbing",
       "body": "Priya mentioned it in March. You said the same thing to someone else in June. Neither of you knows.",
       "stats": [],
@@ -174,19 +236,29 @@
       "action": {
         "label": "Do It Together",
         "draft": "ok random but have you still been wanting to try climbing?? because same, let's go"
-      }
+      },
+      "context": null
     },
     {
       "id": "f0b3d518",
       "kind": "reconnect",
       "score": 0.8,
       "rank": null,
-      "friend": { "name": "Jonas Weber", "threadId": "jonasweber_17398201938475610" },
+      "friend": {
+        "name": "Jonas Weber",
+        "threadId": "jonasweber_17398201938475610"
+      },
       "title": "You and Jonas used to talk about Minecraft all the time",
       "body": "It hasn't come up in 9 months.",
       "stats": [
-        { "label": "Mentions", "value": "214" },
-        { "label": "Last mentioned", "value": "Dec 2025" }
+        {
+          "label": "Mentions",
+          "value": "214"
+        },
+        {
+          "label": "Last mentioned",
+          "value": "Dec 2025"
+        }
       ],
       "evidence": [
         {
@@ -220,6 +292,12 @@
       "action": {
         "label": "Reconnect",
         "draft": "Bro I randomly remembered our Minecraft world 😭 we actually need to run it back sometime"
+      },
+      "context": {
+        "text": "Minecraft released a new update that adds a forest biome and abandoned camps to explore.",
+        "source": "GameSpot",
+        "url": "https://www.gamespot.com/articles/example",
+        "date": "2026-09-15"
       }
     },
     {
@@ -227,11 +305,17 @@
       "kind": "memory_lane",
       "score": 0.75,
       "rank": null,
-      "friend": { "name": "Rafa Ortiz", "threadId": "rafaortiz_17849201938471029" },
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
       "title": "The 3 AM road trip plan",
       "body": "You and Rafa stayed up until 3 AM planning a road trip you were both way too excited about.",
       "stats": [
-        { "label": "When", "value": "July 12, 2024" }
+        {
+          "label": "When",
+          "value": "July 12, 2024"
+        }
       ],
       "evidence": [
         {
@@ -283,23 +367,45 @@
       "action": {
         "label": "Send this memory",
         "draft": "do you remember the 3am montreal spreadsheet 😭 the poutine tab lives in my head"
-      }
+      },
+      "context": null
     },
     {
       "id": "2ac6e7d0",
       "kind": "recap",
       "score": 0.7,
       "rank": null,
-      "friend": { "name": "Rafa Ortiz", "threadId": "rafaortiz_17849201938471029" },
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
       "title": "You + Rafa",
       "body": "Four years, mostly after midnight, mostly about hackathons and half-planned trips.",
       "stats": [
-        { "label": "Messages", "value": "12,480" },
-        { "label": "Most active month", "value": "July 2024" },
-        { "label": "Top topic", "value": "Hackathons" },
-        { "label": "Most active time", "value": "11 PM – 2 AM" },
-        { "label": "Unfinished plans", "value": "2" },
-        { "label": "Memories worth revisiting", "value": "3" }
+        {
+          "label": "Messages",
+          "value": "12,480"
+        },
+        {
+          "label": "Most active month",
+          "value": "July 2024"
+        },
+        {
+          "label": "Top topic",
+          "value": "Hackathons"
+        },
+        {
+          "label": "Most active time",
+          "value": "11 PM – 2 AM"
+        },
+        {
+          "label": "Unfinished plans",
+          "value": "2"
+        },
+        {
+          "label": "Memories worth revisiting",
+          "value": "3"
+        }
       ],
       "evidence": [
         {
@@ -321,7 +427,11 @@
           "text": "we won??? WE WON"
         }
       ],
-      "action": { "label": "Share Recap", "draft": null }
+      "action": {
+        "label": "Share Recap",
+        "draft": null
+      },
+      "context": null
     }
   ]
 }

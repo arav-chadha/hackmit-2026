@@ -32,7 +32,12 @@ def _shows(card: dict, moment: dict) -> bool:
     # Matching on exact text would fail a memory whose judge chose different highlight lines.
     planted_days = {(key["thread"], key["timestamp"][:10]) for key in moment["keys"]}
     shown_days = {(item["threadName"], item["timestamp"][:10]) for item in card["evidence"]}
-    return card["kind"] == moment["kind"] and bool(planted_days & shown_days)
+    if card["kind"] != moment["kind"]:
+        return False
+    if card["kind"] == "reconnect":
+        # A faded topic spans months; any of its messages is fair evidence, so match on the chat alone.
+        return card["friend"]["name"] in {thread for thread, _ in planted_days}
+    return bool(planted_days & shown_days)
 
 
 def main() -> int:

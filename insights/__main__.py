@@ -21,9 +21,10 @@ from insights.index import IndexNames, ingest, recreate_indexes
 from insights.judge import JudgeError
 from insights.settings import Settings, SettingsError
 from insights.unanswered import unanswered
+from insights.unfinished_plans import unfinished_plans
 from insights.your_people import your_people
 
-insights = (your_people, unanswered)
+insights = (your_people, unanswered, unfinished_plans)
 
 
 def main() -> int:

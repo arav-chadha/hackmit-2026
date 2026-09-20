@@ -1,7 +1,8 @@
 from datetime import datetime, timezone
 
 from insights.inbox import Message
-from insights.unfinished_plans import Conversations, Plan, Unfinished, capped, unfinished
+from insights.conversations import Conversations
+from insights.unfinished_plans import Plan, Unfinished, capped, unfinished
 
 
 def said(ref: int, sender: str, day: str, text: str) -> Message:
@@ -18,18 +19,6 @@ CONVERSATIONS = Conversations(
         "m4": (said(4, "Mei Tanaka", "2025-08-30", "still thinking about that ceramics class lol"), "w3"),
     },
 )
-
-
-def test_transcript_groups_lines_by_conversation_with_refs():
-    assert CONVERSATIONS.transcript() == (
-        "--- conversation on 2025-02-08 ---\n"
-        "[m1] Mei Tanaka: we should do that pottery class on elm st\n"
-        "[m2] you: omg yes\n"
-        "\n--- conversation on 2025-04-21 ---\n"
-        "[m3] you: ok we actually need to do the pottery thing soon\n"
-        "\n--- conversation on 2025-08-30 ---\n"
-        "[m4] Mei Tanaka: still thinking about that ceramics class lol"
-    )
 
 
 def test_a_plan_raised_in_several_conversations_is_kept_with_its_mentions():

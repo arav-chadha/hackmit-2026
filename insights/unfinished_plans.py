@@ -7,8 +7,8 @@ from pydantic import BaseModel
 
 from insights.cards import Action, Card, Evidence, Kind
 from insights.context import Context
+from insights.conversations import Conversations, fetch_conversations
 from insights.inbox import Message
-from insights.index import message_from_hit
 from insights.judge import judged
 
 commitment_phrases = (
@@ -64,23 +64,6 @@ class Wording(BaseModel):
 
 
 @dataclass(frozen=True)
-class Conversations:
-    friend: str
-    thread_id: str
-    by_ref: dict[str, tuple[Message, str]]
-
-    def transcript(self) -> str:
-        lines: list[str] = []
-        previous_window = None
-        for ref, (message, window_id) in self.by_ref.items():
-            if window_id != previous_window:
-                lines.append(f"\n--- conversation on {message.timestamp:%Y-%m-%d} ---")
-            lines.append(f"[{ref}] {message.sender}: {message.text}")
-            previous_window = window_id
-        return "\n".join(lines).strip()
-
-
-@dataclass(frozen=True)
 class Unfinished:
     name: str
     conversations: Conversations
@@ -110,13 +93,13 @@ def plan_conversations(context: Context) -> list[Conversations]:
         source = seed["_source"]
         related = [source["window_id"], *_neighbours(context, source["thread_id"], source["text"])]
         window_ids[source["thread_id"]].update(dict.fromkeys(related))
-    return [_conversations(context, thread_id, list(ids)[:most_conversations_per_thread]) for thread_id, ids in window_ids.items()]
+    return [fetch_conversations(context, thread_id, list(ids)[:most_conversations_per_thread]) for thread_id, ids in window_ids.items()]
 
 
 def unfinished(plans: list[Plan], conversations: Conversations) -> list[Unfinished]:
     kept = []
     for plan in plans:
-        known = [conversations.by_ref[ref] for ref in plan.mention_refs if ref in conversations.by_ref]
+        known = [entry for ref in plan.mention_refs if (entry := conversations.lookup(ref))]
         one_per_conversation = {window_id: message for message, window_id in known}
         if not plan.did_it_happen and len(one_per_conversation) >= least_conversations:
             kept.append(Unfinished(plan.name, conversations, tuple(one_per_conversation.values())))
@@ -161,14 +144,3 @@ def _neighbours(context: Context, thread_id: str, seed_text: str) -> list[str]:
     similar = {"bool": {"must": [{"semantic": {"field": "semantic", "query": seed_text}}], "filter": [{"term": {"thread_id": thread_id}}]}}
     hits = context.search.search(index=context.names.windows, size=neighbours_per_seed, query=similar, source=False)
     return [hit["_id"] for hit in hits["hits"]["hits"]]
-
-
-def _conversations(context: Context, thread_id: str, window_ids: list[str]) -> Conversations:
-    hits = context.search.search(
-        index=context.names.messages,
-        size=2000,
-        query={"bool": {"filter": [{"term": {"thread_id": thread_id}}, {"terms": {"window_id": window_ids}}]}},
-        sort=[{"position": "asc"}],
-    )["hits"]["hits"]
-    by_ref = {f"m{number}": (message_from_hit(hit), hit["_source"]["window_id"]) for number, hit in enumerate(hits, start=1)}
-    return Conversations(hits[0]["_source"]["thread_name"], thread_id, by_ref)

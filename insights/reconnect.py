@@ -1,20 +1,24 @@
 """Reconnect: something two people used to talk about all the time, which faded while they kept talking."""
 
-from dataclasses import dataclass
-from datetime import datetime, timedelta
+import logging
+from dataclasses import dataclass, replace
+from datetime import date, datetime, timedelta
 from typing import Literal
 
 from pydantic import BaseModel
 
-from insights.cards import Action, Card, Evidence, Kind
+from insights.cards import Action, Card, Evidence, Hook, Kind
 from insights.context import Context
 from insights.conversations import Conversations
 from insights.inbox import Message
 from insights.index import message_from_hit
-from insights.judge import judged
+from insights.judge import JudgeError, judged, searched
 from insights.parallel import concurrently
 
+logger = logging.getLogger(__name__)
+
 faded_for = timedelta(days=183)
+news_is_fresh_for = timedelta(days=120)
 least_messages = 10
 least_conversations = 3
 most_words = 25
@@ -35,14 +39,26 @@ judge_instructions = (
     "joke. It is false for classes, jobs, logistics, one person's own projects, and words that are just noise.\n\n"
     "strength, 1 to 5: 5 is a real shared activity they clearly loved and could start again tomorrow. 3 is a "
     "recurring bit or catchphrase with nothing to actually go and do. 1 is incidental. "
-    "evidence_refs are the three most vivid sample messages about the topic."
+    "is_public_interest is true only when the topic is a public thing with its own news: a game, a sports team, a "
+    "show, an artist, a publication. It is false for anything private to them or about a person's life, health, "
+    "work or relationships. evidence_refs are the three most vivid sample messages about the topic."
+)
+news_instructions = (
+    "Two friends used to talk about a topic and drifted from it. Search the web for notable, positive or neutral "
+    "news about the topic from the last three months that would make a natural reason for one to message the other "
+    "today. If nothing is clearly recent and notable, or the news is sad or controversial, set has_hook to false and "
+    "leave the other fields empty. text is one plain sentence. source is the publication's name. url is the page "
+    "the fact came from. date is when it happened, as YYYY-MM-DD. Report only what a search result actually says."
 )
 writer_instructions = (
     "Two friends used to share something and it quietly dropped out of their conversations while they kept "
     "talking. Write the text for a card addressed to the account owner as 'you'.\n\n"
     "title: like 'You and John used to talk about Minecraft all the time'. Use the friend's first name.\n"
-    "body: one short sentence on how long it has been, using the numbers given. Warm, not guilt-tripping.\n"
+    "body: one short sentence on how long it has been, using the numbers given. Warm, not guilt-tripping. If recent "
+    "news is given, add a second short sentence saying what just happened.\n"
     "draft: a message the owner could send now to bring it back, referring to a specific detail from the samples. "
+    "If recent news is given, open with it the way a friend would ('did you see...'), and state nothing about it "
+    "beyond what the news line says. "
     "Match how the owner texts in the samples (casing, punctuation, emoji habits, length). Never use em dashes."
 )
 
@@ -52,11 +68,20 @@ class Topic(BaseModel):
     words: list[str]
     is_shared_interest: bool
     strength: Literal[1, 2, 3, 4, 5]
+    is_public_interest: bool
     evidence_refs: list[str]
 
 
 class Topics(BaseModel):
     topics: list[Topic]
+
+
+class News(BaseModel):
+    has_hook: bool
+    text: str
+    source: str
+    url: str
+    date: str
 
 
 class Wording(BaseModel):
@@ -80,13 +105,16 @@ class Faded:
     strength: int
     mentions: int
     last_mentioned: datetime
+    is_public_interest: bool = False
+    hook: Hook | None = None
 
 
 def reconnect(context: Context) -> list[Card]:
     per_thread = concurrently(lambda thread: _faded_in(context, *thread), _threads(context))
     found = [topic for topics in per_thread for topic in topics]
     strongest_first = sorted(found, key=lambda topic: (topic.strength, topic.mentions), reverse=True)
-    return concurrently(lambda topic: _card(context, topic), capped(strongest_first))
+    with_news = concurrently(lambda topic: replace(topic, hook=_hook(context, topic)), capped(strongest_first))
+    return concurrently(lambda topic: _card(context, topic), with_news)
 
 
 def faded_words(words: list[Word]) -> list[str]:
@@ -96,6 +124,19 @@ def faded_words(words: list[Word]) -> list[str]:
 def shared_interests(topics: list[Topic], allowed_words: list[str]) -> list[tuple[Topic, list[str]]]:
     checked = [(topic, [word for word in topic.words if word in allowed_words]) for topic in topics]
     return [(topic, words) for topic, words in checked if topic.is_shared_interest and topic.strength >= least_strength and words]
+
+
+def usable(news: News, today: date) -> Hook | None:
+    """A hook is shown as fact with a link, so anything unverifiable or stale is dropped."""
+    if not news.has_hook or not news.text.strip() or not news.url.startswith(("https://", "http://")):
+        return None
+    try:
+        happened = date.fromisoformat(news.date)
+    except ValueError:
+        return None
+    if not today - news_is_fresh_for <= happened <= today:
+        return None
+    return Hook(news.text.strip(), news.source.strip(), news.url, news.date)
 
 
 def capped(topics: list[Faded]) -> list[Faded]:
@@ -164,7 +205,19 @@ def _faded(context: Context, topic: Topic, words: list[str], samples: Conversati
     evidence = [entry[0] for ref in topic.evidence_refs if (entry := samples.lookup(ref))]
     last_mentioned = datetime.fromisoformat(found["aggregations"]["last"]["value_as_string"])
     mentions = found["hits"]["total"]["value"]
-    return Faded(topic.name, samples, tuple(evidence[:evidence_messages]), topic.strength, mentions, last_mentioned)
+    return Faded(topic.name, samples, tuple(evidence[:evidence_messages]), topic.strength, mentions, last_mentioned, topic.is_public_interest)
+
+
+def _hook(context: Context, topic: Faded) -> Hook | None:
+    # Only the topic's name leaves for the search engine, never a message, and only for public topics.
+    if not topic.is_public_interest:
+        return None
+    material = f"Today is {context.now:%Y-%m-%d}. Topic: {topic.name}"
+    try:
+        return usable(searched(context.llm, context.judge_model, news_instructions, material, News), context.now.date())
+    except JudgeError as error:
+        logger.warning("no news hook for %s: %s", topic.name, error)
+        return None
 
 
 def _card(context: Context, topic: Faded) -> Card:
@@ -174,6 +227,8 @@ def _card(context: Context, topic: Faded) -> Card:
         f"It came up in {topic.mentions} messages and was last mentioned in {topic.last_mentioned:%B %Y}, {months} months ago.\n\n"
         f"Sample messages:\n{topic.samples.transcript()}"
     )
+    if topic.hook:
+        material += f"\n\nRecent news ({topic.hook.source}, {topic.hook.date}): {topic.hook.text}"
     wording = judged(context.llm, context.writer_model, writer_instructions, material, Wording)
     return Card(
         kind=Kind.reconnect,
@@ -185,4 +240,5 @@ def _card(context: Context, topic: Faded) -> Card:
         stats=(("Mentions", str(topic.mentions)), ("Last mentioned", f"{topic.last_mentioned:%b %Y}")),
         evidence=tuple(Evidence(message, topic.samples.friend, is_key=True) for message in topic.evidence),
         action=Action("Reconnect", wording.draft),
+        context=topic.hook,
     )

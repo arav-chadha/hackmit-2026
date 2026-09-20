@@ -1,0 +1,260 @@
+# Mei: freshman-year dorm neighbor, architecture major. Talked almost daily until she
+# transferred to Seattle in summer 2025. It faded without a fight. She still reaches out.
+thread: Mei Tanaka
+folder: meitanaka_17950517471278735
+speakers: Y=you, M=Mei Tanaka
+hours: 18-24
+rate: 2023-12-05..2025-05-31 3
+rate: 2025-06-01..2025-10-02 0.6
+
+== scene 2024-02-11 02:07 | memory_lane:fire-alarm
+M: ARE YOU OUTSIDE
+Y: yes. in slippers. in february
+M: i grabbed my laptop and one single shoe
+Y: ONE shoe
+M: i panicked ok
+M: i looked at both shoes and my brain said "pick"
+Y: 😭😭😭
+Y: who did this
+M: third floor. someone tried to make grilled cheese with an iron
+Y: with a CLOTHES iron??
+M*: they are standing outside holding the iron right now like evidence {💀}
+Y: i can see them omg
+Y: the RA is just staring at it
+M: nobody is speaking. the iron speaks for itself
+Y*: mei i'm going to remember the iron guy for the rest of my life
+M: we're bonded now. all 200 of us
+Y: it's 2am and i have a quiz at 9 and i'm not even mad
+M: come stand by me i have the blanket
+Y: omw. save me blanket
+M: blanket has been saved {❤}
+
+== scene 2024-05-03 19:12
+M: i finished the model!!!
+M: 47 hours of my life. it's a library. a tiny library
+Y: SEND A PIC
+M: it has a little reading nook. i cried gluing the nook
+Y: you're allowed to cry about a nook
+M: crit is at 9. if they say "interesting" i'm dropping out
+Y: they're going to love the nook
+-- 15h
+M: they loved the nook
+Y: THE NOOK {❤}
+
+== scene 2024-10-19 20:40 | control:soup-answered
+M*: wait did you ever find out what that soup was at the dining hall
+Y: not yet i'm scared to ask
+-- 1d
+Y: UPDATE it was "harvest medley"
+Y: that tells me nothing
+M: harvest of WHAT
+Y: they won't say
+
+== scene 2025-02-08 19:44 | unfinished_plans:pottery
+M: ok i walked past that ceramics studio on elm again
+M*: we should do that pottery class on elm st
+Y: omg yes i've always wanted to make a bad bowl
+M: a terrible bowl. a bowl that can't hold soup
+Y: a decorative failure
+M: i'll look at the schedule this week
+Y: bet
+
+== scene 2025-03-14 21:20 | unanswered:interview
+M: how was the rest of your week
+Y: exhausting lol. had the figma interview thursday, then two problem sets
+M: WAIT the interview was this week
+M*: wait how did the interview go??
+M: i've been thinking about it
+-- 11h
+Y: omg did you see what happened in studio today
+M: NO what happened
+Y: someone's laser cut piece caught fire. small fire. but a fire
+M: architecture students and fire. name a better duo
+Y: the iron guy walked so they could run
+M: 💀💀
+
+== scene 2025-04-21 16:02 | unfinished_plans:pottery
+Y: just saw a girl on the T carrying a mug she clearly made herself
+Y*: ok we actually need to do the pottery thing soon
+M: YES. after finals?
+Y: after finals. it's happening
+M: terrible bowl summer
+Y: terrible bowl summer {😂}
+
+== scene 2025-05-28 20:15
+M: so. i have news and i've been putting off telling you
+Y: ??
+M: i got into the uw transfer program. the architecture one
+M: i'm moving to seattle in august
+Y: MEI
+Y: that's huge omg. that's the one you wanted
+M: i know. i'm happy. i'm also kind of sad
+Y: both can be true
+Y: i'm so proud of you fr
+M: you're going to make me cry in the dining hall
+Y: over harvest medley? fitting
+
+== scene 2025-08-30 12:15 | unfinished_plans:pottery
+M: seattle update: there are four ceramics studios within walking distance of me
+M*: still thinking about that ceramics class lol. we never did it
+Y: terrible bowl summer came and went 😭
+M: terrible bowl summer was a lie
+Y: when you visit. i swear
+M: holding you to it
+
+== scene 2025-10-02 21:05
+M: first seattle crit tomorrow. scared
+Y: you've got this. nook energy
+M: nook energy 🫡
+Y: tell me how it goes!!
+-- 1d
+M: it went really well actually!! they want to put it in the fall show
+Y: omg!! {❤}
+
+== scene 2025-11-23 20:15
+M: hey! no pressure at all. just realised it's been a while and i hope you're doing ok
+
+== filler
+M: what did you eat today
+Y: a granola bar and spite
+M: that's not a meal
+Y: it's two meals if you believe
+M: please eat a vegetable
+Y: i had a pickle on thursday
+
+== filler
+Y: my professor just said "this will be quick" 40 minutes ago
+M: condolences
+Y: he's drawing a third diagram
+M: is it helping
+Y: it's making it worse. beautifully worse
+
+== filler
+M: studio is freezing again
+M: i'm wearing my coat indoors like a victorian child
+Y: do you need soup
+M: i always need soup
+Y: noted for the record
+
+== filler
+M: >reel POV: your friend says five minutes and you know it's forty #fyp #friends
+Y: this is about you
+M: i have never once been late
+Y: you were 50 minutes late to your own birthday
+M: fashionably
+
+== filler
+Y: >reel the way she just walked off 😭 #comedy #viral
+M: HELP
+M: the little turn at the end
+Y: i've watched it nine times
+
+== filler
+Y: how's the model going
+M: i've glued my thumb to a staircase twice
+Y: is the staircase ok
+M: the staircase is thriving. i'm in pieces
+
+== filler
+M: do you ever think about how we met because you were locked out in a towel
+Y: i think about it every day actually
+M: you said "is this the third floor" with such dignity
+Y: dignity was all i had
+
+== filler
+M: goodnight!! drink water
+Y: you too. sleep more than 4 hours
+M: no promises
+Y: i'll accept 5
+
+== filler
+Y: i just walked into a glass door in the cs building
+M: are you ok
+Y: physically yes
+Y: a tour group saw
+M: you're part of the tour now {😂}
+
+== filler
+M: is it normal to have a favorite brick
+Y: for you? yes
+M: it's the one by the library steps. it's a slightly different red
+Y: i'm going to look for it tomorrow
+M: you'll know it when you see it
+
+== filler
+Y: what are you listening to rn
+M: the same phoebe bridgers album for the ninth day
+Y: are you ok
+M: it's a productive sadness
+Y: valid honestly
+
+== filler
+M: my mom sent a care package and it's 80% seaweed snacks
+Y: your mom gets it
+M: she also sent a note that says "sleep"
+Y: tell her i agree with the note
+
+== filler
+Y: laundry room update: someone left a whole rotisserie chicken on a dryer
+M: cooked?
+Y: i didn't investigate
+M: that's the right call. never investigate the chicken
+
+== filler
+M: how did the problem set go
+Y: submitted at 11:58
+M: for a midnight deadline?
+Y: for a midnight deadline
+M: living on the edge of canvas
+
+== filler
+Y: it's snowing!!
+M: i KNOW i'm at the window like a golden retriever
+Y: first snow rule: you have to go outside for 60 seconds
+M: already have my shoes on. both this time
+
+== filler 2023-12..2025-05
+M: are you in the dorm? i'm making tea
+Y: yes please. the orange one
+M: coming down in 5
+Y: door's open
+
+== filler 2023-12..2025-05
+Y: dining hall report: they have the good fries tonight
+M: the curly ones??
+Y: THE CURLY ONES
+M: leaving studio immediately
+Y: i'll hold a table
+
+== filler 2023-12..2025-05
+M: someone in my studio section brought a hamster to crit
+Y: as part of the project?
+M: unclear. it was in the model
+Y: did the hamster get a good grade
+M: better than mine
+
+== filler 2023-12..2025-05
+Y: are you going to the floor meeting
+M: is there pizza
+Y: allegedly
+M: then allegedly i'll be there
+
+== filler 2025-06..2025-10
+M: it has rained for six days here
+Y: seattle is doing the thing everyone said it would do
+M: i bought a very serious raincoat
+Y: send a pic of the serious raincoat
+M: it has so many zippers
+
+== filler 2025-06..2025-10
+Y: how's the new studio
+M: big windows!! and nobody has brought a hamster yet
+Y: give it time
+M: i miss the hamster a little
+
+== filler 2025-06..2025-10
+M: three hour time difference is rude
+M: it's 6pm and you're basically asleep
+Y: i'm awake!! barely
+M: go to bed grandma
+Y: goodnight from the future

@@ -1,0 +1,454 @@
+# Priya: met in freshman writing seminar, biology / pre-med, a runner. Organized and warm.
+# She carries the friendship: starts most conversations, remembers everything. `you` is fond
+# of her but slow to reply and lets things drop. She still reaches out.
+thread: Priya Raman
+folder: priyaraman_17612094857102938
+speakers: Y=you, P=Priya Raman
+hours: 12-22
+rate: 2024-02-02..2026-09-10 2
+
+== scene 2024-02-09 15:40
+P: Hi! It's Priya from the writing seminar, the one who sits by the radiator. I found you on here. 🙂
+Y: omg hi
+Y: radiator priya
+P: I'll accept that title. I wanted to say your presentation today was really good. The vending machine part made Professor Halloran laugh, which I didn't know was possible.
+Y: i made that part up 4 min before class lol
+P: That somehow makes it more impressive.
+Y: how'd yours go, i had to run to lab right after
+P: Fine, I think! I talked too fast. I always talk too fast.
+Y: it's bc you know too many things
+P: That's a generous reading. Also, do you do the NYT Mini? You seem like you would.
+Y: every morning. badly
+P: Okay. Send me your time tomorrow. I'm curious.
+Y: this feels like a trap
+P: It's absolutely a trap. 🙂
+
+== scene 2024-03-18 13:05 | reconnect:crossword
+P: I need you to do today's Mini before I say anything.
+Y: i'm in lecture
+P: It takes you a minute. Well, it takes ME under a minute.
+Y: ok rude
+Y: doing it under the desk
+Y: 0:34
+P: No.
+Y: YES
+P*: You got 0:34 and I got 0:35. I have been staring at the wall for five minutes.
+Y: one second!!! ONE
+Y*: i'm putting 0:34 on my resume under awards
+P: I typed ALOE and then second-guessed it. ALOE. The most crossword word there is.
+Y: never doubt aloe
+P: The series is now 19-14, still in my favor, for the record.
+Y: you keep a record??
+P: Of course I keep a record. 🙂
+
+== scene 2024-05-06 20:30
+P: How are finals going? You have algorithms tomorrow, right?
+-- 3h
+Y: sorry just saw this
+Y: yes. 9am. i am one with the whiteboard
+P: Have you eaten dinner?
+Y: define dinner
+P: A meal. With a plate.
+Y: then no
+P: The late-night window in the student center does grilled cheese until 1. I'll still be in the library if you need someone to quiz you on anything that isn't computer science.
+Y: you're too nice to me fr
+Y: ok getting the grilled cheese
+-- 16h
+P: How did it go??
+Y: i think ok!! the dynamic programming question was the one i practiced
+P: I knew it. Go sleep for eleven hours. 🙂
+
+== scene 2024-10-08 12:45 | reconnect:crossword
+Y: ok who wrote today's mini
+Y: "kind of tide" and the answer is NEAP
+P: I knew NEAP. 🙂
+Y: of course you did
+P: 0:47. You?
+Y: 1:58
+Y: i sat there typing HIGH and then LOWW
+P: LOWW with two W's.
+Y: i was desperate
+P*: Eight months of doing this crossword every single day and you still haven't learned NEAP. I say this with love.
+Y: i'm a cs major i've never seen the ocean
+P: You live in Boston.
+Y: from a distance
+P: 131-98, by the way. I checked this morning.
+Y: the gap is closing
+P: It is not. 😅
+
+== scene 2025-01-22 16:15
+P: I have to tell you about the dog I met on my run this morning.
+P: His name is Biscuit. He is a corgi in a tiny reflective vest.
+P: I sent you the photo, but it doesn't capture it. He was running WITH his owner. Short legs, full commitment.
+-- 5h
+Y: BISCUIT
+Y: sorry was on a hackathon planning call for like 3 hours
+Y: the vest 😭
+P: The owner said he does two miles every morning. Biscuit is more consistent than half my running club.
+Y: biscuit is more consistent than me
+P: How was the call?
+Y: long. we argued about the team name for 40 min
+P: What did you land on?
+Y: "null pointers". i voted against it
+P: I think it's cute, for what it's worth.
+Y: betrayal
+
+== scene 2025-03-02 18:10 | both_wanted:climbing
+P: Long run done. Nine miles along the Charles, and my legs have filed a formal complaint.
+P: Afterwards I went to the gym to stretch, and there was a flyer for a beginner class on the board by the water fountain.
+P*: I really want to try rock climbing sometime
+P: Also, completely unrelated, the smoothie place next door is closing. The one with the peanut butter one you liked.
+Y: WAIT the smoothie place is closing??
+Y: that pb banana thing got me through sophomore fall
+P: End of March, according to the sign. I'm sorry to be the messenger.
+Y: devastated
+Y: also 9 miles is insane. i got winded on the stairs in the cs building today
+P: Those are steep stairs, to be fair.
+Y: you're being kind. it's one flight
+P: 😅 How's the hackathon project coming along?
+Y: it's duct tape and prayers but it demos
+
+== scene 2025-06-14 13:20
+Y: PRIYA
+Y: happy birthday!!!!
+Y: i know it was thursday. i'm the worst
+P: You're two days late, which for you is honestly early. 🙂 Thank you!
+Y: 💀 fair
+Y: what did you do
+P: My roommates made a lemon cake and we ate it on the roof. Then I ran a 5K the next morning and regretted the third slice.
+Y: a birthday 5k is psychotic behavior
+P: It's tradition! How is San Francisco? How is Figma?
+Y: really good ngl. shipped a tiny thing in week 2 and nobody yelled
+Y: also it's 58 degrees in june, what is this city
+P: I'm proud of you. Buy a jacket.
+Y: already bought the tourist fleece
+
+== scene 2025-09-14 17:00 | control:answered-next-day
+P: Welcome back to Boston! I saw your story from the airport.
+P: I have a real question for you, since you're the only computer person I trust.
+P*: My lab wants me to learn Python for our data analysis this semester. Is that realistic to pick up in a few weeks, or am I going to embarrass myself?
+Y: omg hi yes i'm back
+Y: hold on carrying boxes up 4 floors, elevator's broken
+-- 1d
+Y: ok sorry. real answer
+Y: yes very realistic. for lab data you need pandas and like 6 functions
+Y: you memorized the krebs cycle, you can handle a for loop
+P: That's reassuring. Where should I start?
+Y: the intro notebook from the workshop i ran last spring. it's 2 hours tops
+Y: sent
+P: Got it, thank you! This is already less scary than I thought.
+Y: text me when it yells at you about indentation. it will
+
+== scene 2025-11-02 19:20 | control:marathon
+P: I watched the New York marathon stream this morning and cried twice before 10 AM.
+Y: at running??
+P: At the finish line! People see their families and just fall apart. It gets me every year.
+P*: I want to run the Boston Marathon someday. Actually run it, with a bib, not just watch from Heartbreak Hill.
+Y: you 100% will
+Y: you've never skipped a 6am run in your life
+P: You have to qualify, which is the scary part. I'd need to take about twenty minutes off my best time.
+Y: so you will. that's a spreadsheet problem and you love those
+Y: to be clear i'll be there with a sign and a folding chair
+Y: i will not be running. ever. not even to the sign
+P: 😅 I would never ask that of you.
+Y: the sign will be really good tho
+P: I'm holding you to a pun.
+Y: "run like your gel is about to finish"
+P: That's actually perfect. {❤}
+
+== scene 2026-01-10 14:00
+P: Thirteen days until the MCAT. I did a practice test this morning and dropped two points in chem/phys. I'm trying to be normal about it.
+-- 4h
+Y: sorry was asleep, hackathon ended at 7am
+Y: two points is noise priya
+P: It doesn't feel like noise. It feels like a sign.
+Y: what were the last 4 practice scores
+P: 515, 517, 518, 516.
+Y: that is a person who is ready
+Y: you're allowed one weird saturday
+P: I made a spreadsheet of every question I missed, sorted by topic.
+Y: of course you did
+Y: what's the top topic
+P: Optics. It's always optics. Lenses are my enemy.
+Y: ok so tomorrow is lenses, then you go for a run and close the spreadsheet
+P: That's... a reasonable plan, actually. Thank you. 🙂
+Y: you've got this fr
+
+== scene 2026-02-24 17:45
+P: Scores came out today.
+P: 519!!
+Y: PRIYA
+Y: 519????
+Y: those are doctor numbers
+P: I screamed in the hallway of the bio building. A postdoc came out to check on me.
+Y: as they should. historic event
+P: Thank you for talking me down in January. I know you'd been up all night and you still did it.
+Y: i said like 4 sentences
+P: They were the right four sentences. How are things with you? Any news on the summer front?
+Y: ugh. two offers now and they're really different
+Y: i have until april and i change my mind every 6 hours
+P: That's a good problem, but I can tell it's stressing you out. You'll figure it out.
+Y: tonight is about 519. go celebrate
+P: Already on my way to get dumplings. 🙂
+
+== scene 2026-04-07 13:30 | unanswered:summer-offer
+P: Happy Tuesday! I walked past the CS building and thought of you. There's a sign on the door that says "PLEASE stop propping this open" in increasingly large fonts.
+P*: Did you ever decide about the summer offer? You seemed really torn
+P: No pressure if you're still thinking. I just remembered the deadline was around now.
+-- 9h
+Y: PRIYA the door sign has a sequel
+Y: someone taped a smaller sign under it that just says "no"
+P: Just "no"?
+Y: just "no". 12pt font. devastating
+P: I respect the restraint.
+Y: it's the best thing in that building and we have a robot
+P: What does the robot do?
+Y: mostly falls over
+P: 😅 I hope it's having a better week than the door.
+
+== scene 2026-09-06 15:10
+P: Hi! First week of senior year. How is that possible?
+P: I ran past the radiator building this morning (I still call it that) and thought of freshman seminar.
+-- 2d
+Y: radiator priya!!
+Y: sorry. this week ate me
+P: I figured. 🙂 How was your summer?
+Y: good. busy. i slept like 9 hours total
+P: Please sleep. My med school applications are in, by the way. All nineteen of them.
+Y: NINETEEN
+Y: omg. you're getting in everywhere
+P: We'll see. Secondaries nearly finished me. Anyway, I just wanted to say hi before the semester gets away from us.
+Y: i'm glad you did fr
+P: I always do. 🙂
+
+== filler 2024-02..2024-11
+P: 0:41 today. I'd like that noted.
+Y: 1:12
+Y: i blame 4 down
+P: 4 down was OREO. It is always OREO.
+Y: i put CAKE with total confidence
+P: Four letters, zero shame.
+
+== filler 2024-02..2024-11
+Y: 0:38
+Y: read it and weep
+P: I did the Mini on the T with one glove on. That deserves an asterisk.
+Y: no asterisks in this league
+P: Fine. 0:52. I'm filing a complaint with the commissioner.
+Y: i am the commissioner
+P: Then it's a corrupt league.
+
+== filler 2024-02..2024-11
+P: "Eel-like." That was the clue. Eel-like.
+Y: i stared at it for 40 seconds
+P: The answer was EELY. EELY is not a word a person has ever said.
+Y: i say it now. out of spite
+P: 1:21 for me. My worst crossword time this month.
+Y: 1:50. we both lost to the eel
+
+== filler 2024-02..2024-11
+P: Day 61 of my Mini streak. 🙂
+Y: i lost mine in march and i'm still not over it
+P: You forgot during a hackathon.
+Y: i was building an app that reminds you to do things
+P: The irony carried you to a 1:40 the next day.
+
+== filler 2024-02..2024-11
+P: Did you do today's crossword yet?
+Y: doing it rn don't say anything
+Y: ok 0:55
+P: 0:49. 🙂
+Y: the smiley is violence
+
+== filler 2024-02..2024-11
+Y: i got 0:29 on the mini
+P: Screenshot or it didn't happen.
+Y: sent
+P: ...That is real. I need to sit down.
+Y: framing it
+
+== filler 2024-02..2024-11
+P: I did the Mini in lab while my gel was running. 0:44.
+Y: is that allowed
+P: The gel takes 40 minutes. The crossword takes 44 seconds. Yes.
+Y: 1:03 for me, i was in line for a burrito
+P: The burrito line is not an excuse the league recognizes.
+
+== filler 2024-02..2024-11
+P: Saturday Minis are bigger and I resent it.
+Y: 2:10 today 💀
+P: 1:34. Still counts as a win. I've updated the spreadsheet.
+Y: THERE'S A SPREADSHEET
+P: There has always been a spreadsheet.
+
+== filler 2025-06..2025-08
+P: What time is it there? I can never do the math.
+Y: 2pm. you're 3 ahead
+P: So I've run, showered and done four hours of lab, and you just had lunch.
+Y: i had a free burrito. tech is crazy
+
+== filler 2025-06..2025-08
+Y: they have a snack wall here. a WALL
+P: What's on the wall?
+Y: 9 kinds of seaweed and a kombucha tap
+P: Please also eat a vegetable that isn't seaweed.
+Y: seaweed is a sea vegetable
+P: I walked into that one.
+
+== filler
+P: Did you eat lunch today? An actual lunch.
+Y: i had a cold brew and a cheez-it
+P: One Cheez-It?
+Y: it was a big one
+P: That's not how Cheez-Its work. Please get a sandwich.
+Y: getting a sandwich 🫡
+
+== filler
+P: Ran 6 miles along the Charles this morning and a goose hissed at me the entire length of the Mass Ave bridge.
+Y: the geese own that bridge
+P: I apologized to it. Out loud.
+Y: did it accept
+P: It did not.
+
+== filler
+P: How did the demo go?
+-- 5h
+Y: omg sorry just seeing this
+Y: good!! it only crashed once and i said it was a feature
+P: Did they believe you?
+Y: one judge nodded
+P: I'll take a nod. Congratulations. 🙂
+
+== filler
+Y: my code has been compiling for 11 min
+P: Is that normal?
+Y: no
+P: Should I be worried for you?
+Y: a little
+P: Noted. I'm worried a moderate amount.
+
+== filler
+P: My PI said "quick question" and then talked for fifty minutes.
+Y: lol what was the question
+P: Whether I'd labeled the freezer boxes. I had.
+Y: of course you had
+P: In two colors. 😅
+
+== filler
+P: >reel Golden retriever refuses to leave the lake, owner has given up #dogs #fyp
+Y: he's right tho
+P: He's been in there since the video started. He lives there now.
+Y: good for him honestly
+
+== filler
+Y: >reel when the intern pushes to prod on a friday 💀 #coding #tech
+P: I don't know what prod is, but the man's face told me everything.
+Y: it's the place you don't push to on a friday
+P: Then I'm very sorry for him.
+
+== filler
+P: >reel Runner stops mid-race to pet a dog, still gets a personal best #running #dogs
+Y: this is you
+P: I would absolutely stop. I would not get the personal best.
+Y: worth it
+P: Completely. {😂}
+
+== filler
+P: It's 19 degrees and I ran anyway. My eyelashes froze.
+Y: why
+P: Because the schedule said 5 miles.
+Y: the schedule can't see you
+P: The schedule always knows.
+
+== filler
+P: Good luck on your exam today! You know more than you think you do.
+Y: thank you 😭 i needed that
+Y: currently know 3 things
+P: Three is plenty. Write them down confidently.
+
+== filler
+Y: i just slept through my 10am
+P: Oh no. Was it the one with attendance?
+Y: no thank god. the other one
+P: Then consider it a rest day. Athletes take them.
+Y: i'm an athlete of sitting
+
+== filler
+P: I color-coded my whole week and it looks beautiful and I'm already behind on it.
+Y: what color is "behind"
+P: Orange. There's a lot of orange.
+Y: orange is a nice color at least
+P: That's the spirit I'm going with.
+
+== filler
+P: Just checking in. You've been quiet! Everything okay?
+Y: yes sorry!! just buried
+Y: three deadlines this week
+P: No need to apologize. Drink some water and go. 🙂
+Y: drinking water as we speak
+
+== filler
+P: The dining hall has the lentil soup today. The good one.
+Y: the one with the lemon??
+P: The one with the lemon.
+Y: running there
+P: I've never seen you run. This must be serious.
+
+== filler
+Y: what's the thing called where the cell eats itself
+P: Autophagy. Why?
+Y: it came up in a podcast and i thought of you
+P: That's the nicest way anyone has ever brought up autophagy to me.
+
+== filler
+P: I fell asleep on my flashcards and woke up with "mitochondria" printed backwards on my cheek.
+Y: PLEASE
+Y: powerhouse of the face
+P: I walked to the bathroom like that. Two people saw.
+Y: they learned something {😂}
+
+== filler
+P: How's the team for this weekend's hackathon?
+Y: two people i know and one guy who only speaks in rust
+P: The programming language or actual rust?
+Y: the language. he's very intense
+P: Bring snacks. It softens people.
+
+== filler
+Y: it's raining sideways
+P: I know, I got caught in it on my cooldown. My shoes are by the radiator stuffed with newspaper.
+Y: where do you even get newspaper
+P: The free one by the T. It's the only thing I use it for. 😅
+
+== filler
+P: A man on the Green Line was carrying a full-size ficus and he gave it its own seat.
+Y: did the ficus pay
+P: It did not tap in.
+Y: fare evasion 💀
+P: It got off at Copley. With dignity.
+
+== filler
+P: Goodnight! Don't stay up until 4 again.
+Y: no promises
+Y: ok 2
+P: I'll accept 2. Reluctantly.
+
+== filler
+Y: my laptop fan sounds like a plane
+P: Is it supposed to do that?
+Y: it's rendering something. it's fine. probably
+P: "Probably" is doing a lot of work in that sentence.
+Y: it always is
+
+== filler
+P: My mom asked how "the computer friend" is doing.
+Y: lol i'm the computer friend??
+P: You fixed her printer over FaceTime once. You're a legend in my house.
+Y: it was unplugged
+P: She doesn't need to know that.
+
+== filler
+P: New 5K best this morning! 22:41.
+Y: PRIYA that's so fast
+P: I almost threw up at the finish, but in a triumphant way.
+Y: the best way

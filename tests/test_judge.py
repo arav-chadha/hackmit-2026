@@ -3,7 +3,7 @@ from types import SimpleNamespace
 import pytest
 from pydantic import BaseModel
 
-from insights.judge import JudgeError, judged
+from insights.judge import JudgeError, judged, searched
 
 
 class Verdict(BaseModel):
@@ -39,7 +39,15 @@ def test_sends_instructions_as_system_and_material_as_the_user_turn():
     assert request["messages"] == [{"role": "user", "content": "Question and reply"}]
 
 
-@pytest.mark.parametrize("stop_reason", ["refusal", "max_tokens"])
+def test_searching_gives_the_model_the_web_search_tool_and_judging_does_not():
+    client = client_returning(Verdict(is_answered=True))
+    judged(client, "claude-haiku-4-5", "Decide.", "Topic", Verdict)
+    assert "tools" not in client.messages.request
+    searched(client, "claude-haiku-4-5", "Decide.", "Topic", Verdict)
+    assert [tool["name"] for tool in client.messages.request["tools"]] == ["web_search"]
+
+
+@pytest.mark.parametrize("stop_reason", ["refusal", "max_tokens", "pause_turn"])
 def test_a_response_without_a_verdict_is_an_error_naming_why(stop_reason):
     client = client_returning(None, stop_reason)
     with pytest.raises(JudgeError, match=stop_reason):

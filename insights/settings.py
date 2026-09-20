@@ -28,5 +28,5 @@ class Settings:
             elastic_api_key=env["ELASTIC_API_KEY"].strip(),
             owner=env.get("OWNER_NAME", "you"),
             index_prefix=env.get("ELASTIC_INDEX_PREFIX", ""),
-            inference_id=env.get("ELASTIC_INFERENCE_ID", ".elser-2-elasticsearch"),
+            inference_id=env.get("ELASTIC_INFERENCE_ID", ".elser-2-elastic"),
         )

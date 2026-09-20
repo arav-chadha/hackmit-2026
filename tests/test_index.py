@@ -45,7 +45,7 @@ def test_window_document_holds_the_conversation_for_both_kinds_of_search():
 
 
 def test_every_indexed_field_is_declared_in_the_mappings():
-    declared = mappings(inference_id=".elser-2-elasticsearch")
+    declared = mappings(inference_id=".elser-2-elastic")
     by_index = {NAMES.messages: declared["messages"], NAMES.windows: declared["windows"]}
     for action in actions():
         assert action["_source"].keys() == by_index[action["_index"]]["properties"].keys()

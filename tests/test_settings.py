@@ -8,7 +8,7 @@ REQUIRED = {"ELASTIC_URL": "https://example.es.io", "ELASTIC_API_KEY": "secret"}
 def test_defaults_apply_when_only_credentials_are_given():
     settings = Settings.from_env(REQUIRED)
     assert (settings.owner, settings.index_prefix) == ("you", "")
-    assert settings.inference_id == ".elser-2-elasticsearch"
+    assert settings.inference_id == ".elser-2-elastic"
 
 
 def test_optional_values_override_defaults():

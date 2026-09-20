@@ -1,2 +1,5 @@
+anthropic
 beautifulsoup4
+elasticsearch
 pytest
+python-dotenv

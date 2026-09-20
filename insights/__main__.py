@@ -21,12 +21,13 @@ from insights.inbox import InboxError, read_inbox
 from insights.index import IndexNames, ingest, recreate_indexes
 from insights.judge import JudgeError
 from insights.memory_lane import memory_lane
+from insights.reconnect import reconnect
 from insights.settings import Settings, SettingsError
 from insights.unanswered import unanswered
 from insights.unfinished_plans import unfinished_plans
 from insights.your_people import your_people
 
-insights = {f.__name__: f for f in (your_people, unanswered, unfinished_plans, both_wanted, memory_lane)}
+insights = {f.__name__: f for f in (your_people, unanswered, unfinished_plans, both_wanted, memory_lane, reconnect)}
 
 
 def main() -> int:

@@ -16,7 +16,9 @@ def score(cards: list[dict], planted: list[dict]) -> list[tuple[str, str]]:
 
 def unplanted(cards: list[dict], planted: list[dict]) -> list[dict]:
     real = [moment for moment in planted if moment["kind"] != "control"]
-    return [card for card in cards if card["evidence"] and not any(_shows(card, moment) for moment in real)]
+    # Recaps deliberately reuse another card's evidence, so they are never stray findings.
+    findings = [card for card in cards if card["evidence"] and card["kind"] != "recap"]
+    return [card for card in findings if not any(_shows(card, moment) for moment in real)]
 
 
 def _outcome(moment: dict, cards: list[dict]) -> str:

@@ -31,6 +31,17 @@ def test_messages_come_out_oldest_first():
     assert [m.text for m in thread.messages] == ["first", "second"]
 
 
+def test_messages_in_the_same_minute_keep_conversation_order():
+    html = page(
+        "Mei Tanaka",
+        block("you", "third", "Sep 24, 2025 10:44 pm"),
+        block("Mei Tanaka", "second", "Sep 24, 2025 10:44 pm"),
+        block("you", "first", "Sep 24, 2025 10:44 pm"),
+    )
+    thread = parse_thread("mei_1", [html])
+    assert [m.text for m in thread.messages] == ["first", "second", "third"]
+
+
 def test_timestamp_is_parsed_including_noon_and_midnight():
     html = page(
         "Mei Tanaka",

@@ -73,6 +73,9 @@ def parse_thread(thread_id: str, pages: Iterable[str]) -> Thread:
         if soup.h1:
             name = soup.h1.get_text(strip=True)
         rows.extend(_rows(soup, thread_id))
+    # The export is newest first with minute-precision stamps. Flipping before the stable sort
+    # keeps messages sent within the same minute in the order they were said.
+    rows.reverse()
     rows.sort(key=lambda row: row[0])
     messages = tuple(_messages(thread_id, rows))
     participants = tuple(dict.fromkeys(m.sender for m in messages))

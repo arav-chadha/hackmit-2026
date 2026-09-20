@@ -17,6 +17,8 @@ class Settings:
     owner: str
     index_prefix: str
     inference_id: str
+    judge_model: str
+    writer_model: str
 
     @classmethod
     def from_env(cls, env: Mapping[str, str]) -> "Settings":
@@ -29,4 +31,6 @@ class Settings:
             owner=env.get("OWNER_NAME", "you"),
             index_prefix=env.get("ELASTIC_INDEX_PREFIX", ""),
             inference_id=env.get("ELASTIC_INFERENCE_ID", ".elser-2-elastic"),
+            judge_model=env.get("JUDGE_MODEL", "claude-haiku-4-5"),
+            writer_model=env.get("WRITER_MODEL", "claude-opus-5"),
         )

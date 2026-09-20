@@ -9,6 +9,7 @@ def test_defaults_apply_when_only_credentials_are_given():
     settings = Settings.from_env(REQUIRED)
     assert (settings.owner, settings.index_prefix) == ("you", "")
     assert settings.inference_id == ".elser-2-elastic"
+    assert (settings.judge_model, settings.writer_model) == ("claude-haiku-4-5", "claude-opus-5")
 
 
 def test_optional_values_override_defaults():

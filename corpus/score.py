@@ -13,12 +13,7 @@ from corpus.build import output_dir
 def score(cards: list[dict], planted: list[dict]) -> list[tuple[str, str]]:
     key_texts = {(card["kind"], item["text"]) for card in cards for item in card["evidence"] if item["isKey"]}
     flagged_texts = {text for _, text in key_texts}
-    built_kinds = {card["kind"] for card in cards}
-    return [(moment["label"], _outcome(moment, key_texts, flagged_texts)) for moment in planted if _is_scorable(moment, built_kinds)]
-
-
-def _is_scorable(moment: dict, built_kinds: set[str]) -> bool:
-    return moment["kind"] == "control" or moment["kind"] in built_kinds
+    return [(moment["label"], _outcome(moment, key_texts, flagged_texts)) for moment in planted]
 
 
 def _outcome(moment: dict, key_texts: set[tuple[str, str]], flagged_texts: set[str]) -> str:

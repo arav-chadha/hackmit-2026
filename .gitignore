@@ -12,3 +12,6 @@ __pycache__/
 
 # Mockup screenshots (regenerable)
 /mockups/shots/
+
+# Leftover build output from an earlier frontend experiment
+/web/

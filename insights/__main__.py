@@ -1,35 +1,24 @@
 """Command line.
 
-python -m insights ingest <inbox folder>    parse an Instagram inbox and index it
+python -m insights ingest <inbox folder>                  parse an Instagram inbox and index it
 python -m insights cards [--out FILE] [--only INSIGHT]    run the insights and write the cards file
+python -m insights serve [--port 8000]                    serve the cards to the dashboard
 """
 
 import argparse
 import os
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
-import anthropic
+import uvicorn
 from dotenv import load_dotenv
-from elasticsearch import Elasticsearch
 
-from insights.both_wanted import both_wanted
 from insights.cards import write_cards
-from insights.context import Context
 from insights.inbox import InboxError, read_inbox
 from insights.index import IndexNames, ingest, recreate_indexes
 from insights.judge import JudgeError
-from insights.memory_lane import memory_lane
-from insights.parallel import concurrently
-from insights.recap import recap
-from insights.reconnect import reconnect
+from insights.pipeline import context_from_env, insights, run, search_client
 from insights.settings import Settings, SettingsError
-from insights.unanswered import unanswered
-from insights.unfinished_plans import unfinished_plans
-from insights.your_people import your_people
-
-insights = {f.__name__: f for f in (your_people, unanswered, unfinished_plans, both_wanted, memory_lane, reconnect)}
 
 
 def main() -> int:
@@ -39,13 +28,14 @@ def main() -> int:
     cards_command = commands.add_parser("cards")
     cards_command.add_argument("--out", type=Path, default=Path("cards.json"))
     cards_command.add_argument("--only", choices=sorted(insights), help="run a single insight")
+    commands.add_parser("serve").add_argument("--port", type=int, default=8000)
     arguments = parser.parse_args()
 
     load_dotenv(Path.cwd() / ".env")
     try:
         settings = Settings.from_env(os.environ)
-        run = {"ingest": _ingest, "cards": _cards}[arguments.command]
-        print(run(settings, arguments))
+        command = {"ingest": _ingest, "cards": _cards, "serve": _serve}[arguments.command]
+        print(command(settings, arguments))
     except (SettingsError, InboxError, JudgeError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 1
@@ -54,7 +44,7 @@ def main() -> int:
 
 def _ingest(settings: Settings, arguments: argparse.Namespace) -> str:
     threads = read_inbox(arguments.inbox)
-    client = _search_client(settings)
+    client = search_client(settings)
     names = IndexNames(settings.index_prefix)
     recreate_indexes(client, names, settings.inference_id)
     indexed = ingest(client, threads, settings.owner, names)
@@ -62,26 +52,14 @@ def _ingest(settings: Settings, arguments: argparse.Namespace) -> str:
 
 
 def _cards(settings: Settings, arguments: argparse.Namespace) -> str:
-    context = Context(
-        search=_search_client(settings),
-        names=IndexNames(settings.index_prefix),
-        llm=anthropic.Anthropic(max_retries=6),
-        judge_model=settings.judge_model,
-        writer_model=settings.writer_model,
-        owner=settings.owner,
-        now=datetime.now(timezone.utc),
-    )
-    chosen = [insights[arguments.only]] if arguments.only else list(insights.values())
-    per_insight = concurrently(lambda insight: insight(context), chosen, workers=len(chosen))
-    cards = [card for cards in per_insight for card in cards]
-    if not arguments.only:
-        cards += recap(context, cards)
+    cards = run(context_from_env(), arguments.only)
     write_cards(cards, settings.owner, arguments.out)
     return f"wrote {len(cards)} cards to {arguments.out}"
 
 
-def _search_client(settings: Settings) -> Elasticsearch:
-    return Elasticsearch(settings.elastic_url, api_key=settings.elastic_api_key, request_timeout=60)
+def _serve(settings: Settings, arguments: argparse.Namespace) -> str:
+    uvicorn.run("insights.server:app", port=arguments.port)
+    return "server stopped"
 
 
 if __name__ == "__main__":

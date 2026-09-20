@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from insights.cards import Action, Card, Evidence, Kind, document, write_cards
-from insights.inbox import Message, Thread
+from insights.inbox import Message
 
 CONTRACT = json.loads((Path(__file__).parent.parent / "contract" / "cards.example.json").read_text())
 NOW = datetime(2026, 9, 20, 2, 30, tzinfo=timezone.utc)
@@ -11,13 +11,13 @@ ASKED = datetime(2025, 3, 14, 21, 32, tzinfo=timezone.utc)
 
 question = Message("m1", "mei_1", "Mei Tanaka", ASKED, "wait how did the interview go??")
 deflection = Message("m2", "mei_1", "you", ASKED + timedelta(hours=11), "omg did you see what happened in studio today")
-mei = Thread("mei_1", "Mei Tanaka", ("Mei Tanaka", "you"), (question, deflection))
 
 
 def unanswered(*evidence: Evidence) -> Card:
     return Card(
         kind=Kind.unanswered,
-        thread=mei,
+        thread_id="mei_1",
+        friend="Mei Tanaka",
         title="Mei asked how your interview went",
         body="You kept talking afterward, but you never told her.",
         score=0.91,
@@ -56,7 +56,7 @@ def test_evidence_is_written_oldest_first_with_owner_flag():
 
 
 def test_a_bare_card_uses_null_and_empty_lists():
-    bare = Card(kind=Kind.your_people, thread=mei, title="Mei Tanaka", body="Quiet lately.", score=0.5, rank=3)
+    bare = Card(kind=Kind.your_people, thread_id="mei_1", friend="Mei Tanaka", title="Mei Tanaka", body="Quiet lately.", score=0.5, rank=3)
     card = document([bare], owner="you", generated_at=NOW)["cards"][0]
     assert (card["stats"], card["evidence"], card["action"], card["rank"]) == ([], [], None, 3)
 

@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from enum import StrEnum
 from pathlib import Path
 
-from insights.inbox import Message, Thread
+from insights.inbox import Message
 
 
 class Kind(StrEnum):
@@ -37,7 +37,8 @@ class Action:
 @dataclass(frozen=True)
 class Card:
     kind: Kind
-    thread: Thread
+    thread_id: str
+    friend: str
     title: str
     body: str
     score: float
@@ -67,7 +68,7 @@ def _card(card: Card, owner: str) -> dict:
         "kind": card.kind.value,
         "score": round(card.score, 2),
         "rank": card.rank,
-        "friend": {"name": card.thread.name, "threadId": card.thread.id},
+        "friend": {"name": card.friend, "threadId": card.thread_id},
         "title": card.title,
         "body": card.body,
         "stats": [{"label": label, "value": value} for label, value in card.stats],
@@ -92,7 +93,7 @@ def _evidence(item: Evidence, owner: str) -> dict:
 def _card_id(card: Card, evidence: list[Evidence]) -> str:
     # Built from what the card is about, never from wording or time of generation,
     # so the frontend's dismissed/seen state survives a rerun.
-    parts = [card.kind.value, card.thread.id, *(item.message.id for item in evidence)]
+    parts = [card.kind.value, card.thread_id, *(item.message.id for item in evidence)]
     return hashlib.sha1("|".join(parts).encode()).hexdigest()[:8]
 
 

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Insta Insights thumbnail</title>
+<style>
+  :root { --brand: linear-gradient(90deg, #FCAF45, #F56040, #E1306C, #C13584, #833AB4); }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1500px; height: 1000px; overflow: hidden; background: #000; }
+  body { position: relative; display: grid; place-items: center; color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif; }
+
+  .glow { position: absolute; border-radius: 50%; filter: blur(130px); }
+  .glow.one { width: 820px; height: 820px; right: -220px; bottom: -320px; background: #C13584; opacity: 0.6; }
+  .glow.two { width: 680px; height: 680px; left: -260px; top: -280px; background: #405DE6; opacity: 0.45; }
+  .glow.three { width: 480px; height: 480px; right: 300px; top: -260px; background: #F56040; opacity: 0.32; }
+
+  .bars { position: absolute; left: 64px; right: 64px; top: 52px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
+  .bars i { height: 7px; border-radius: 7px; background: #333; }
+  .bars i.done { background: linear-gradient(90deg, #FCAF45, #F77737); }
+  .bars i.now { background: linear-gradient(90deg, #FCAF45, #E1306C); }
+
+  h1 { position: relative; text-align: center; font-weight: 800; font-size: 250px; line-height: 0.98; letter-spacing: -0.045em; }
+  h1 em { display: block; font-style: normal; padding-bottom: 28px;
+    background: var(--brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+</style>
+</head>
+<body>
+  <div class="glow one"></div><div class="glow two"></div><div class="glow three"></div>
+  <div class="bars"><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i><i></i><i></i><i></i></div>
+  <h1>Insta<em>Insights</em></h1>
+</body>
+</html>

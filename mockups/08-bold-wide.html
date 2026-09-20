@@ -54,11 +54,11 @@ button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid va
 .brand b{font:400 14px/1 var(--display);letter-spacing:.1em;background:var(--pop);color:var(--pop-ink);border:2.5px solid var(--ink);padding-inline:10px;--mt:4px;--mb:4px}
 
 #pages{min-height:0}
-.page{display:none;height:100%;min-height:0;grid-template-columns:minmax(300px,29%) minmax(0,1fr)}
+.page{display:none;height:100%;min-height:0;grid-template-columns:clamp(280px,min(26.5vw,48vh),440px) minmax(0,1fr)}
 .page.on{display:grid}
 .page.measuring,.page.measuring *,.page.still,.page.still *{animation:none!important}
 
-.poster{display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:0;padding:1.2vh 6px 22px 34px}
+.poster{display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:0;padding:1.2vh 6px 20px 32px}
 .no{display:flex;align-items:baseline;gap:10px;font:400 clamp(44px,9vh,80px)/1.05 var(--display);color:transparent;-webkit-text-stroke:2.5px var(--fg)}
 .no small{font:800 12px/1 var(--text);letter-spacing:.16em;color:var(--fg);-webkit-text-stroke:0}
 .headline{font:400 clamp(38px,8.2vh,72px)/1.04 var(--display);text-transform:uppercase;letter-spacing:.005em}
@@ -75,7 +75,7 @@ button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid va
 .page.on .rise{animation:rise .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*70ms + 120ms)}
 .page.on .hero{animation:pop .55s cubic-bezier(.2,1.4,.4,1) both;animation-delay:150ms}
 
-.cards{--s:calc(var(--k,1)*var(--fit,1));display:flex;align-items:flex-start;gap:calc(14px + .5vw);height:100%;min-width:0;min-height:0;padding:14px 44px 28px 14px}
+.cards{--s:calc(var(--k,1)*var(--fit,1));display:flex;align-items:flex-start;gap:calc(14px + .5vw);height:100%;min-width:0;min-height:0;padding:10px 42px 22px 12px}
 .card{--s:calc(var(--k,1)*var(--fit,1)*var(--boost,1));flex:var(--w,1) 1 0;min-width:0;max-height:100%;display:flex;flex-direction:column;overflow:hidden;background:var(--paper);color:var(--ink);border:3.5px solid var(--ink);border-radius:calc(20px*var(--s));box-shadow:8px 8px 0 var(--edge)}
 .card:nth-child(odd){rotate:-.5deg}
 .card:nth-child(even){rotate:.45deg;margin-top:14px;max-height:calc(100% - 14px)}
@@ -91,7 +91,7 @@ button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid va
 .title{font:400 calc(27px*var(--s))/1.08 var(--display);text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
 .text{margin-top:calc(8px*var(--s));font-size:calc(14.5px*var(--s));line-height:1.42}
 .stats{display:flex;flex-wrap:wrap;gap:calc(6px*var(--s));margin-top:calc(11px*var(--s))}
-.stat{flex:1 1 40%;border:2.5px solid var(--ink);border-radius:calc(12px*var(--s));padding:calc(6px*var(--s)) calc(10px*var(--s)) calc(5px*var(--s));background:#fff}
+.stat{flex:1 1 var(--basis,40%);border:2.5px solid var(--ink);border-radius:calc(12px*var(--s));padding:calc(6px*var(--s)) calc(10px*var(--s)) calc(5px*var(--s));background:#fff}
 .stat:first-child{background:var(--pop);color:var(--pop-ink)}
 .stat b{display:block;font:400 calc(17px*var(--s))/1.15 var(--display);text-transform:uppercase;letter-spacing:.01em}
 .stat span{display:block;margin-top:0;font:800 max(9.5px,calc(9.5px*var(--s)))/1.2 var(--text);letter-spacing:.09em;text-transform:uppercase}
@@ -107,7 +107,7 @@ button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid va
 .thread-h{display:flex;align-items:center;justify-content:space-between;gap:8px;font:800 max(10px,calc(10.5px*var(--s)))/1 var(--text);letter-spacing:.14em;text-transform:uppercase}
 .more-btn{border:2.5px solid var(--ink);border-radius:999px;background:var(--marker);color:var(--ink);box-shadow:2.5px 2.5px 0 var(--ink);font:800 max(10px,calc(10px*var(--s)))/1 var(--text);letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;cursor:pointer}
 .sep{align-self:center;margin:calc(5px*var(--s)) 0 2px;background:var(--ink);color:#fff;font:700 max(9.5px,calc(10px*var(--s)))/1 var(--text);letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
-.gap{align-self:center;font:800 calc(15px*var(--s))/.6 var(--text);letter-spacing:.2em;opacity:.55}
+.gap{align-self:center;font:800 calc(13px*var(--s))/1.25 var(--text);letter-spacing:.25em;margin-block:calc(-4px*var(--s));opacity:.6}
 .msg{display:flex;align-items:flex-end;gap:6px;max-width:92%}
 .msg.me{align-self:flex-end;flex-direction:row-reverse}
 .msg-col{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0}
@@ -159,7 +159,7 @@ button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid va
 .page[data-kind="recap"] .card{background:var(--ink);color:#fff}
 .page[data-kind="recap"] .band{background:linear-gradient(90deg,#405DE6 0 10%,#5851DB 0 20%,#833AB4 0 30%,#C13584 0 40%,#E1306C 0 50%,#FD1D1D 0 60%,#F56040 0 70%,#F77737 0 80%,#FCAF45 0 90%,#FFDC80 0)}
 .page[data-kind="recap"] .who,.page[data-kind="recap"] .idx{background:var(--ink);color:#fff;padding:4px 10px;border-radius:999px}
-.page[data-kind="recap"] .title{color:var(--marker);font-size:calc(40px*var(--s))}
+.page[data-kind="recap"] .title{color:var(--marker);font-size:calc(36px*var(--s))}
 .page[data-kind="recap"] .stat{background:transparent;border-color:#fff;color:#fff}
 .page[data-kind="recap"] .stat:first-child{background:var(--marker);border-color:var(--marker);color:var(--ink)}
 .page[data-kind="recap"] .thread{border-top-color:#fff}
@@ -167,7 +167,7 @@ button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid va
 .page[data-kind="recap"] .msg.key .bubble{box-shadow:4px 4px 0 #E1306C}
 .page[data-kind="recap"] .foot{border-top-color:#fff}
 
-.people{--s:calc(var(--fit,1));display:flex;flex-direction:column;gap:calc(11px*var(--s));height:100%;min-width:0;min-height:0;padding:12px 50px 28px 16px}
+.people{--s:calc(var(--fit,1));display:flex;flex-direction:column;gap:calc(11px*var(--s));height:100%;min-width:0;min-height:0;padding:10px 48px 24px 14px}
 .person{flex:1 1 auto;display:grid;grid-template-columns:calc(62px*var(--s)) auto minmax(0,1.3fr) minmax(0,1fr);align-items:center;gap:calc(14px*var(--s));padding:calc(8px*var(--s)) calc(14px*var(--s)) calc(8px*var(--s)) calc(10px*var(--s));background:var(--paper);color:var(--ink);border:3.5px solid var(--ink);border-radius:calc(20px*var(--s));box-shadow:7px 7px 0 var(--ink)}
 .person:nth-child(odd){rotate:-.3deg;translate:-5px 0}
 .person:nth-child(even){rotate:.25deg;translate:7px 0}
@@ -180,7 +180,7 @@ button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid va
 .page.on .fill{animation:grow .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*90ms + 250ms)}
 .person .text{margin-top:calc(5px*var(--s));font-size:calc(13.5px*var(--s));line-height:1.35}
 .pstats{display:flex;flex-wrap:wrap;gap:calc(5px*var(--s))}
-.pstats .stat{flex:1 1 var(--basis);padding:calc(4px*var(--s)) calc(8px*var(--s)) calc(3px*var(--s));border-radius:calc(10px*var(--s))}
+.pstats .stat{padding:calc(4px*var(--s)) calc(8px*var(--s)) calc(3px*var(--s));border-radius:calc(10px*var(--s))}
 .pstats .stat b{font-size:calc(15.5px*var(--s))}
 .person.lead .stat{background:#fff;color:var(--ink)}
 .person.lead .stat:first-child{background:var(--ink);color:#fff}
@@ -1547,7 +1547,7 @@ const settleMs = 1600;
 const narrowScreen = window.matchMedia('(max-width: 900px)');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const baseScale = { 1: 1.5, 2: 1.12, 3: 1 };
-const fitSteps = { max: 1.16, legible: 0.88, floor: 0.7, step: 0.03 };
+const fitSteps = { max: 1.16, legible: 0.86, floor: 0.7, step: 0.03 };
 
 const icons = {
   next: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
@@ -1926,19 +1926,30 @@ function fitAttempts(board) {
 
 function fitBoard(section, board) {
   const attempts = fitAttempts(board);
+  const baseline = Number(board.style.getPropertyValue('--k'));
+  const legible = fitSteps.legible / baseline;
   const hasFit = attempts.some(({ cap, isSplit, isFlat }) => {
     setCap(section, cap);
     board.classList.toggle('split', isSplit);
     board.classList.toggle('flat', isFlat);
-    return fitsWithin(board, fitSteps.max, fitSteps.legible);
+    return fitsWithin(board, fitSteps.max, legible);
   });
-  if (hasFit || fitsWithin(board, fitSteps.legible, fitSteps.floor)) return;
+  if (hasFit || fitsWithin(board, legible, fitSteps.floor / baseline)) return;
   console.warn('Layout does not fit', section.dataset.kind);
 }
 
 function refit() {
   sections[current].classList.add('still');
   fitPage(sections[current]);
+}
+
+function blockSizes(section) {
+  return [...section.lastElementChild.children].map(block => `${block.offsetWidth}x${block.offsetHeight}`).join();
+}
+
+function refitWhenReflowed() {
+  const section = sections[current];
+  if (blockSizes(section) !== section.dataset.sizes) refit();
 }
 
 function fitPage(section) {
@@ -1952,6 +1963,7 @@ function fitPage(section) {
   } else {
     fitBoard(section, board);
   }
+  section.dataset.sizes = blockSizes(section);
   section.classList.remove('measuring');
 }
 
@@ -2140,6 +2152,8 @@ function init() {
   show(pageFromHash());
   if (opener) openOnLoad(opener[1]);
   document.fonts.addEventListener('loadingdone', refit);
+  const reflowWatcher = new ResizeObserver(refitWhenReflowed);
+  document.querySelectorAll('.card, .person').forEach(block => reflowWatcher.observe(block));
   document.fonts.ready.then(() => {
     if (isCheck) setTimeout(writeReport, settleMs);
   });

@@ -1,0 +1,245 @@
+# hack night: four-person group chat from the friday night CS lounge crew. NEGATIVE CONTROL.
+# Exists so the pipeline can prove it ignores group chats. No labels, no starred lines.
+# Rafa = chaos in caps. Priya = full sentences, the organized one. Kai = quiet EE major,
+# single dry lines, the occasional perfectly timed reel.
+thread: hack night 🌙
+folder: hacknight_17201938475610293
+speakers: Y=you, R=Rafa Ortiz, P=Priya Raman, K=Kai Nakamura
+hours: 19-1
+rate: 2025-01-10..2026-09-15 1
+
+== scene 2025-01-10 21:15
+R: OK I MADE THE CHAT
+R: it needs a name. hear me out
+R: "THE COMPILERS"
+P: No.
+Y: rafa that sounds like a dad band
+R: BRO it's a pun. we compile. we're compilers
+K: we mostly fail to compile
+Y: 💀
+P: What about just "hack night"? It is what we do, and it is when we do it.
+R: that's so boring priya
+P: It is accurate. People will know what the chat is for.
+Y: ngl i like it. it's honest
+R: FINE but it gets a moon
+K: the moon is acceptable
+R: hack night 🌙. done. nobody touch it
+P: I am pinning the lounge booking schedule in here as well.
+Y: of course you are lol
+
+== scene 2025-02-16 15:30
+P: They just posted the results. BEST OVERALL. You two!!
+R: WE WON
+R: WE ACTUALLY WON BOSTONHACKS
+Y: i'm shaking i can't type
+Y: rafa screamed so loud a sponsor dropped their coffee
+R: I REGRET NOTHING
+K: watched the stream. the demo didn't crash
+K: historic
+Y: it crashed four times in the hallway before we went on 😭
+R: bro we do not speak of the hallway
+P: I am so proud of both of you. 36 hours, and the judges asked real questions, which means they cared.
+Y: one of them asked about the data model and rafa just pointed at me
+R: DELEGATION
+K: >reel two guys winning a trophy and immediately dropping it #fail #trophy
+Y: KAI 💀
+R: that's not us. we got a giant check. you can't drop a check
+P: Please hold the check carefully for the photo.
+Y: too late he's already bent it
+
+== scene 2025-10-24 22:50
+R: snack run. who's coming
+K: not me. i'm soldering
+P: I am in the middle of a migration. I can send money.
+Y: i'll go but only if we set a budget this time
+R: bro a budget?? for SNACKS
+Y: last time you spent $31 on sour worms and one single celsius
+R: those worms carried us
+P: I would like pretzels and a sparkling water, any flavor except lime.
+K: hot cheetos. the big bag
+R: hear me out. we get the party size of everything and it lasts three hack nights
+Y: it will last forty minutes and you know it
+K: twenty
+P: Twenty dollars total. I have sent my five to Rafa.
+R: TWENTY is insulting but fine
+Y: leaving now. kai don't burn the lounge down
+K: no promises
+-- 35m
+R: WE'RE BACK. $19.84. i am a changed man
+P: Thank you. These are the correct pretzels.
+
+== scene 2026-09-04 20:30
+R: EMERGENCY
+R: THEY TOOK THE COUCH
+Y: what couch
+R: THE couch. lounge couch. the one with the dent
+P: I saw. The whole lounge has been refurnished over the summer. There are standing desks now.
+Y: no 😭 that couch had history
+K: that couch had a smell
+Y: the smell was the history
+R: bro i debugged my entire os project on that couch. i slept there during bostonhacks prep
+P: In fairness, facilities had been trying to remove it since 2024.
+K: found it. it's on the curb behind the building. there's a sign on it that says "free"
+R: I'M GOING TO GET IT
+P: You do not have anywhere to put it, Rafa.
+R: my heart. i'll put it in my heart
+Y: senior year is starting so normal fr
+K: the new chairs have wheels. i've already raced one
+P: Please do not tell me who won.
+K: i did
+
+== filler
+R: BRO who left a full tupperware of rice in the lounge fridge
+P: Not me. I label everything.
+K: it's been there since before break
+Y: so it's a science project now
+R: it has a lid and a vibe. i'm not opening it
+K: correct
+
+== filler
+Y: why is the lounge wifi like this tonight
+K: someone on the second floor is torrenting
+R: HOW do you know that
+K: i looked
+P: I would prefer not to know how you looked.
+Y: 😭
+
+== filler
+R: hear me out
+P: No.
+R: you don't even know what it is
+P: I know the tone.
+Y: she's right bro there's a tone
+K: there's a tone
+
+== filler
+K: >reel when the code works and you don't know why #programming #cs
+Y: this is my entire weekend
+R: BRO. too real
+P: If you do not know why it works, it does not work. It is waiting.
+Y: priya that's so ominous lol
+
+== filler
+P: Reminder that the lounge booking is 7 to midnight tonight, and I have the key card.
+R: legend
+Y: what would we do without you
+K: stand outside
+P: Correct.
+
+== filler
+R: I JUST PUSHED TO MAIN BY ACCIDENT
+Y: on which repo
+R: my os project. the one due tonight
+P: Revert the commit. Do not force push. Breathe.
+R: reverting. breathing
+K: in that order
+R: ok it's fine. it's fine. we're fine
+
+== filler
+Y: my laptop fan just made a noise i've never heard before
+K: describe it
+Y: like a small plane
+K: dust. open it up and use compressed air
+Y: ok it worked. how do you always know
+K: it's always dust
+
+== filler
+R: rate my variable name: "thingy2"
+P: Zero.
+Y: what happened to thingy1
+R: thingy1 didn't work out
+K: rip thingy1
+Y: gone too soon fr
+
+== filler
+K: >reel cat walks across keyboard and fixes the bug #cat #coding
+R: HIRE THE CAT
+Y: the cat has better commit messages than rafa
+R: my commit messages are ART
+P: Your last one was "asdf pls".
+R: and it conveyed emotion
+
+== filler
+P: Has anyone seen my blue charger? I left it on the long table last night.
+Y: kai has it i think
+K: i have it. it's in my bag, labeled, safe
+P: Thank you. I was genuinely worried.
+R: the label saved its life
+
+== filler
+Y: ngl the vending machine ate my dollar again
+R: that machine owes me like $9 lifetime
+K: hit the left side. low, near the bottom
+Y: ...it worked. it gave me two
+R: KAI IS A WIZARD
+K: it's a loose coil
+
+== filler
+R: is it bad that i've had three celsius today
+P: Yes.
+K: yes
+Y: yes bro
+R: ok unanimous. cool. my hands are vibrating
+P: Drink water and sit down.
+
+== filler
+Y: who's still in the lounge
+K: me
+R: ME
+P: I left at eleven like a reasonable person.
+Y: ok i'm two minutes away, don't lock the door
+K: door's propped
+
+== filler 2025-01..2025-05
+R: BRO the algorithms midterm. what was question 4
+Y: i wrote a paragraph and a prayer
+P: It was a reduction from vertex cover. I thought it was fair.
+R: priya you are not allowed to say fair
+K: glad i'm in EE
+Y: kai your exams have actual electricity in them, that's worse
+
+== filler 2025-01..2025-05
+K: i fixed the lounge projector
+Y: it's been broken since september?? how
+K: the cable was in the wrong port
+R: FOR FIVE MONTHS
+P: I filed two tickets about that projector.
+K: i know. i read them. they were well written
+
+== filler 2025-09..2025-12
+P: I have made a spreadsheet of everyone's fall deadlines so nothing collides with Friday nights.
+R: priya that's terrifying
+Y: it's color coded 😭
+K: i'm the gray one
+P: You did not pick a color, so you got gray.
+K: gray is right
+
+== filler 2025-09..2025-12
+R: my distributed systems prof said "this is trivial" and then spent 50 minutes on it
+Y: classic
+K: that's what trivial means in academia
+P: He said the same thing last year. It was on the final.
+R: WHY would you tell me that
+
+== filler 2026-06..2026-08
+R: internship update: i broke the staging build on day 3
+Y: only day 3? growth
+P: Did you tell your manager right away?
+R: yes and he said "everyone does it once"
+K: he said once
+R: i heard him kai
+
+== filler 2026-06..2026-08
+K: my internship gave me an oscilloscope to take home
+Y: is that normal
+K: no
+P: Did you sign something for it?
+K: yes. four pages
+R: bro is living the dream
+
+== filler 2026-06..2026-08
+Y: the lounge group chat in summer is so quiet lol
+R: I'M STILL HERE. SPIRITUALLY
+P: I am in Austin until August, but I do read everything.
+K: same. reading
+Y: ok good. roll call complete

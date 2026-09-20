@@ -7,6 +7,9 @@ it never computes anything or builds sentences.
 `cards.example.json` (next to this file) is a complete, valid example containing
 every insight kind. Build against it. Real output will have the same shape.
 
+`cards.sample.json` is real output from the pipeline run on the synthetic dataset. It has
+only the insight kinds built so far, and is refreshed as more are added. Same shape, real content.
+
 ## The one rule that matters
 
 Every card has the **same fields**, whatever its kind. Write **one generic card

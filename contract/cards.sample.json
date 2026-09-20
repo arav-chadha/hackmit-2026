@@ -1,0 +1,354 @@
+{
+  "generatedAt": "2026-09-20T04:24:44Z",
+  "owner": "you",
+  "cards": [
+    {
+      "id": "4e97b250",
+      "kind": "your_people",
+      "score": 0.97,
+      "rank": 1,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "Rafa Ortiz",
+      "body": "You've talked in 30 different months since April 2024. Your most active stretch was November 2025.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "3,276"
+        },
+        {
+          "label": "Talking since",
+          "value": "Apr 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "November 2025"
+        },
+        {
+          "label": "Usual hours",
+          "value": "10 PM – 2 AM"
+        }
+      ],
+      "evidence": [],
+      "action": null
+    },
+    {
+      "id": "726c36b9",
+      "kind": "your_people",
+      "score": 0.97,
+      "rank": 2,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "Priya Raman",
+      "body": "You've talked in 32 different months since February 2024. Your most active stretch was September 2024.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "2,387"
+        },
+        {
+          "label": "Talking since",
+          "value": "Feb 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "September 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "4 PM – 8 PM"
+        }
+      ],
+      "evidence": [],
+      "action": null
+    },
+    {
+      "id": "aea05b0b",
+      "kind": "your_people",
+      "score": 0.86,
+      "rank": 3,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Sarah Lin",
+      "body": "You've talked in 25 different months since September 2024. Your most active stretch was April 2026.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "1,756"
+        },
+        {
+          "label": "Talking since",
+          "value": "Sep 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "April 2026"
+        },
+        {
+          "label": "Usual hours",
+          "value": "5 PM – 9 PM"
+        }
+      ],
+      "evidence": [],
+      "action": null
+    },
+    {
+      "id": "dfeea8ab",
+      "kind": "your_people",
+      "score": 0.68,
+      "rank": 4,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "Mei Tanaka",
+      "body": "You've talked in 24 different months since December 2023. Your most active stretch was October 2024. It has been quiet since November 2025.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "2,147"
+        },
+        {
+          "label": "Talking since",
+          "value": "Dec 2023"
+        },
+        {
+          "label": "Most active month",
+          "value": "October 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "6 PM – 10 PM"
+        },
+        {
+          "label": "Quiet since",
+          "value": "Nov 2025"
+        }
+      ],
+      "evidence": [],
+      "action": null
+    },
+    {
+      "id": "994b5f51",
+      "kind": "your_people",
+      "score": 0.57,
+      "rank": 5,
+      "friend": {
+        "name": "Jonas Weber",
+        "threadId": "jonasweber_17398201938475610"
+      },
+      "title": "Jonas Weber",
+      "body": "You've talked in 16 different months since June 2024. Your most active stretch was July 2024. It has been quiet since December 2025.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "1,141"
+        },
+        {
+          "label": "Talking since",
+          "value": "Jun 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "July 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "9 PM – 1 AM"
+        },
+        {
+          "label": "Quiet since",
+          "value": "Dec 2025"
+        }
+      ],
+      "evidence": [],
+      "action": null
+    },
+    {
+      "id": "783bf264",
+      "kind": "unanswered",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Sarah asked you to review her portfolio",
+      "body": "Back in April last year Sarah asked if you could look at her portfolio before Friday, and the thread drifted into grain bowls and egg tarts. She never got an answer.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Apr 3, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "89fd548aba2cdf16",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-03T16:51:00Z",
+          "text": "can you look at my portfolio before friday? i really trust your eye"
+        },
+        {
+          "id": "019517ff46f2a3b1",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:51:00Z",
+          "text": "the dining hall has a \"build your own grain bowl\" station now and i built something terrible"
+        },
+        {
+          "id": "952909bdff709a13",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:51:00Z",
+          "text": "omg what did you put in it"
+        },
+        {
+          "id": "b47b27ae7ecf7254",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:52:00Z",
+          "text": "quinoa, beets, ranch, goldfish crackers"
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "ok this might be the latest reply in recorded history but i never actually looked at your portfolio and it's been bugging me. is there a current version? send it over and i'll give you real notes this time"
+      }
+    },
+    {
+      "id": "e8860404",
+      "kind": "unanswered",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "Priya asked if you decided about the summer offer",
+      "body": "Back in April she asked what you decided, right before the deadline. The door sign bit took over and the question never got an answer.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Apr 7, 2026"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "4ec800be4073e90f",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T13:30:00Z",
+          "text": "Did you ever decide about the summer offer? You seemed really torn"
+        },
+        {
+          "id": "8f7625af00a15ca6",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T13:30:00Z",
+          "text": "No pressure if you're still thinking. I just remembered the deadline was around now."
+        },
+        {
+          "id": "7c1fa10524bd0df7",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T22:30:00Z",
+          "text": "PRIYA the door sign has a sequel"
+        },
+        {
+          "id": "cb314448e08b8c23",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T22:30:00Z",
+          "text": "someone taped a smaller sign under it that just says \"no\""
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "priya i just realized you asked me about the summer offer back in APRIL and i answered with a door sign. so, five months late, here's what actually happened with it:"
+      }
+    },
+    {
+      "id": "e8bafb46",
+      "kind": "unanswered",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "Mei asked how your Figma interview went",
+      "body": "You mentioned the interview, Mei asked how it went, and then the studio fire took over the thread. It never got answered.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Mar 14, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ef7ee65585e93177",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-14T21:22:00Z",
+          "text": "wait how did the interview go??"
+        },
+        {
+          "id": "a6ab7265583819b9",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-14T21:22:00Z",
+          "text": "i've been thinking about it"
+        },
+        {
+          "id": "0ace126860c199f9",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T08:22:00Z",
+          "text": "omg did you see what happened in studio today"
+        },
+        {
+          "id": "be3bf7d30d86ad81",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T08:22:00Z",
+          "text": "NO what happened"
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "ok so i just realized you asked about the figma interview like a year and a half ago and i never answered. truly unhinged of me. ok here's how it went:"
+      }
+    }
+  ]
+}

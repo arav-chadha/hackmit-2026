@@ -1,0 +1,532 @@
+# Rafa: closest friend and hackathon teammate, also CS in Boston. Chaotic, loud, loyal,
+# afraid of heights, awake at 2am. The friendship is fully alive through September 2026.
+thread: Rafa Ortiz
+folder: rafaortiz_17849201938471029
+speakers: Y=you, R=Rafa Ortiz
+hours: 21-2
+rate: 2024-04-03..2026-09-16 3
+
+== scene 2024-04-05 23:48
+R: ok hear me out
+Y: it's midnight
+R: there's a hackathon at bu next month. 24 hours. free food
+Y: i've never done one
+R: NEITHER HAVE I. that's the beauty
+Y: what would we even build
+R: doesn't matter. we show up, we eat the free pizza, we learn
+Y: you're just going for the pizza
+R: i'm going 60% for the pizza
+Y: what's the other 40
+R: glory
+Y: 😭 fine. sign us up
+R: ALREADY DID. i put you down as "design lead"
+Y: i've made one poster
+R: and it was a great poster
+
+== scene 2024-05-19 22:10
+Y: i slept 14 hours
+R: i slept 16 and woke up still tasting red bull
+Y: we didn't even place lol
+R: we FINISHED. half the room didn't finish
+Y: our app had one button
+R: and the button WORKED
+Y: ngl i had so much fun
+R: same bro. next one we place
+Y: next one we have two buttons
+R: dream big
+
+# every line is explicitly timed so the "3am" line lands at 02:58 and the last at 03:01
+== scene 2024-07-12 01:41 | memory_lane:montreal
+R: are you awake
+-- 40s
+Y: unfortunately
+-- 20s
+R: ok hear me out. what if we just drove to montreal
+-- 30s
+Y: like. this weekend??
+-- 15s
+R*: THIS WEEKEND. i already have a spreadsheet
+-- 45s
+Y: you have a spreadsheet. at 1am
+-- 20s
+R: it has TABS bro
+-- 10s
+R: gas, border, poutine, vibes
+-- 40s
+Y: what is in the vibes tab
+-- 30s
+R: nothing yet. it's aspirational
+-- 50s
+Y: whose car
+-- 40s
+R: my cousin's corolla. it has 190k miles and a personality
+-- 35s
+Y: "a personality" is not a feature rafa
+-- 45s
+R: the check engine light is on but it's been on since 2021 so it's basically decor
+-- 20s
+Y: 💀💀
+-- 22m
+Y: ok i looked it up. it's 5 hours
+-- 25s
+R: 5 hours is NOTHING. we've debugged for longer
+-- 35s
+Y: do you have a passport
+-- 14m
+R: found it. it was in a cereal box
+-- 15s
+Y: why
+-- 40s
+R: past me had a system. i don't question him
+-- 45s
+Y: do you speak any french
+-- 30s
+R: bonjour. croissant. that's two
+-- 40s
+Y: we're going to get deported from a bakery
+-- 29m
+R: i've added a tab called "regrets". it is empty
+-- 50s
+Y*: it is 3am and i have never been more sure of anything in my life
+-- 20s
+R: THAT'S THE SPIRIT
+-- 30s
+Y: i have work at 10
+-- 25s
+R: montreal doesn't care about your 10am
+-- 35s
+Y: go to sleep
+-- 70s
+R: poutine tab of the spreadsheet is done. goodnight
+
+== scene 2024-08-10 15:12
+Y: any luck
+R: ok so. good news and bad news
+Y: bad first
+R: gas station guy says the nearest mechanic is closed till monday
+Y: it's SATURDAY
+R: good news is he knows a guy named dale
+Y: i don't love that
+R: dale has a tow truck and "opinions about corollas"
+Y: the car is ticking now btw. it wasn't doing that when you left
+R: don't look at it. it can sense fear
+Y: a cow is watching me
+R: is it a nice cow
+Y: it's judging. it knows we didn't make it to canada
+R: WE WILL MAKE IT TO CANADA. dale is coming in 40 min
+Y: i'm putting this in the regrets tab
+R: the regrets tab stays EMPTY
+
+== scene 2024-08-13 23:20
+R: final spreadsheet update
+R: poutine: 4. tow trucks: 1. regrets: 0
+Y: dale charged us $180
+R: that's not a regret that's TUITION
+Y: 😭
+Y: ngl best trip i've ever been on
+R: the vermont part or the montreal part
+Y: honestly? both. the cow grew on me
+R: i miss the cow
+Y: has your cousin seen the car yet
+R: he says the ticking is "new" and i said no it isn't
+Y: 💀
+
+== scene 2024-12-11 01:15
+Y: are you still in the library
+R: basement level. i've become part of the furniture
+Y: did you get to network flow
+R: i got to it. i did not get THROUGH it
+Y: max flow min cut. that's the whole thing
+R: bro i AM the min cut
+Y: 💀
+R: hear me out. what if the final is just pset question 6 again
+Y: if it's question 6 i'm walking into the charles
+R: i'll hold your backpack
+Y: exam's at 9. go home
+R: one more practice problem
+-- 50m
+R: it was not one
+Y: i know. i'm also still up
+
+== scene 2025-02-16 14:20 | memory_lane:bostonhacks-win
+Y: where are you they're starting awards
+R: BATHROOM LINE. it's 30 people long. who designed this building
+Y: they're doing best design rn. not us
+R: it's fine. i've made peace. we crashed on stage bro
+Y: we crashed for like 8 seconds
+R: the longest 8 seconds of my life. i aged
+Y: ok best overall is next
+Y: rafa
+Y: RAFA
+R: what
+Y*: they just said our name. they said our actual name
+R*: we won??? WE WON
+R: I'M IN THE BATHROOM LINE
+Y: GET OUT OF THE LINE
+R: I'M RUNNING. a guy just high fived me and he doesn't know why
+Y: they're waiting for you to come on stage. everyone's looking at me
+R: stall. do a bit
+Y: i do not have a bit
+R: I'M HERE i'm at the doors i'm the guy yelling
+Y: i can hear you. everyone can hear you
+
+== scene 2025-06-19 22:30 | both_wanted:climbing
+R: how's week 3 at the fancy design company
+Y: good!! i got to sit in on a real crit today
+Y: nobody cried. very different from school
+R: do they know you once shipped a button that said "sumbit"
+Y: they do not and they never will
+R: your secret's safe. for a price
+Y: what about you. how's the bank
+R: it's not a bank it's a FINTECH
+R: i wear a lanyard now. i've changed
+Y: lol
+Y: weekends here are weird tho. i don't really know anyone yet
+Y*: ngl i've been wanting to try climbing
+R: bro did i tell you about the intern who microwaved fish
+Y: no??
+R: day TWO. whole floor evacuated emotionally
+R: he has not been seen near the microwave since
+Y: 💀 justice
+R: anyway it's late here. go enjoy your 7:30pm
+Y: night rafa
+
+== scene 2025-07-24 23:40
+Y: i'm on the office roof deck rn. you can see the whole bay
+R: how high
+Y: like 6 floors
+R: i felt that in my knees. from boston
+Y: there's a railing rafa
+R: railings are a suggestion
+Y: 😭 how do you live on the 3rd floor
+R: i don't look out the window. it's a system
+Y: my manager said my prototype is going in the real product btw
+R: WAIT
+R: BRO. that's huge. lead with that next time
+Y: didn't feel real till today
+R: a thing YOU made. in the app i use to make ugly slides
+Y: your slides are so ugly
+R: and soon they'll be ugly with YOUR feature. proud of you fr
+Y: ok stop {❤}
+
+== scene 2025-10-08 21:50 | control:tacos
+R: bro i walked past something today that changed me
+Y: go on
+R: there's a taco truck by the bu bridge now. the line was 20 deep at 3pm
+Y: 20 deep is a good sign
+R: a guy in line told me the al pastor "fixed his week"
+R*: we should get tacos at that truck by the bridge
+Y: yes. when
+R: friday? after your studio thing
+Y: friday works. i'm out at 7
+R: FRIDAY. i'm skipping lunch that day to prepare
+Y: that's not how it works
+R: it's how it works for me
+
+== scene 2025-10-10 22:30
+Y: those tacos were unreal
+R: I TOLD YOU
+R: well. the guy in line told me. but i told YOU
+Y: the al pastor did fix my week
+R: i had 7. i counted
+Y: i watched you. it was concerning
+R: the truck guy gave me a nod on taco 6. that was respect
+Y: that was worry
+R: i'm so full i'm seeing through time
+Y: go lie down 😭
+
+== scene 2026-02-16 23:05
+R: do you know what today is
+Y: monday?
+R: ONE YEAR. one year since the bathroom line
+Y: omg
+Y: one year since you ran into the auditorium yelling
+R: i was yelling with PURPOSE
+Y: the mc said "and that's the other one"
+R: i've made peace with being the other one
+R: trophy's still on my desk. roommate still thinks it's for bowling
+Y: you never told him??
+R: it's been too long. i'm in too deep. he got me a bowling glove for christmas
+Y: 💀💀💀
+Y: happy anniversary rafa
+R: happy anniversary bro {❤}
+
+== scene 2026-08-11 23:50
+R: HACKMIT ACCEPTED. check your email
+Y: just saw!!! both of us
+R: september 19. it's ON
+Y: we haven't done one since spring
+R: we're rested. we're dangerous
+Y: you slept 4 hours last night
+R: rested in SPIRIT
+Y: do we have an idea
+R: i have 11 ideas. 9 are bad
+Y: what are the other 2
+R: i'll know when i see which ones you don't laugh at
+Y: fair process
+
+== scene 2026-09-02 00:20
+Y: first day of classes and i already have a reading
+R: i have a prof who said "laptops closed" in a CS class
+Y: in cs??
+R: he says it builds character. i say it builds resentment
+Y: what class
+R: distributed systems. we're distributing on PAPER
+Y: 💀
+Y: also i saw the hackmit venue map. our table is on a mezzanine
+R: define mezzanine
+Y: one floor up. open railing
+R: i'll sit facing the wall. i'll be fine. i'm fine
+Y: i'll take the railing side
+R: this is why we're a team
+
+== scene 2026-09-16 21:40
+R: 3 DAYS
+Y: i know. i made the figma file already
+R: of course you did. i set up the repo. the readme just says "WIN"
+Y: inspiring
+R: also i made a spreadsheet
+Y: does it have a vibes tab
+R: it has a vibes tab. still empty. it's been empty since 2024
+Y: and regrets?
+R: EMPTY. always
+Y: i packed chargers, hdmi, the good extension cord
+R: and i did the costco run. i have no self control
+Y: some things never change
+R: see you saturday bro. no bathroom lines this time
+Y: no promises {😂}
+
+== filler
+R: are you awake
+Y: it's 1am so yes
+R: ok good. is a hot dog a sandwich. i need this settled
+Y: no. it's a taco
+R: ...bro
+R: you've ruined my whole night
+
+== filler
+Y: what are you doing up
+R: reorganizing my desktop icons by emotional importance
+Y: what's first
+R: a folder called "DO NOT OPEN". i don't remember what's in it
+Y: open it
+R: it's tax forms. devastating
+
+== filler
+R: >reel guy pitches his startup to a goose and the goose walks away #startup #comedy
+Y: the goose did due diligence
+R: THE GOOSE PASSED ON THE SEED ROUND
+Y: 💀
+
+== filler
+Y: >reel POV you said "one more bug" four hours ago #coding #relatable
+R: i'm in this reel and i don't like it
+Y: you're literally the guy
+R: i have never said one more bug. i say LAST bug. different
+
+== filler
+R: hear me out
+Y: no
+R: cereal but with orange juice
+Y: i said no before you even typed it
+R: i tried it. you were right. goodnight
+
+== filler
+Y: my code worked on the first try and now i'm scared
+R: DON'T TOUCH IT
+R: don't even look at it
+Y: i'm backing away slowly
+R: commit and leave the building
+
+== filler
+R: bro the vending machine in the cs building took my dollar AGAIN
+Y: how much has it taken total
+R: $11 this semester. i keep a log
+Y: why do you keep going back
+R: because one day it will give me two bags of chips and we'll be even
+
+== filler
+Y: did you sleep
+R: i closed my eyes in a chair for 40 minutes
+Y: that's not sleep
+R: it's sleep's cousin
+Y: go to bed rafa
+R: after this one thing
+R: (it is never one thing)
+
+== filler
+R: GOOD MORNING
+Y: it's 11:40pm
+R: i just woke up from a nap. time is fake
+Y: how long was the nap
+R: 5 hours. i'm a new man. a confused new man
+
+== filler
+Y: what was that song you played in the lab
+R: which one i played like 40
+Y: the one with the horns
+R: oh that's chicano batman. you're welcome
+Y: it's been in my head for 3 days
+
+== filler
+R: >reel cat falls off a shelf in slow motion with opera music #cats #fyp
+R: i have watched this 14 times
+Y: the way he tries to look like he meant it
+R: that cat has more composure than me at any demo
+
+== filler
+Y: my mom asked who rafa is because i keep saying "rafa says"
+R: what did you tell her
+Y: "a guy who is confidently wrong a lot"
+R: CONFIDENTLY is the key word. thank you
+Y: 😭
+
+== filler
+R: bro i just replied "sounds good" to an email thread i didn't read
+Y: what did you agree to
+R: checked. i'm bringing napkins to a club meeting
+Y: could've been way worse
+R: i can do napkins. i was BORN for napkins
+
+== filler
+Y: is 2am too late for a quesadilla
+R: it is never too late for a quesadilla. this is the law
+Y: making it
+R: put hot sauce on it. respect yourself
+Y: hot sauce is on {🔥}
+
+== filler
+R: guy on the green line has a full desktop tower on his lap. monitor too
+Y: is it plugged in
+R: no but he's typing
+Y: respect
+R: the grind doesn't need electricity
+
+== filler
+R: goodnight bro
+Y: it's 2:30 go to sleep for real
+R: i'm asleep right now. this is sleep texting
+Y: 💀 night
+
+== filler
+R: rate my dinner. tortilla with shredded cheese, microwaved 30 seconds
+Y: that's a sad quesadilla
+R: it's a MINIMALIST quesadilla
+Y: 4/10
+R: i'll take it. last night was a 2
+
+== filler
+Y: git blame says it was you
+R: git blame is a snitch
+Y: you named a variable "thingy2"
+R: because thingy was taken
+Y: i can't argue with that actually
+
+== filler 2024-04..2024-05
+R: did you do problem 4 on the discrete pset
+Y: yes. it's induction
+R: EVERYTHING is induction with this woman
+Y: base case: we suffer
+R: inductive step: we suffer more
+
+== filler 2024-04..2024-05
+Y: are you in the lab
+R: back corner. i have the good outlet
+Y: coming. is there a chair
+R: chair is saved. i put my shoe on it
+
+== filler 2024-09..2024-12
+R: bro what did he say the recurrence was. i blinked
+Y: T(n) = 2T(n/2) + n
+R: so merge sort
+Y: so merge sort
+R: i blinked for ONE second and missed merge sort
+
+== filler 2024-09..2024-12
+Y: algo pset is 6 questions and i understand 2
+R: i understand 3 but probably different ones
+Y: which ones
+R: 1, 2 and 5
+Y: i have 3 and 4. nobody has 6
+R: 6 is between him and god
+
+== filler 2024-09..2024-12
+R: >reel dynamic programming explained by a guy crying at a whiteboard #cs #algorithms
+Y: this is thursday's lecture
+R: THE WHITEBOARD GUY IS ME
+Y: he at least filled in the table
+
+== filler 2024-09..2024-12
+Y: my uber is a corolla
+R: get out
+Y: it's fine it's a newer one
+R: is the check engine light on
+Y: no
+R: then it's not a real corolla. you're safe
+
+== filler 2025-03..2025-05
+R: my roommate saw the bostonhacks trophy on my desk and asked if it was from bowling
+Y: what did you say
+R: i said yes. easier
+Y: 😭
+R: i'm a champion bowler now. it's who i am
+
+== filler 2025-03..2025-05
+Y: someone in my design class recognized our project from the demo
+R: WE'RE FAMOUS
+Y: she said "oh the one that crashed on stage"
+R: famous is famous
+
+== filler 2025-06..2025-08
+R: what time is it there
+Y: 9:40. i just got dinner
+R: it's almost 1am here and i'm also eating dinner. so who's really winning
+Y: me. definitely me
+R: fair
+
+== filler 2025-06..2025-08
+Y: they have cold brew on tap at the office
+R: ON TAP. like beer
+Y: like beer
+R: my internship has a water cooler that gurgles at me
+Y: 💀
+
+== filler 2025-06..2025-08
+R: boston is 94 degrees and my apartment has one fan
+Y: it's 61 and foggy here
+R: do not tell me about your fog
+Y: i'm wearing a hoodie. in summer
+R: BLOCKED
+
+== filler 2025-06..2025-08
+Y: >reel designers when the dev says "it's basically the same" #design #figma #ux
+R: it IS basically the same
+Y: it's 4 pixels off rafa
+R: nobody has ever seen 4 pixels
+Y: i see them. i see all of them now
+
+== filler 2025-09..2026-05
+R: i'm TAing intro and a kid asked me if python is "the snake one"
+Y: what did you say
+R: i said yes. he's not wrong
+Y: are you a good ta
+R: i'm a LOUD ta. jury's out on good
+
+== filler 2025-09..2026-05
+Y: how were office hours
+R: 14 kids. same bug. missing colon
+Y: all 14??
+R: all 14. i've started yelling COLON when they walk in
+
+== filler 2026-06..2026-08
+R: the robot at work drove into my ankle today
+Y: on purpose?
+R: it looked me in the eye first
+Y: does it have eyes
+R: it has a lidar and a grudge
+
+== filler 2026-06..2026-08
+Y: how's the somerville commute
+R: 2 buses and a walk past a guy who only sells mangoes
+Y: good mangoes?
+R: INCREDIBLE mangoes. best part of my job

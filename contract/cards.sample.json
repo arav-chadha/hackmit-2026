@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T04:58:25Z",
+  "generatedAt": "2026-09-20T05:12:44Z",
   "owner": "you",
   "cards": [
     {
@@ -180,7 +180,7 @@
         "threadId": "sarahlin_17520394857612033"
       },
       "title": "Sarah asked you to look at her portfolio",
-      "body": "Back in April she asked for your eye on it before Friday. The grain bowl talk took over and it never got answered.",
+      "body": "Back in April, Sarah asked if you could look over her portfolio before Friday. The grain bowl talk took over and the question never got an answer.",
       "stats": [
         {
           "label": "Asked",
@@ -227,80 +227,20 @@
       ],
       "action": {
         "label": "Respond",
-        "draft": "ok so i am absurdly late on this but did you ever get eyes on the portfolio? happy to still look if it's useful, or at whatever the current version is"
-      }
-    },
-    {
-      "id": "e8bafb46",
-      "kind": "unanswered",
-      "score": 0.8,
-      "rank": null,
-      "friend": {
-        "name": "Mei Tanaka",
-        "threadId": "meitanaka_17950517471278735"
-      },
-      "title": "Mei asked how your figma interview went",
-      "body": "She asked right after you mentioned it, and said she'd been thinking about it. The studio fire took over the thread and it never came back around.",
-      "stats": [
-        {
-          "label": "Asked",
-          "value": "Mar 14, 2025"
-        }
-      ],
-      "evidence": [
-        {
-          "id": "ef7ee65585e93177",
-          "sender": "Mei Tanaka",
-          "isFromOwner": false,
-          "isKey": true,
-          "threadName": "Mei Tanaka",
-          "timestamp": "2025-03-14T21:22:00Z",
-          "text": "wait how did the interview go??"
-        },
-        {
-          "id": "a6ab7265583819b9",
-          "sender": "Mei Tanaka",
-          "isFromOwner": false,
-          "isKey": false,
-          "threadName": "Mei Tanaka",
-          "timestamp": "2025-03-14T21:22:00Z",
-          "text": "i've been thinking about it"
-        },
-        {
-          "id": "0ace126860c199f9",
-          "sender": "you",
-          "isFromOwner": true,
-          "isKey": false,
-          "threadName": "Mei Tanaka",
-          "timestamp": "2025-03-15T08:22:00Z",
-          "text": "omg did you see what happened in studio today"
-        },
-        {
-          "id": "be3bf7d30d86ad81",
-          "sender": "Mei Tanaka",
-          "isFromOwner": false,
-          "isKey": false,
-          "threadName": "Mei Tanaka",
-          "timestamp": "2025-03-15T08:22:00Z",
-          "text": "NO what happened"
-        }
-      ],
-      "action": {
-        "label": "Respond",
-        "draft": "omg i just realized i never told you how the figma interview went. only a year and a half late lol. ok so"
+        "draft": "ok this is a truly historic delay but i never answered you about the portfolio. is there a current version i can look at? happy to actually give you notes this time"
       }
     },
     {
       "id": "e8860404",
       "kind": "unanswered",
-      "score": 0.8,
+      "score": 1.0,
       "rank": null,
       "friend": {
         "name": "Priya Raman",
         "threadId": "priyaraman_17612094857102938"
       },
-      "title": "Priya asked about the summer offer",
-      "body": "Back in April, Priya asked if you'd decided on the summer offer. The door sign bit took over and the question never got an answer.",
+      "title": "Priya asked what you decided about the summer offer",
+      "body": "Back in April she asked if you'd made a call on it, right before the deadline. The door sign bit took over and the question never got an answer.",
       "stats": [
         {
           "label": "Asked",
@@ -347,7 +287,67 @@
       ],
       "action": {
         "label": "Respond",
-        "draft": "priya i'm realizing i never actually answered you about the summer offer. only five months late. here's what ended up happening:"
+        "draft": "priya i just realized i never answered you about the summer offer. like five months ago. so here's the update:"
+      }
+    },
+    {
+      "id": "e8bafb46",
+      "kind": "unanswered",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "Mei asked how your Figma interview went",
+      "body": "Back in March you mentioned the interview, and Mei asked how it went. A studio fire took over the conversation and it never circled back.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Mar 14, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ef7ee65585e93177",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-14T21:22:00Z",
+          "text": "wait how did the interview go??"
+        },
+        {
+          "id": "a6ab7265583819b9",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-14T21:22:00Z",
+          "text": "i've been thinking about it"
+        },
+        {
+          "id": "0ace126860c199f9",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T08:22:00Z",
+          "text": "omg did you see what happened in studio today"
+        },
+        {
+          "id": "be3bf7d30d86ad81",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T08:22:00Z",
+          "text": "NO what happened"
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "ok so this is roughly a year and a half late but you did ask about the figma interview lol. answer:"
       }
     },
     {
@@ -360,7 +360,7 @@
         "threadId": "sarahlin_17520394857612033"
       },
       "title": "Tsuru Ramen with Sarah",
-      "body": "Tsuru on Newbury came up in 4 different conversations, from January 2025 all the way to \"it ends this summer\" in June. From your DMs it never looks like you two actually made it there.",
+      "body": "Tsuru on Newbury came up in 4 separate conversations, most recently in June when you two swore it would happen in July. Nothing in your DMs since suggests you made it there.",
       "stats": [
         {
           "label": "Times mentioned",
@@ -411,7 +411,7 @@
       ],
       "action": {
         "label": "Make It Happen",
-        "draft": "sarah it's september. the summer ended and tsuru is still row one of the shame tab 😭\n\nnext week? pick a day and i'm there. still ordering whatever you tell me to 🍜"
+        "draft": "ok i'm calling it. tsuru this week?? thursday after you're done with work. the 9.2 needs to be verified in person 🍜"
       }
     },
     {
@@ -423,8 +423,8 @@
         "name": "Mei Tanaka",
         "threadId": "meitanaka_17950517471278735"
       },
-      "title": "The pottery class with Mei",
-      "body": "It came up in three separate conversations, from the elm st studio to terrible bowl summer. Nothing in your DMs says you two ever made it there.",
+      "title": "The pottery class on elm st with Mei",
+      "body": "This one came up in three separate conversations, from \"terrible bowl summer\" to her Seattle ceramics count. From the messages it doesn't look like either of you ever made the bad bowl.",
       "stats": [
         {
           "label": "Times mentioned",
@@ -466,7 +466,7 @@
       ],
       "action": {
         "label": "Make It Happen",
-        "draft": "ok terrible bowl summer is getting a sequel. when are you next back east? pick a weekend and i'll book the elm st class before you land 😭"
+        "draft": "ok so terrible bowl summer owes us one. when are you visiting? give me a weekend and i'll book the elm st class for real this time 😭 or we each sign up in our own cities and compare bowls that can't hold soup"
       }
     },
     {
@@ -479,7 +479,7 @@
         "threadId": "priyaraman_17612094857102938"
       },
       "title": "You both want to try rock climbing",
-      "body": "Priya told you she wanted to try climbing in March 2025, and in June 2025 you said the same thing to Rafa. It hasn't come up between you two in your DMs since.",
+      "body": "Priya told you she wanted to try it in March 2025, and you said the same thing to Rafa in June 2025. It hasn't come up between the two of you since.",
       "stats": [],
       "evidence": [
         {
@@ -503,7 +503,7 @@
       ],
       "action": {
         "label": "Do It Together",
-        "draft": "ok random but i've been wanting to try climbing for ages. wanna go hit a gym sometime?"
+        "draft": "ngl i've been wanting to try climbing for ages. wanna go sometime?"
       }
     },
     {
@@ -516,7 +516,7 @@
         "threadId": "rafaortiz_17849201938471029"
       },
       "title": "The 3am Montreal spreadsheet",
-      "body": "Remember when Rafa messaged you at 1am proposing a weekend drive to Montreal, complete with a spreadsheet that had tabs for gas, border, poutine, and an aspirational vibes tab. You agreed at 3am despite the cousin's Corolla with 190k miles, a check engine light on since 2021, and Rafa's entire French vocabulary being \"bonjour\" and \"croissant\".",
+      "body": "Remember when Rafa texted you at 1am proposing a weekend drive to Montreal in his cousin's 190k-mile Corolla, complete with a spreadsheet that had tabs for gas, border, poutine, and an aspirational vibes tab. By 3am you were fully in, despite the check engine light being \"decor\" and Rafa's French consisting of bonjour and croissant.",
       "stats": [
         {
           "label": "When",
@@ -599,11 +599,11 @@
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "just remembered the night you pitched montreal at 1am with a spreadsheet that had TABS. gas, border, poutine, vibes 💀 is the regrets tab still empty"
+        "draft": "just remembered the montreal spreadsheet 💀 tabs for gas border poutine and vibes. was the regrets tab ever filled in or is it still empty"
       }
     },
     {
-      "id": "66e1f17f",
+      "id": "47939bb3",
       "kind": "memory_lane",
       "score": 1.0,
       "rank": null,
@@ -612,7 +612,7 @@
         "threadId": "jonasweber_17398201938475610"
       },
       "title": "The trial of Gerald the villager",
-      "body": "Remember when you put your Minecraft villager Gerald on trial for raising a mending book to 31 emeralds, and Jonas declared himself judge and defense lawyer because he'd built the dirt hut courthouse. He sentenced Gerald to life in the boat, called it time served, and still charged you 4 emeralds in court costs.",
+      "body": "Remember when you and Jonas put a villager named Gerald on trial in a dirt hut courthouse for charging 31 emeralds for a mending book, and Jonas ruled as judge AND defense lawyer that Gerald's sentence was life in a boat, which counted as time served.",
       "stats": [
         {
           "label": "When",
@@ -620,6 +620,33 @@
         }
       ],
       "evidence": [
+        {
+          "id": "ae4a9134caee9bdb",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:10:00Z",
+          "text": "that's basically a confession"
+        },
+        {
+          "id": "6de218448cde5d7a",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:11:00Z",
+          "text": "objection"
+        },
+        {
+          "id": "b95e583edfa12902",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:11:00Z",
+          "text": "you're the judge you can't object"
+        },
         {
           "id": "59086ad10d1d78d3",
           "sender": "Jonas Weber",
@@ -660,42 +687,15 @@
           "id": "4cefa0f89f30584a",
           "sender": "Jonas Weber",
           "isFromOwner": false,
-          "isKey": false,
+          "isKey": true,
           "threadName": "Jonas Weber",
           "timestamp": "2024-07-20T02:15:00Z",
           "text": "there was no zombie"
-        },
-        {
-          "id": "803cfb7343282d48",
-          "sender": "you",
-          "isFromOwner": true,
-          "isKey": false,
-          "threadName": "Jonas Weber",
-          "timestamp": "2024-07-20T02:15:00Z",
-          "text": "there was the IDEA of a zombie"
-        },
-        {
-          "id": "e54217a102e63781",
-          "sender": "you",
-          "isFromOwner": true,
-          "isKey": false,
-          "threadName": "Jonas Weber",
-          "timestamp": "2024-07-20T02:15:00Z",
-          "text": "your honor i move to strike my own punch from the record"
-        },
-        {
-          "id": "31b6ae111fd306b4",
-          "sender": "Jonas Weber",
-          "isFromOwner": false,
-          "isKey": true,
-          "threadName": "Jonas Weber",
-          "timestamp": "2024-07-20T02:16:00Z",
-          "text": "denied. the punch stays. gerald remembers"
         }
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "still thinking about gerald in that boat. \"nobody in a boat is free\" 😭 worst legal system ever and i paid all 35 emeralds"
+        "draft": "just remembered gerald. sentenced to life in a boat, time served, and i still paid the 31 emeralds PLUS 4 in court costs 😭 worst legal system ever devised"
       }
     },
     {
@@ -708,7 +708,7 @@
         "threadId": "sarahlin_17520394857612033"
       },
       "title": "DESING CLUB",
-      "body": "Remember when Sarah texted you the poster proofs and 400 copies came back reading DESING CLUB in 96 point bold, after five people (including you) had proofread the grid and not a single word. You pitched turning it into a brand, and Sarah opened Illustrator to make the sticker that read 'desing: it's design, but we did it ourselves.'",
+      "body": "Remember when the spring showcase posters came back from the printer with \"DESING CLUB\" in 96 point bold, and five people including you and Sarah had proofread it while only checking the grid. With the budget gone, you pitched it as intentional branding and Sarah opened Illustrator to make the \"desing: it's design, but we did it ourselves\" sticker.",
       "stats": [
         {
           "label": "When",
@@ -791,11 +791,11 @@
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "random but i just thought about DESING CLUB again. 400 posters. five proofreaders. i was checking the GRID 😭 honestly still think that sticker was our best work"
+        "draft": "just thought about DESING CLUB and lost it again. 400 posters. five proofreaders. and we were all checking the GRID"
       }
     },
     {
-      "id": "e5be36e8",
+      "id": "f407c1cc",
       "kind": "memory_lane",
       "score": 1.0,
       "rank": null,
@@ -804,7 +804,7 @@
         "threadId": "meitanaka_17950517471278735"
       },
       "title": "The grilled cheese fire alarm",
-      "body": "Remember when the 2am fire alarm dragged everyone outside in February because someone on the third floor tried to make grilled cheese with a clothes iron, and Mei showed up with her laptop and exactly one shoe. You stood in slippers watching the guy hold the iron like evidence while the RA just stared, then went to share Mei's blanket.",
+      "body": "Remember when the 2am fire alarm dragged everyone outside in February because someone on the third floor tried to make grilled cheese with a clothes iron, and Mei showed up with her laptop and exactly one shoe. You stood there in slippers watching the guy hold the iron like evidence while the RA just stared.",
       "stats": [
         {
           "label": "When",
@@ -865,29 +865,11 @@
           "threadName": "Mei Tanaka",
           "timestamp": "2024-02-11T02:18:00Z",
           "text": "nobody is speaking. the iron speaks for itself"
-        },
-        {
-          "id": "feb5082986d68d9a",
-          "sender": "you",
-          "isFromOwner": true,
-          "isKey": false,
-          "threadName": "Mei Tanaka",
-          "timestamp": "2024-02-11T02:18:00Z",
-          "text": "mei i'm going to remember the iron guy for the rest of my life"
-        },
-        {
-          "id": "6d2ff0747207532b",
-          "sender": "Mei Tanaka",
-          "isFromOwner": false,
-          "isKey": false,
-          "threadName": "Mei Tanaka",
-          "timestamp": "2024-02-11T02:21:00Z",
-          "text": "we're bonded now. all 200 of us"
         }
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "mei i still think about iron guy. standing there holding it like evidence while the RA just stared 😭 and you with your laptop and ONE shoe"
+        "draft": "mei i still think about iron guy. holding it outside like evidence while the RA just stared 😭 and you in ONE shoe with your laptop"
       }
     },
     {
@@ -899,8 +881,8 @@
         "name": "Rafa Ortiz",
         "threadId": "rafaortiz_17849201938471029"
       },
-      "title": "The bathroom line win",
-      "body": "Remember when your demo crashed on stage for eight seconds and then they called your name for best overall, and Rafa was stuck 30 people deep in the bathroom line, sprinting back while you had to stall with no bit.",
+      "title": "The bathroom line hackathon win",
+      "body": "Remember when your demo crashed on stage for eight seconds and you still won best overall, except Rafa was thirty people deep in the bathroom line when they called your name and had to sprint back while you stalled on stage with no bit.",
       "stats": [
         {
           "label": "When",
@@ -983,11 +965,11 @@
       ],
       "action": {
         "label": "Send this memory",
-        "draft": "still thinking about you winning best overall from the bathroom line. \"stall. do a bit\" bro i had no bit. i could hear you yelling from the doors before i could see you"
+        "draft": "still thinking about you sprinting out of that bathroom line yelling while i stood on stage with zero bit. best overall winners btw. we crashed for 8 seconds and they gave it to us anyway"
       }
     },
     {
-      "id": "44110b2d",
+      "id": "bbaca8de",
       "kind": "reconnect",
       "score": 1.0,
       "rank": null,
@@ -996,7 +978,7 @@
         "threadId": "jonasweber_17398201938475610"
       },
       "title": "You and Jonas used to talk about Minecraft all the time",
-      "body": "155 messages about that world, and the last one was 24 months ago.",
+      "body": "It came up in 155 messages, and the last one was 24 months ago.",
       "stats": [
         {
           "label": "Mentions",
@@ -1007,14 +989,42 @@
           "value": "Sep 2024"
         }
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "id": "846619aadc593853",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-06-11T21:50:00Z",
+          "text": "i've been mining for an hour. i have 9 stacks of deepslate, zero diamonds and one emotion"
+        },
+        {
+          "id": "4b44c770075ae910",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-06-21T02:31:00Z",
+          "text": "a lighthouse then"
+        },
+        {
+          "id": "6ed7fb2a7416a4bf",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-06-21T23:20:00Z",
+          "text": "FOUND DIAMONDS"
+        }
+      ],
       "action": {
         "label": "Reconnect",
-        "draft": "i think about gerald sometimes. is he still staring through that window or did he finally leave with the boat guy"
+        "draft": "i just remembered gerald staring at me through the window. is he still standing there or did his one visitor come back"
       }
     },
     {
-      "id": "d6c320e1",
+      "id": "96c4958a",
       "kind": "reconnect",
       "score": 1.0,
       "rank": null,
@@ -1023,7 +1033,7 @@
         "threadId": "priyaraman_17612094857102938"
       },
       "title": "You and Priya used to talk about the NYT Mini all the time",
-      "body": "It came up in 89 messages, and the last one was 22 months ago in November 2024.",
+      "body": "89 messages of daily times, and the last one was 22 months ago in November 2024.",
       "stats": [
         {
           "label": "Mentions",
@@ -1034,38 +1044,186 @@
           "value": "Nov 2024"
         }
       ],
+      "evidence": [],
+      "action": {
+        "label": "Reconnect",
+        "draft": "0:47 today. is the spreadsheet still going or did the commissioner shut it down"
+      }
+    },
+    {
+      "id": "695c53d2",
+      "kind": "recap",
+      "score": 0.73,
+      "rank": null,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "You + Rafa",
+      "body": "Two and a half years of lectures you both blinked through, lab playlists, git problems and 2am quesadillas, almost all of it between 10 PM and 2 AM.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "3,276"
+        },
+        {
+          "label": "Most active month",
+          "value": "November 2025"
+        },
+        {
+          "label": "Top topic",
+          "value": "CS school life"
+        },
+        {
+          "label": "Most active time",
+          "value": "10 PM – 2 AM"
+        },
+        {
+          "label": "Memories worth revisiting",
+          "value": "2"
+        }
+      ],
       "evidence": [
         {
-          "id": "2af0b83323e7e500",
-          "sender": "you",
-          "isFromOwner": true,
-          "isKey": true,
-          "threadName": "Priya Raman",
-          "timestamp": "2024-07-22T15:01:00Z",
-          "text": "i got 0:29 on the mini"
-        },
-        {
-          "id": "2b267b00219ecf87",
-          "sender": "Priya Raman",
+          "id": "87f1dce5d2c8ab0d",
+          "sender": "Rafa Ortiz",
           "isFromOwner": false,
           "isKey": true,
-          "threadName": "Priya Raman",
-          "timestamp": "2024-08-02T16:23:00Z",
-          "text": "I did the Mini in lab while my gel was running. 0:44."
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:44:00Z",
+          "text": "gas, border, poutine, vibes"
         },
         {
-          "id": "6b986d769397d773",
-          "sender": "Priya Raman",
+          "id": "59c7803a9e2b92d1",
+          "sender": "Rafa Ortiz",
           "isFromOwner": false,
           "isKey": true,
-          "threadName": "Priya Raman",
-          "timestamp": "2024-08-19T19:19:00Z",
-          "text": "Day 61 of my Mini streak. 🙂"
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:48:00Z",
+          "text": "the check engine light is on but it's been on since 2021 so it's basically decor"
+        },
+        {
+          "id": "d19c7001f6114e10",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:25:00Z",
+          "text": "I'M IN THE BATHROOM LINE"
         }
       ],
       "action": {
-        "label": "Reconnect",
-        "draft": "just did the mini in 0:47 and immediately thought of you. is the spreadsheet still live or did the eel win for good"
+        "label": "Share Recap",
+        "draft": null
+      }
+    },
+    {
+      "id": "399370eb",
+      "kind": "recap",
+      "score": 0.73,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "You + Priya",
+      "body": "Two and a half years of late-afternoon check-ins about her lab, your rendering laptop, crossword times and geese on the bridge, where you're permanently cast as 'the computer friend'.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "2,387"
+        },
+        {
+          "label": "Most active month",
+          "value": "September 2024"
+        },
+        {
+          "label": "Top topic",
+          "value": "Everyday campus life"
+        },
+        {
+          "label": "Most active time",
+          "value": "4 PM – 8 PM"
+        },
+        {
+          "label": "Unanswered questions",
+          "value": "1"
+        },
+        {
+          "label": "Things you've drifted from",
+          "value": "1"
+        }
+      ],
+      "evidence": [],
+      "action": {
+        "label": "Share Recap",
+        "draft": null
+      }
+    },
+    {
+      "id": "2608d1e2",
+      "kind": "recap",
+      "score": 0.65,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "You + Sarah",
+      "body": "Two years of after-work check-ins where nothing escapes a number, from smoothies and pan-versus-microwave dinners to shades of blue and the sound of a sizzle.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "1,756"
+        },
+        {
+          "label": "Most active month",
+          "value": "April 2026"
+        },
+        {
+          "label": "Top topic",
+          "value": "Rating everything"
+        },
+        {
+          "label": "Most active time",
+          "value": "5 PM – 9 PM"
+        },
+        {
+          "label": "Unfinished plans",
+          "value": "1"
+        },
+        {
+          "label": "Unanswered questions",
+          "value": "1"
+        },
+        {
+          "label": "Memories worth revisiting",
+          "value": "1"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "d091680bcec986ac",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:21:00Z",
+          "text": "four hundred posters. \"DESING CLUB\". in 96 point bold"
+        },
+        {
+          "id": "63cd19a45dcb8a8b",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:24:00Z",
+          "text": "we are a club of designers who cannot spell design"
+        }
+      ],
+      "action": {
+        "label": "Share Recap",
+        "draft": null
       }
     }
   ]

@@ -1,6 +1,6 @@
 # Insta Insights - HackMIT 2026
 
-Arav Chadha and team
+Arav Chadha, Rafay Farah, Roman Stashkiv, Candy Xie  
 
 ![Insta Insights](thumbnail/insta-insights-thumbnail.png)
 

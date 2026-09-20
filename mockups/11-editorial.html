@@ -1,0 +1,1883 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your DMs, in review: The Friendship Issue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#121012; --ink2:#55505a; --ink3:#8a858f; --rule:#dcd8d2; --paper:#fbfaf7; --tint:#f1efea;
+  --grad:linear-gradient(160deg,#405DE6 0%,#5851DB 10%,#833AB4 24%,#C13584 40%,#E1306C 54%,#FD1D1D 66%,#F56040 76%,#F77737 85%,#FCAF45 93%,#FFDC80 100%);
+  --gradtext:linear-gradient(100deg,#405DE6 0%,#833AB4 28%,#C13584 48%,#E1306C 64%,#F56040 84%,#F77737 100%);
+  --gradrule:linear-gradient(90deg,#405DE6,#833AB4,#C13584,#E1306C,#F56040,#FCAF45);
+  --gradbub:linear-gradient(135deg,#5851DB,#833AB4 40%,#C13584 72%,#E1306C);
+  --serif:"Playfair Display","Didot","Bodoni 72","Georgia",serif;
+  --sans:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --u:min(calc(100vw / 1440),calc(100dvh / 800));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+.px{font-size:calc(var(--u) * 12)}
+
+#stage{position:fixed;inset:0;display:grid;grid-template-columns:calc(var(--u) * 56) 1fr calc(var(--u) * 44);grid-template-rows:auto 1fr auto;overflow:hidden}
+
+/* spine: the full-height gradient band, also the "previous" edge zone */
+.spine{grid-row:1 / -1;background:var(--grad);display:flex;align-items:center;justify-content:center;cursor:w-resize;position:relative}
+.spine span{writing-mode:vertical-rl;transform:rotate(180deg);color:#fff;font-size:calc(var(--u) * 10.5);font-weight:600;letter-spacing:.32em;text-transform:uppercase;white-space:nowrap}
+.edge{grid-column:3;grid-row:1 / -1;display:flex;align-items:center;justify-content:center;cursor:e-resize;color:var(--ink3);border-left:1px solid var(--rule)}
+.edge svg,.spine svg{width:calc(var(--u) * 16);height:calc(var(--u) * 16)}
+.spine svg{position:absolute;bottom:calc(var(--u) * 18);color:#fff}
+.edge:hover{color:var(--ink);background:var(--tint)}
+
+/* running header doubles as the story progress bar */
+.running{grid-column:2;padding:calc(var(--u) * 14) calc(var(--u) * 32) 0}
+.running .line{display:flex;justify-content:space-between;align-items:baseline;font-size:calc(var(--u) * 10.5);letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.running .line b{font-weight:700}
+.running .line i{font-style:normal;color:var(--ink3);margin:0 .7em}
+.running .count{font-family:var(--serif);font-size:calc(var(--u) * 15);letter-spacing:.04em;font-weight:500;font-style:italic;text-transform:none}
+.segs{display:grid;grid-template-columns:repeat(7,1fr);gap:calc(var(--u) * 6);margin-top:calc(var(--u) * 8)}
+.seg{height:calc(var(--u) * 14);position:relative;cursor:pointer}
+.seg::before,.seg::after{content:"";position:absolute;left:0;right:0;top:calc(var(--u) * 4);height:calc(var(--u) * 3);border-radius:9px;background:var(--rule)}
+.seg::after{background:var(--gradrule);background-size:700% 100%;background-position:calc(var(--i) * 16.66%) 0;transform:scaleX(0);transform-origin:left;transition:transform .5s ease}
+.seg.on::after{transform:scaleX(1)}
+.seg:hover::before{background:var(--ink3)}
+
+.folio{grid-column:2;display:flex;justify-content:space-between;align-items:center;padding:calc(var(--u) * 9) calc(var(--u) * 32) calc(var(--u) * 12);margin-top:0;font-size:calc(var(--u) * 10);letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);border-top:1px solid var(--rule);margin-inline:0}
+.folio b{color:var(--ink);font-weight:600}
+.folio .pg{font-family:var(--serif);font-style:italic;font-size:calc(var(--u) * 14);letter-spacing:0;text-transform:none;color:var(--ink)}
+.folio kbd{font:inherit;border:1px solid var(--rule);border-radius:calc(var(--u) * 4);padding:0 .45em;margin-right:.3em;color:var(--ink2)}
+
+/* spreads */
+#pages{grid-column:2;grid-row:2;position:relative;min-height:0;overflow:hidden}
+.page{position:absolute;inset:0;padding:calc(var(--u) * 18) calc(var(--u) * 32) calc(var(--u) * 16);display:none;grid-template-columns:repeat(12,1fr);column-gap:calc(var(--u) * 24)}
+.page.active{display:grid;animation:turn .6s cubic-bezier(.22,.7,.2,1) both}
+.page.active.back{animation-name:turnback}
+@keyframes turn{from{opacity:0;transform:translateX(4%)}to{opacity:1;transform:none}}
+@keyframes turnback{from{opacity:0;transform:translateX(-4%)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.page.active{animation:none}.seg::after,.modal,.sheet{transition:none!important}}
+
+.opener{grid-column:span 3;min-height:0;display:flex;flex-direction:column;padding-right:calc(var(--u) * 8)}
+.page.wideopen .opener{grid-column:span 4}
+.articles{grid-column:span 9;min-height:0;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;--a:calc(var(--u) * var(--k,1))}
+.page.wideopen .articles{grid-column:span 8}
+
+.kicker{font-size:calc(var(--u) * 10.5);font-weight:700;letter-spacing:.24em;text-transform:uppercase;display:flex;align-items:center;gap:.9em}
+.kicker::before{content:"";width:calc(var(--u) * 28);height:calc(var(--u) * 3);background:var(--gradrule);border-radius:9px}
+.headline{font-family:var(--serif);font-weight:800;font-size:calc(var(--u) * 50);line-height:.98;padding-bottom:.3em;margin-bottom:-.3em;letter-spacing:-.025em;margin-top:calc(var(--u) * 14)}
+.wideopen .headline{font-size:calc(var(--u) * 64)}
+.headline em{font-weight:500;font-style:italic}
+.standfirst{font-family:var(--serif);font-size:calc(var(--u) * 16.5);line-height:1.4;color:var(--ink2);margin-top:calc(var(--u) * 14);max-width:26em}
+.wideopen .standfirst{font-size:calc(var(--u) * 18.5)}
+.hero{margin-top:calc(var(--u) * 12);margin-bottom:calc(var(--u) * -22);display:flex;align-items:flex-end;gap:calc(var(--u) * 12)}
+.hero .num{font-family:var(--serif);font-weight:900;font-size:calc(var(--u) * 124);line-height:.86;letter-spacing:-.04em;background:var(--gradtext);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .05em .3em 0}
+.hero .num.long{font-size:calc(var(--u) * 92)}
+.hero:has(.long){flex-direction:column;align-items:flex-start;gap:0;margin-bottom:0}
+.hero:has(.long) .cap{max-width:none;padding:0;margin-top:calc(var(--u) * -4)}
+.hero .cap{font-size:calc(var(--u) * 10.5);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink2);line-height:1.5;padding-bottom:calc(var(--u) * 40);max-width:12em}
+
+.pull{margin-top:auto;padding-top:calc(var(--u) * 10);position:relative}
+.pull .mark{font-family:var(--serif);font-weight:900;font-size:calc(var(--u) * 110);line-height:1;padding-bottom:.25em;margin-bottom:-.66em;margin-top:-.12em;background:var(--gradtext);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;padding-right:.1em;width:max-content}
+.pull blockquote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:calc(var(--u) * 23);line-height:1.22;letter-spacing:-.01em}
+.wideopen .pull blockquote{font-size:calc(var(--u) * 29)}
+.pull .by{margin-top:calc(var(--u) * 10);font-size:calc(var(--u) * 10);letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--ink2);display:flex;align-items:center;gap:.8em}
+.pull .by::before{content:"";width:calc(var(--u) * 22);height:calc(var(--u) * 2);background:var(--gradrule)}
+
+.toc{margin-top:auto;border-top:1px solid var(--ink);padding-top:calc(var(--u) * 8)}
+.toc h4{font-size:calc(var(--u) * 10);letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:calc(var(--u) * 4)}
+.toc button{display:flex;width:100%;align-items:baseline;gap:.6em;padding:calc(var(--u) * 3.5) 0;font-family:var(--serif);font-size:calc(var(--u) * 15);text-align:left;border-bottom:1px dotted var(--rule)}
+.toc button span:first-child{font-style:italic;color:var(--ink3);width:1.6em}
+.toc button:hover{color:#C13584}
+
+/* articles */
+.art{min-width:0;min-height:0;display:flex;flex-direction:column;padding:0 calc(var(--a) * 20);border-left:1px solid var(--rule);container-type:inline-size}
+.art:last-child{padding-right:0}
+.art.weighty{grid-column:span 4}
+.art.brief{grid-column:span 3}
+.byline{display:flex;align-items:center;gap:calc(var(--a) * 9);font-size:calc(var(--a) * 10);letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--ink2)}
+.ring{flex:none;width:calc(var(--a) * 34);height:calc(var(--a) * 34);border-radius:50%;background:var(--grad);padding:calc(var(--a) * 2.2);display:grid}
+.ring span{border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 calc(var(--a) * 2) var(--paper);display:grid;place-items:center;font-family:var(--sans);font-size:calc(var(--a) * 10.5);font-weight:700;letter-spacing:.04em;color:var(--ink);background-color:var(--tint);border:calc(var(--a) * 2) solid var(--paper)}
+.rank{font-family:var(--serif);font-weight:900;font-size:calc(var(--a) * 96);line-height:.82;letter-spacing:-.04em;padding-bottom:.3em;margin-bottom:calc(var(--a) * 12 - .26em)}
+.rank.first{background:var(--gradtext);-webkit-background-clip:text;background-clip:text;color:transparent;width:max-content;padding-right:.08em}
+.rank sup{font-size:.2em;font-family:var(--sans);font-weight:700;letter-spacing:.16em;vertical-align:top;position:relative;top:.5em;margin-left:.3em;color:var(--ink3);-webkit-text-fill-color:var(--ink3)}
+.ranked .ring{width:calc(var(--a) * 48);height:calc(var(--a) * 48)}
+.ranked .ring span{font-size:calc(var(--a) * 14)}
+.title{font-family:var(--serif);font-weight:700;font-size:calc(var(--a) * 23);line-height:1.08;letter-spacing:-.015em;margin-top:calc(var(--a) * 9);text-wrap:balance;padding-bottom:.25em;margin-bottom:-.25em}
+.lede{font-size:calc(var(--a) * 12.6);line-height:1.5;color:#2c2830;margin-top:calc(var(--a) * 8);text-wrap:pretty}
+.brief .title{font-size:calc(var(--a) * 30)}
+.brief .lede{font-family:var(--serif);font-size:calc(var(--a) * 17);line-height:1.42}
+.brief .numbers div{flex-direction:column;align-items:flex-start;gap:0;padding:calc(var(--a) * 8) 0}
+.brief .numbers dt{font-size:calc(var(--a) * 10);letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.brief .numbers dd{font-family:var(--serif);font-weight:900;font-size:calc(var(--a) * 46);line-height:1.1;padding-bottom:.25em;margin-bottom:-.2em;letter-spacing:-.02em;background:var(--gradtext);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.ranked .title{font-size:calc(var(--a) * 21)}
+
+.bigstat{margin-top:calc(var(--a) * 10);margin-bottom:calc(var(--a) * -14);display:flex;align-items:baseline;gap:calc(var(--a) * 10)}
+.bigstat b{font-family:var(--serif);font-weight:900;font-size:calc(var(--a) * 58);line-height:.9;letter-spacing:-.03em;background:var(--gradtext);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .06em .3em 0}
+.bigstat span{font-size:calc(var(--a) * 10);letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--ink2)}
+
+.numbers{margin-top:calc(var(--a) * 10);border-top:1px solid var(--ink)}
+.numbers h5,.talk h5{font-size:calc(var(--a) * 9);letter-spacing:.22em;text-transform:uppercase;font-weight:700;padding:calc(var(--a) * 5) 0 calc(var(--a) * 2)}
+.numbers div{display:flex;justify-content:space-between;align-items:baseline;gap:1em;padding:calc(var(--a) * 3.5) 0;border-bottom:1px dotted var(--rule);font-size:calc(var(--a) * 11.5)}
+.numbers dt{color:var(--ink2)}
+.numbers dd{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+@container (max-width:215px){
+  .numbers div{flex-direction:column;gap:0;align-items:flex-start}
+  .numbers dt{font-size:calc(var(--a) * 9.5);letter-spacing:.12em;text-transform:uppercase}
+  .numbers dd{text-align:left;font-family:var(--serif);font-size:calc(var(--a) * 15)}
+}
+
+.news{margin-top:calc(var(--a) * 11);padding:calc(var(--a) * 1.5);background:var(--gradrule);border-radius:calc(var(--a) * 4)}
+.news>div{background:var(--paper);border-radius:calc(var(--a) * 3);padding:calc(var(--a) * 10) calc(var(--a) * 13) calc(var(--a) * 10)}
+.news h5{font-size:calc(var(--a) * 9);letter-spacing:.24em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:.7em}
+.news h5::before{content:"";width:.7em;height:.7em;border-radius:50%;background:var(--grad)}
+.news p{font-family:var(--serif);font-style:italic;font-size:calc(var(--a) * 14.5);line-height:1.34;margin-top:calc(var(--a) * 5)}
+.news footer{display:flex;justify-content:space-between;align-items:center;gap:1em;margin-top:calc(var(--a) * 7);font-size:calc(var(--a) * 10);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink2)}
+.news a{display:inline-flex;align-items:center;gap:.4em;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);white-space:nowrap}
+.news a:hover{color:#C13584;border-color:#C13584}
+.news svg,.pill svg,.more svg{width:1em;height:1em}
+
+/* the interview transcript, still chat bubbles */
+.talk{margin-top:calc(var(--a) * 10);border-top:1px solid var(--ink)}
+.sep{display:flex;align-items:center;gap:.8em;font-size:calc(var(--a) * 8.8);letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);font-weight:600;margin:calc(var(--a) * 6) 0 calc(var(--a) * 3)}
+.sep::before,.sep::after{content:"";flex:1;height:1px;background:var(--rule)}
+.from{font-size:calc(var(--a) * 9);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:calc(var(--a) * 4) 0 calc(var(--a) * 1);color:var(--ink2);display:flex;gap:.5em;align-items:center}
+.from.me{justify-content:flex-end}
+.from.other{color:#C13584}
+.from.other::before{content:"";width:.6em;height:.6em;border-radius:50%;background:var(--grad)}
+.row{display:flex;align-items:flex-end;gap:calc(var(--a) * 6);padding:calc(var(--a) * 1.6) 0}
+.row.me{flex-direction:row-reverse}
+.row .who{flex:none;width:calc(var(--a) * 22);font-size:calc(var(--a) * 8.5);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding-bottom:calc(var(--a) * 5)}
+.row.me .who{text-align:right}
+.bub{max-width:82%;padding:calc(var(--a) * 5.5) calc(var(--a) * 11);border-radius:calc(var(--a) * 15);font-size:calc(var(--a) * 12);line-height:1.34;background:#ebe9e5;color:var(--ink);overflow-wrap:anywhere}
+.row.them .bub{border-bottom-left-radius:calc(var(--a) * 4)}
+.row.me .bub{background:var(--gradbub);color:#fff;border-bottom-right-radius:calc(var(--a) * 4)}
+.row.key{margin:calc(var(--a) * 1.5) 0;padding:calc(var(--a) * 4) calc(var(--a) * 6);background:linear-gradient(90deg,rgba(252,175,69,.34),rgba(225,48,108,.17) 55%,rgba(131,58,180,.13));border-radius:calc(var(--a) * 3)}
+.row.key.me{background:linear-gradient(270deg,rgba(252,175,69,.34),rgba(225,48,108,.17) 55%,rgba(131,58,180,.13))}
+.row.key .bub{font-weight:500}
+.row.key.them .bub{background:#fff;box-shadow:0 0 0 1px rgba(193,53,132,.35)}
+.more{margin-top:calc(var(--a) * 4);font-size:calc(var(--a) * 10);letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink2);display:inline-flex;align-items:center;gap:.4em;align-self:flex-start;border-bottom:1px solid var(--rule);padding-bottom:1px}
+.more:hover{color:#C13584}
+
+.pill{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:.7em;border:1px solid var(--ink);border-radius:99px;padding:calc(var(--a) * 7) calc(var(--a) * 15);font-size:calc(var(--a) * 11.5);font-weight:600;letter-spacing:.02em;transition:background .2s,color .2s}
+.pill:hover{background:var(--ink);color:#fff}
+.pillwrap{margin-top:auto;padding-top:calc(var(--a) * 10);display:flex}
+
+/* single feature article: text and transcript side by side */
+.solo .art{display:grid;grid-template-columns:1fr 1.1fr;column-gap:calc(var(--a) * 28);grid-template-rows:auto auto auto 1fr;align-content:start}
+.solo .art>*{grid-column:1}
+.solo .art .talk{grid-column:2;grid-row:1 / -1;margin-top:0;align-self:center;--a:calc(var(--u) * var(--k,1) * 1.4)}
+.solo .title{font-size:calc(var(--a) * 40)}
+.solo .lede{font-family:var(--serif);font-size:calc(var(--a) * 15.5);line-height:1.45}
+.solo .pillwrap{align-self:end}
+
+/* modals */
+.modal{position:fixed;inset:0;z-index:20;display:grid;place-items:center;background:rgba(18,16,18,.42);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .25s}
+.modal.open{opacity:1;pointer-events:auto}
+.sheet{width:min(560px,92vw);max-height:88dvh;overflow:auto;background:var(--paper);border-radius:18px;box-shadow:0 30px 80px rgba(18,16,18,.35);transform:translateY(14px);transition:transform .3s cubic-bezier(.22,.7,.2,1);position:relative}
+.modal.open .sheet{transform:none}
+.sheet::before{content:"";display:block;height:6px;background:var(--gradrule);border-radius:18px 18px 0 0}
+.sheet .in{padding:22px 28px 26px}
+.sheet .k{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--ink2)}
+.sheet h3{font-family:var(--serif);font-size:30px;line-height:1.08;letter-spacing:-.015em;margin-top:6px;padding-right:36px}
+.sheet p.b{font-family:var(--serif);font-size:16px;line-height:1.45;color:var(--ink2);margin-top:10px}
+.sheet textarea{width:100%;min-height:130px;margin-top:16px;border:1px solid var(--rule);border-radius:12px;padding:14px 16px;font:400 15px/1.5 var(--sans);color:var(--ink);background:#fff;resize:vertical;outline:none}
+.sheet textarea:focus{border-color:#C13584;box-shadow:0 0 0 3px rgba(193,53,132,.14)}
+.sheet .btns{display:flex;gap:10px;margin-top:16px;align-items:center;flex-wrap:wrap}
+.sheet .btns button{border-radius:99px;padding:10px 20px;font-size:13px;font-weight:600;border:1px solid var(--ink)}
+.sheet .btns .go{background:var(--gradbub);color:#fff;border-color:transparent}
+.sheet .btns [disabled]{opacity:.45;cursor:not-allowed;border-style:dashed}
+.sheet .btns small{font-size:11px;color:var(--ink3);margin-left:auto}
+.x{position:absolute;top:20px;right:20px;width:34px;height:34px;border-radius:50%;border:1px solid var(--rule);display:grid;place-items:center;background:var(--paper)}
+.x:hover{border-color:var(--ink)}
+.x svg{width:14px;height:14px}
+.cover{margin-top:16px;border-radius:14px;background:var(--grad);color:#fff;padding:22px 24px}
+.cover .k{color:rgba(255,255,255,.85)}
+.cover h3{font-size:40px;padding:0}
+.cover p{font-family:var(--serif);font-size:15px;line-height:1.45;margin-top:8px;text-shadow:0 1px 8px rgba(0,0,0,.18)}
+.cover dl{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;margin-top:16px;border-top:1px solid rgba(255,255,255,.5);padding-top:14px}
+.cover dt{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.9}
+.cover dd{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.15}
+.sheet .talk{--a:1.12px;border-top:1px solid var(--ink);margin-top:16px}
+
+#overflow-report{position:fixed;left:0;bottom:0;z-index:99;font:10px monospace;background:#fff;max-width:100vw;white-space:pre-wrap}
+
+@media (max-width:900px){
+  :root{--u:1px}
+  body{overflow:auto}
+  #stage{position:static;min-height:100dvh;grid-template-columns:10px 1fr 0}
+  .edge{display:none}.spine span,.spine svg{display:none}
+  #pages{overflow:visible}
+  .page{position:static;display:none;grid-template-columns:1fr;row-gap:24px;padding:20px 16px}
+  .page.active{display:grid}
+  .opener,.articles,.page.wideopen .opener,.page.wideopen .articles{grid-column:1}
+  .articles{grid-auto-flow:row;row-gap:28px;--k:1.1!important}
+  .art,.art.weighty,.art.brief{grid-column:1;border-left:0;border-top:1px solid var(--rule);padding:20px 0 0}
+  .solo .art{display:flex}
+  .pull,.toc{margin-top:20px}.pillwrap{margin-top:14px}
+  .running,.folio{padding-inline:16px}.folio span:nth-child(2){display:none}
+  .headline,.wideopen .headline{font-size:44px}
+}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="spine" id="prev" aria-label="Previous page"><span>Your DMs, in review &nbsp;·&nbsp; The Friendship Issue</span>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 8H3M7 4 3 8l4 4"/></svg></div>
+  <header class="running">
+    <div class="line"><span><b>Your DMs, in review</b><i>/</i><span id="section"></span></span><span class="count" id="count"></span></div>
+    <nav class="segs" id="segs" aria-label="Story progress"></nav>
+  </header>
+  <main id="pages"></main>
+  <footer class="folio">
+    <span><b id="issue"></b></span>
+    <span>made for Instagram DMs</span>
+    <span><kbd>&larr;</kbd><kbd>&rarr;</kbd> turn the page &nbsp; <span class="pg" id="pg"></span></span>
+  </footer>
+  <div class="edge" id="next" aria-label="Next page"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+</div>
+
+<div class="modal" id="modal"><div class="sheet" role="dialog" aria-modal="true"><button class="x" id="close" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m2 2 10 10M12 2 2 12"/></svg></button><div class="in" id="sheet"></div></div></div>
+
+<script>
+const DATA = {
+  "generatedAt": "2026-09-20T06:29:09Z",
+  "owner": "you",
+  "cards": [
+    {
+      "id": "4e97b250",
+      "kind": "your_people",
+      "score": 0.97,
+      "rank": 1,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "Rafa Ortiz",
+      "body": "You've talked in 30 different months since April 2024. Your most active stretch was November 2025.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "3,276"
+        },
+        {
+          "label": "Talking since",
+          "value": "Apr 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "November 2025"
+        },
+        {
+          "label": "Usual hours",
+          "value": "10 PM – 2 AM"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "726c36b9",
+      "kind": "your_people",
+      "score": 0.97,
+      "rank": 2,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "Priya Raman",
+      "body": "You've talked in 32 different months since February 2024. Your most active stretch was September 2024.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "2,387"
+        },
+        {
+          "label": "Talking since",
+          "value": "Feb 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "September 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "4 PM – 8 PM"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "aea05b0b",
+      "kind": "your_people",
+      "score": 0.86,
+      "rank": 3,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Sarah Lin",
+      "body": "You've talked in 25 different months since September 2024. Your most active stretch was April 2026.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "1,756"
+        },
+        {
+          "label": "Talking since",
+          "value": "Sep 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "April 2026"
+        },
+        {
+          "label": "Usual hours",
+          "value": "5 PM – 9 PM"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "dfeea8ab",
+      "kind": "your_people",
+      "score": 0.68,
+      "rank": 4,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "Mei Tanaka",
+      "body": "You've talked in 24 different months since December 2023. Your most active stretch was October 2024. It has been quiet since November 2025.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "2,147"
+        },
+        {
+          "label": "Talking since",
+          "value": "Dec 2023"
+        },
+        {
+          "label": "Most active month",
+          "value": "October 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "6 PM – 10 PM"
+        },
+        {
+          "label": "Quiet since",
+          "value": "Nov 2025"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "994b5f51",
+      "kind": "your_people",
+      "score": 0.57,
+      "rank": 5,
+      "friend": {
+        "name": "Jonas Weber",
+        "threadId": "jonasweber_17398201938475610"
+      },
+      "title": "Jonas Weber",
+      "body": "You've talked in 16 different months since June 2024. Your most active stretch was July 2024. It has been quiet since December 2025.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "1,141"
+        },
+        {
+          "label": "Talking since",
+          "value": "Jun 2024"
+        },
+        {
+          "label": "Most active month",
+          "value": "July 2024"
+        },
+        {
+          "label": "Usual hours",
+          "value": "9 PM – 1 AM"
+        },
+        {
+          "label": "Quiet since",
+          "value": "Dec 2025"
+        }
+      ],
+      "evidence": [],
+      "action": null,
+      "context": null
+    },
+    {
+      "id": "783bf264",
+      "kind": "unanswered",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Sarah asked you to look at her portfolio",
+      "body": "Back in April last year, Sarah asked if you'd review her portfolio before Friday. The chat moved on to grain bowls and egg tarts and the question never got picked back up.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Apr 3, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "89fd548aba2cdf16",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-03T16:51:00Z",
+          "text": "can you look at my portfolio before friday? i really trust your eye"
+        },
+        {
+          "id": "019517ff46f2a3b1",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:51:00Z",
+          "text": "the dining hall has a \"build your own grain bowl\" station now and i built something terrible"
+        },
+        {
+          "id": "952909bdff709a13",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:51:00Z",
+          "text": "omg what did you put in it"
+        },
+        {
+          "id": "b47b27ae7ecf7254",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-04-04T16:52:00Z",
+          "text": "quinoa, beets, ranch, goldfish crackers"
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "sarah this is absurdly late but you asked me to look at your portfolio and i never did. still want an eye on it? happy to actually look this time"
+      },
+      "context": null
+    },
+    {
+      "id": "e8bafb46",
+      "kind": "unanswered",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "Mei asked how your Figma interview went",
+      "body": "She asked right after you mentioned it, then the studio fire story took over. It never got answered.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Mar 14, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ef7ee65585e93177",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-14T21:22:00Z",
+          "text": "wait how did the interview go??"
+        },
+        {
+          "id": "a6ab7265583819b9",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-14T21:22:00Z",
+          "text": "i've been thinking about it"
+        },
+        {
+          "id": "0ace126860c199f9",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T08:22:00Z",
+          "text": "omg did you see what happened in studio today"
+        },
+        {
+          "id": "be3bf7d30d86ad81",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-03-15T08:22:00Z",
+          "text": "NO what happened"
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "ok so you asked about the figma interview roughly a year and a half ago and i got distracted by a literal fire. better late than never, here's how it actually went:"
+      },
+      "context": null
+    },
+    {
+      "id": "e8860404",
+      "kind": "unanswered",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "Priya asked about the summer offer",
+      "body": "Back in April Priya asked if you'd decided about the summer offer, right before the deadline. The door sign bit took over and the question never got picked back up.",
+      "stats": [
+        {
+          "label": "Asked",
+          "value": "Apr 7, 2026"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "4ec800be4073e90f",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T13:30:00Z",
+          "text": "Did you ever decide about the summer offer? You seemed really torn"
+        },
+        {
+          "id": "8f7625af00a15ca6",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T13:30:00Z",
+          "text": "No pressure if you're still thinking. I just remembered the deadline was around now."
+        },
+        {
+          "id": "7c1fa10524bd0df7",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T22:30:00Z",
+          "text": "PRIYA the door sign has a sequel"
+        },
+        {
+          "id": "cb314448e08b8c23",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Priya Raman",
+          "timestamp": "2026-04-07T22:30:00Z",
+          "text": "someone taped a smaller sign under it that just says \"no\""
+        }
+      ],
+      "action": {
+        "label": "Respond",
+        "draft": "priya i just realized you asked me about the summer offer in APRIL and i answered with a door sign. here's what actually happened with it:"
+      },
+      "context": null
+    },
+    {
+      "id": "9dbb8c5a",
+      "kind": "unfinished_plans",
+      "score": 0.8,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "Tsuru Ramen with Sarah",
+      "body": "Tsuru on Newbury has come up in four separate conversations since January 2025, and from your DMs it still doesn't look like you two made it there. The last plan was July, and nothing after that.",
+      "stats": [
+        {
+          "label": "Times mentioned",
+          "value": "4"
+        },
+        {
+          "label": "First mentioned",
+          "value": "Jan 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "61d8d2ddda6ec5ca",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-01-18T13:05:00Z",
+          "text": "we HAVE to try TSURU RAMEN on newbury"
+        },
+        {
+          "id": "5d4a46d1e4903068",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-05-09T18:40:00Z",
+          "text": "the noodle place!! when are we going"
+        },
+        {
+          "id": "3d029efb143508cc",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-11-15T12:22:00Z",
+          "text": "still haven't been to tsuru 😭 it's embarrassing"
+        },
+        {
+          "id": "63e233657830cda3",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2026-06-27T19:13:00Z",
+          "text": "that ramen spot we always talk about just got a 9.2 on my list and i haven't even BEEN"
+        }
+      ],
+      "action": {
+        "label": "Make It Happen",
+        "draft": "ok the spreadsheet has been lying to us for a year and a half 🍜 tsuru this week? i'm free thursday or saturday, pick one and i'll show up hungry"
+      },
+      "context": null
+    },
+    {
+      "id": "4a931575",
+      "kind": "unfinished_plans",
+      "score": 0.6,
+      "rank": null,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "The pottery class on elm st with Mei",
+      "body": "This one came up in three separate conversations, from \"terrible bowl summer\" to your last check-in in August. From the DMs alone it looks like it never actually happened.",
+      "stats": [
+        {
+          "label": "Times mentioned",
+          "value": "3"
+        },
+        {
+          "label": "First mentioned",
+          "value": "Feb 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "5d333fc9ea836d9a",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-02-08T19:44:00Z",
+          "text": "we should do that pottery class on elm st"
+        },
+        {
+          "id": "ff51a3803e03a017",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-04-21T16:02:00Z",
+          "text": "ok we actually need to do the pottery thing soon"
+        },
+        {
+          "id": "584bd146e61622f5",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2025-08-30T12:15:00Z",
+          "text": "still thinking about that ceramics class lol. we never did it"
+        }
+      ],
+      "action": {
+        "label": "Make It Happen",
+        "draft": "ok terrible bowl summer is officially overdue 😭 when are you next back here? pick a weekend and i'll book us the elm st class before we lose another year. or we each take one in our own city and compare bowls over facetime"
+      },
+      "context": null
+    },
+    {
+      "id": "555ee150",
+      "kind": "both_wanted",
+      "score": 0.9,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "You both want to try rock climbing",
+      "body": "Priya told you she wanted to try climbing in March 2025, and you said the same to Rafa in June 2025. It hasn't come up between the two of you in your DMs.",
+      "stats": [],
+      "evidence": [
+        {
+          "id": "e88bc09d0e9d1b85",
+          "sender": "Priya Raman",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Priya Raman",
+          "timestamp": "2025-03-02T18:10:00Z",
+          "text": "I really want to try rock climbing sometime"
+        },
+        {
+          "id": "f8465271ceea4172",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-06-19T22:43:00Z",
+          "text": "ngl i've been wanting to try climbing"
+        }
+      ],
+      "action": {
+        "label": "Do It Together",
+        "draft": "ngl i've been wanting to try rock climbing for ages. wanna go sometime?"
+      },
+      "context": null
+    },
+    {
+      "id": "eb6b1ff0",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "The 3am Montreal spreadsheet",
+      "body": "Remember when Rafa messaged you at 1am proposing a weekend drive to Montreal with a spreadsheet that had tabs for gas, border, poutine and vibes, plus his cousin's 190k-mile Corolla whose check engine light had been on since 2021. By 3am you were fully in, despite having work at 10 and a combined French vocabulary of \"bonjour\" and \"croissant\".",
+      "stats": [
+        {
+          "label": "When",
+          "value": "July 12, 2024"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "238f41b9fb5e9e4e",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:43:00Z",
+          "text": "it has TABS bro"
+        },
+        {
+          "id": "87f1dce5d2c8ab0d",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:44:00Z",
+          "text": "gas, border, poutine, vibes"
+        },
+        {
+          "id": "6085d9bdf7897cf0",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:44:00Z",
+          "text": "what is in the vibes tab"
+        },
+        {
+          "id": "0350fa0c4a9f6c31",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:45:00Z",
+          "text": "nothing yet. it's aspirational"
+        },
+        {
+          "id": "61b99b8cab971503",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:46:00Z",
+          "text": "whose car"
+        },
+        {
+          "id": "2a53e87451b857a2",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:46:00Z",
+          "text": "my cousin's corolla. it has 190k miles and a personality"
+        },
+        {
+          "id": "571a5b34c4d5417d",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:47:00Z",
+          "text": "\"a personality\" is not a feature rafa"
+        },
+        {
+          "id": "59c7803a9e2b92d1",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:48:00Z",
+          "text": "the check engine light is on but it's been on since 2021 so it's basically decor"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "just thought about the montreal spreadsheet. tabs. at 1am. gas border poutine vibes 💀 is the regrets tab still empty"
+      },
+      "context": null
+    },
+    {
+      "id": "47939bb3",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Jonas Weber",
+        "threadId": "jonasweber_17398201938475610"
+      },
+      "title": "The trial of Gerald the villager",
+      "body": "Remember when you and Jonas put Gerald the villager on trial for hiking his mending book to 31 emeralds, and Jonas declared himself judge AND defense lawyer because he'd built the dirt hut courthouse? The verdict was life in the boat, time served, and you still ended up paying the 31 emeralds plus 4 in court costs.",
+      "stats": [
+        {
+          "label": "When",
+          "value": "July 20, 2024"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ae4a9134caee9bdb",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:10:00Z",
+          "text": "that's basically a confession"
+        },
+        {
+          "id": "6de218448cde5d7a",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:11:00Z",
+          "text": "objection"
+        },
+        {
+          "id": "b95e583edfa12902",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:11:00Z",
+          "text": "you're the judge you can't object"
+        },
+        {
+          "id": "59086ad10d1d78d3",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:12:00Z",
+          "text": "i'm also his lawyer. he couldn't afford one. because nobody will pay 31 emeralds"
+        },
+        {
+          "id": "b2b3a4930f03bacd",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:12:00Z",
+          "text": "😭😭😭"
+        },
+        {
+          "id": "1b2ff2ebf29217ee",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:13:00Z",
+          "text": "counsel would like to note the price went up right after somebody punched him"
+        },
+        {
+          "id": "362eee0d78825327",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:14:00Z",
+          "text": "that was an ACCIDENT i was aiming at the zombie"
+        },
+        {
+          "id": "4cefa0f89f30584a",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-07-20T02:15:00Z",
+          "text": "there was no zombie"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "still thinking about the time you sentenced gerald to life in a boat and then charged me 4 emeralds in court costs 😭 worst legal system ever"
+      },
+      "context": null
+    },
+    {
+      "id": "6aa7e797",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "400 posters that said DESING",
+      "body": "Remember when Sarah texted you in the library to say the spring showcase posters came back from the printer with 'DESING CLUB' in 96 point bold, all four hundred of them, after five people including you proofread the grid but not the words? You pitched it as intentional branding and she opened Illustrator to make the 'desing: it's design, but we did it ourselves' sticker while Priya lay on the studio floor.",
+      "stats": [
+        {
+          "label": "When",
+          "value": "February 27, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "24d4f73d9ca70843",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:21:00Z",
+          "text": "OH NO"
+        },
+        {
+          "id": "d091680bcec986ac",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:21:00Z",
+          "text": "four hundred posters. \"DESING CLUB\". in 96 point bold"
+        },
+        {
+          "id": "3d08f9ca6b4f045b",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:22:00Z",
+          "text": "SARAH"
+        },
+        {
+          "id": "ff540355e5b13fb2",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:22:00Z",
+          "text": "who proofread this"
+        },
+        {
+          "id": "ed9b00738256bb3b",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:22:00Z",
+          "text": "five people!! FIVE. including me. including YOU"
+        },
+        {
+          "id": "af45bb20189f0531",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:23:00Z",
+          "text": "i looked at it for ten minutes i was checking the GRID"
+        },
+        {
+          "id": "24fa6ee7289df5f9",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:24:00Z",
+          "text": "we all checked the grid. the grid is flawless. nobody read the words"
+        },
+        {
+          "id": "63cd19a45dcb8a8b",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:24:00Z",
+          "text": "we are a club of designers who cannot spell design"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "still thinking about DESING. four hundred of them. in 96 POINT BOLD\n\nwe checked the grid so carefully lmao. i will never recover from marcus reading it and walking straight back out"
+      },
+      "context": null
+    },
+    {
+      "id": "e5be36e8",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Mei Tanaka",
+        "threadId": "meitanaka_17950517471278735"
+      },
+      "title": "The 2am fire alarm and the iron guy",
+      "body": "Remember when the fire alarm went off at 2am and you ended up outside in slippers while Mei showed up with her laptop and exactly one shoe, all because someone on the third floor tried to make grilled cheese with a clothes iron.",
+      "stats": [
+        {
+          "label": "When",
+          "value": "February 11, 2024"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "94e702df692f2994",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:11:00Z",
+          "text": "third floor. someone tried to make grilled cheese with an iron"
+        },
+        {
+          "id": "69c822cb6e7a1734",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:15:00Z",
+          "text": "with a CLOTHES iron??"
+        },
+        {
+          "id": "c74e71bca5bdf2bf",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:16:00Z",
+          "text": "they are standing outside holding the iron right now like evidence"
+        },
+        {
+          "id": "44d8b0f11e7f8f25",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:16:00Z",
+          "text": "i can see them omg"
+        },
+        {
+          "id": "4ba841e3e99fce36",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:17:00Z",
+          "text": "the RA is just staring at it"
+        },
+        {
+          "id": "3c374561502efa49",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:18:00Z",
+          "text": "nobody is speaking. the iron speaks for itself"
+        },
+        {
+          "id": "feb5082986d68d9a",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:18:00Z",
+          "text": "mei i'm going to remember the iron guy for the rest of my life"
+        },
+        {
+          "id": "6d2ff0747207532b",
+          "sender": "Mei Tanaka",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Mei Tanaka",
+          "timestamp": "2024-02-11T02:21:00Z",
+          "text": "we're bonded now. all 200 of us"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "mei i still think about iron guy. you standing there with one shoe and a laptop 😭 do you think he ever got the iron back"
+      },
+      "context": null
+    },
+    {
+      "id": "4e5b0f3d",
+      "kind": "memory_lane",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "Winning while he was in the bathroom line",
+      "body": "Remember when your demo crashed on stage for eight seconds and you still won best overall, except Rafa was stuck in a 30-person bathroom line and you had to stall with no bit while he sprinted back yelling from the doors.",
+      "stats": [
+        {
+          "label": "When",
+          "value": "February 16, 2025"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "fa2375521a027501",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:24:00Z",
+          "text": "they just said our name. they said our actual name"
+        },
+        {
+          "id": "41fff2b3dd95b102",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:25:00Z",
+          "text": "we won??? WE WON"
+        },
+        {
+          "id": "d19c7001f6114e10",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:25:00Z",
+          "text": "I'M IN THE BATHROOM LINE"
+        },
+        {
+          "id": "6bb5cba1b507ccf7",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:26:00Z",
+          "text": "GET OUT OF THE LINE"
+        },
+        {
+          "id": "24444ebe0ee1ca27",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:26:00Z",
+          "text": "I'M RUNNING. a guy just high fived me and he doesn't know why"
+        },
+        {
+          "id": "7db7c9f81eb0423d",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:29:00Z",
+          "text": "they're waiting for you to come on stage. everyone's looking at me"
+        },
+        {
+          "id": "e2cce324445a1317",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:35:00Z",
+          "text": "stall. do a bit"
+        },
+        {
+          "id": "2a85b52720775bb1",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": false,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:36:00Z",
+          "text": "i do not have a bit"
+        }
+      ],
+      "action": {
+        "label": "Send this memory",
+        "draft": "just thinking about the night we won best overall and you were in the bathroom line. \"stall. do a bit\" i did not have a bit rafa. i could hear you yelling from the doors"
+      },
+      "context": null
+    },
+    {
+      "id": "bbaca8de",
+      "kind": "reconnect",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Jonas Weber",
+        "threadId": "jonasweber_17398201938475610"
+      },
+      "title": "You and Jonas used to talk about Minecraft all the time",
+      "body": "It's been about 24 months since Minecraft last came up between you two, back in September 2024. There's a new update out too: Wilderness Bound landed on September 15 with a Dappled Forest biome, poplar trees and new decorative blocks.",
+      "stats": [
+        {
+          "label": "Mentions",
+          "value": "155"
+        },
+        {
+          "label": "Last mentioned",
+          "value": "Sep 2024"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "846619aadc593853",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-06-11T21:50:00Z",
+          "text": "i've been mining for an hour. i have 9 stacks of deepslate, zero diamonds and one emotion"
+        },
+        {
+          "id": "4b44c770075ae910",
+          "sender": "Jonas Weber",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-06-21T02:31:00Z",
+          "text": "a lighthouse then"
+        },
+        {
+          "id": "6ed7fb2a7416a4bf",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Jonas Weber",
+          "timestamp": "2024-06-21T23:20:00Z",
+          "text": "FOUND DIAMONDS"
+        }
+      ],
+      "action": {
+        "label": "Reconnect",
+        "draft": "did you see minecraft got a new update, wilderness bound. there's a dappled forest biome now with poplar trees and new decorative blocks\n\nalso the east tower is still one block taller than the west one and gerald is probably still staring through that window"
+      },
+      "context": {
+        "text": "Minecraft's Wilderness Bound update released on September 15 with a new Dappled Forest biome featuring poplar trees and new decorative blocks.",
+        "source": "GameSpot",
+        "url": "https://www.gamespot.com/articles/next-minecraft-update-release-date/1100-6530316/",
+        "date": "2026-09-15"
+      }
+    },
+    {
+      "id": "96c4958a",
+      "kind": "reconnect",
+      "score": 1.0,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "You and Priya used to talk about the NYT Mini Crossword all the time",
+      "body": "It's been 22 months since the Mini came up between you two, after 89 messages of daily times.",
+      "stats": [
+        {
+          "label": "Mentions",
+          "value": "89"
+        },
+        {
+          "label": "Last mentioned",
+          "value": "Nov 2024"
+        }
+      ],
+      "evidence": [],
+      "action": {
+        "label": "Reconnect",
+        "draft": "hey is the mini spreadsheet still going? i just got 0:47 and thought of the day we both lost to the eel"
+      },
+      "context": null
+    },
+    {
+      "id": "57980bbf",
+      "kind": "recap",
+      "score": 0.73,
+      "rank": null,
+      "friend": {
+        "name": "Rafa Ortiz",
+        "threadId": "rafaortiz_17849201938471029"
+      },
+      "title": "You + Rafa",
+      "body": "Two and a half years of late-night lab hours, lecture recaps you both missed, and 2am quesadilla rulings, mostly between 10pm and 2am.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "3,276"
+        },
+        {
+          "label": "Most active month",
+          "value": "November 2025"
+        },
+        {
+          "label": "Top topic",
+          "value": "CS school life"
+        },
+        {
+          "label": "Most active time",
+          "value": "10 PM – 2 AM"
+        },
+        {
+          "label": "Memories worth revisiting",
+          "value": "2"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "87f1dce5d2c8ab0d",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:44:00Z",
+          "text": "gas, border, poutine, vibes"
+        },
+        {
+          "id": "59c7803a9e2b92d1",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2024-07-12T01:48:00Z",
+          "text": "the check engine light is on but it's been on since 2021 so it's basically decor"
+        },
+        {
+          "id": "41fff2b3dd95b102",
+          "sender": "Rafa Ortiz",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Rafa Ortiz",
+          "timestamp": "2025-02-16T14:25:00Z",
+          "text": "we won??? WE WON"
+        }
+      ],
+      "action": {
+        "label": "Share Recap",
+        "draft": null
+      },
+      "context": null
+    },
+    {
+      "id": "399370eb",
+      "kind": "recap",
+      "score": 0.73,
+      "rank": null,
+      "friend": {
+        "name": "Priya Raman",
+        "threadId": "priyaraman_17612094857102938"
+      },
+      "title": "You + Priya",
+      "body": "Two and a half years of late-afternoon check-ins, daily crossword times, lab and laptop complaints, and the quiet running joke that you're 'the computer friend' who once fixed her mom's printer.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "2,387"
+        },
+        {
+          "label": "Most active month",
+          "value": "September 2024"
+        },
+        {
+          "label": "Top topic",
+          "value": "Everyday campus life"
+        },
+        {
+          "label": "Most active time",
+          "value": "4 PM – 8 PM"
+        },
+        {
+          "label": "Unanswered questions",
+          "value": "1"
+        },
+        {
+          "label": "Things you've drifted from",
+          "value": "1"
+        }
+      ],
+      "evidence": [],
+      "action": {
+        "label": "Share Recap",
+        "draft": null
+      },
+      "context": null
+    },
+    {
+      "id": "2608d1e2",
+      "kind": "recap",
+      "score": 0.65,
+      "rank": null,
+      "friend": {
+        "name": "Sarah Lin",
+        "threadId": "sarahlin_17520394857612033"
+      },
+      "title": "You + Sarah",
+      "body": "Two years of evening check-ins where every meal, font, sound and shade of blue gets a number out of 10, and neither of you has ever questioned the scale.",
+      "stats": [
+        {
+          "label": "Messages",
+          "value": "1,756"
+        },
+        {
+          "label": "Most active month",
+          "value": "April 2026"
+        },
+        {
+          "label": "Top topic",
+          "value": "Rating everything"
+        },
+        {
+          "label": "Most active time",
+          "value": "5 PM – 9 PM"
+        },
+        {
+          "label": "Unfinished plans",
+          "value": "1"
+        },
+        {
+          "label": "Unanswered questions",
+          "value": "1"
+        },
+        {
+          "label": "Memories worth revisiting",
+          "value": "1"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "d091680bcec986ac",
+          "sender": "Sarah Lin",
+          "isFromOwner": false,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:21:00Z",
+          "text": "four hundred posters. \"DESING CLUB\". in 96 point bold"
+        },
+        {
+          "id": "63cd19a45dcb8a8b",
+          "sender": "you",
+          "isFromOwner": true,
+          "isKey": true,
+          "threadName": "Sarah Lin",
+          "timestamp": "2025-02-27T20:24:00Z",
+          "text": "we are a club of designers who cannot spell design"
+        }
+      ],
+      "action": {
+        "label": "Share Recap",
+        "draft": null
+      },
+      "context": null
+    }
+  ]
+};
+
+const PAGES = [
+  {kind:"your_people", name:"Your People", kicker:"The contributors", headline:"The people who <em>made</em> your year.", standfirst:"Five names, ranked by how much of your life ran through their chat.", hero:"stat", noun:"people on the masthead"},
+  {kind:"memory_lane", name:"Memory Lane", kicker:"From the archive", headline:"Moments <em>worth</em> reprinting.", standfirst:"Buried in old chats and still funny. We pulled the best ones back out.", hero:"count", noun:"memories found in the archive"},
+  {kind:"reconnect", name:"Reconnect", kicker:"Where did it go?", headline:"It used to be your <em>whole thing.</em>", standfirst:"Topics you two never shut up about, and then quietly dropped.", hero:"stat", noun:"topics gone quiet"},
+  {kind:"both_wanted", name:"Both Wanted", kicker:"Two chats, one idea", headline:"You each said it. <em>Just not to each other.</em>", standfirst:"One wish, found twice, in two different conversations.", hero:"count", noun:"wish you share without knowing it"},
+  {kind:"unfinished_plans", name:"Unfinished Plans", kicker:"We should totally", headline:"Still on <em>the list.</em>", standfirst:"Plans you keep making and never quite keep.", hero:"stat", noun:"plans still pending"},
+  {kind:"unanswered", name:"Unanswered", kicker:"Letters, unreturned", headline:"They asked. <em>You kept talking.</em>", standfirst:"The conversation moved on. The question is still open.", hero:"count", noun:"questions left hanging"},
+  {kind:"recap", name:"The Recap", kicker:"The back cover", headline:"The year, <em>in short.</em>", standfirst:"Whole friendships, set in three columns. Tear out and share.", hero:"count", noun:"friendships, summed up"}
+];
+const KIND_STYLE = {recap:{hasBigStat:true}};
+const maxCards = 3, maxMessages = 6, gapHours = 4;
+const ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+const ARROW_OUT = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg>';
+
+const dayFormat = new Intl.DateTimeFormat("en-US", {month:"short", day:"numeric", year:"numeric", timeZone:"UTC"});
+const timeFormat = new Intl.DateTimeFormat("en-US", {hour:"numeric", minute:"2-digit", timeZone:"UTC"});
+
+function el(tag, cls, text) {
+  const node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text != null) node.textContent = text;
+  return node;
+}
+function initials(name) {
+  return name.split(/\s+/).map(w => w[0]).slice(0, 2).join("").toUpperCase();
+}
+function ring(name) {
+  const node = el("span", "ring");
+  node.append(el("span", "", initials(name)));
+  return node;
+}
+function cardsOf(page) {
+  const cards = DATA.cards.filter(c => c.kind === page.kind);
+  if (cards.some(c => c.rank != null)) return {all: cards, shown: cards.sort((a, b) => a.rank - b.rank)};
+  const sorted = cards.sort((a, b) => b.score - a.score);
+  return {all: sorted, shown: sorted.slice(0, maxCards)};
+}
+
+function heroOf(page, all, shown) {
+  const stat = page.hero === "stat" && shown[0] && shown[0].stats.find(s => /^\d[\d,.]{0,5}$/.test(s.value));
+  if (stat) return {value: stat.value, caption: stat.label + " · " + shown[0].friend.name};
+  const extra = all.length > shown.length ? ", top " + shown.length + " printed here" : "";
+  return {value: String(all.length), caption: page.noun + extra};
+}
+function pullQuoteOf(shown) {
+  const card = shown.find(c => c.evidence.some(m => m.isKey));
+  if (!card) return null;
+  const keys = card.evidence.filter(m => m.isKey);
+  const fitting = keys.filter(m => m.text.length <= 90).sort((a, b) => b.text.length - a.text.length);
+  return fitting[0] || keys[0];
+}
+function speaker(message) {
+  return message.isFromOwner ? "You" : message.sender;
+}
+
+function renderOpener(page, index, all, shown) {
+  const opener = el("section", "opener");
+  opener.append(el("div", "kicker", page.kicker));
+  const headline = el("h1", "headline");
+  headline.innerHTML = page.headline;
+  const hero = heroOf(page, all, shown);
+  const heroBox = el("div", "hero");
+  heroBox.append(el("div", "num" + (hero.value.length > 3 ? " long" : ""), hero.value), el("div", "cap", hero.caption));
+  opener.append(headline, el("p", "standfirst", page.standfirst), heroBox);
+  const quote = pullQuoteOf(shown);
+  opener.append(quote ? renderPullQuote(quote) : renderContents(index));
+  return opener;
+}
+function renderPullQuote(message) {
+  const pull = el("figure", "pull");
+  pull.append(el("span", "mark", "“"), el("blockquote", "", message.text));
+  const where = message.isFromOwner ? "to " + message.threadName : "to you";
+  pull.append(el("figcaption", "by", speaker(message) + ", " + where + " · " + dayFormat.format(new Date(message.timestamp))));
+  return pull;
+}
+function renderContents(current) {
+  const toc = el("nav", "toc");
+  toc.append(el("h4", "", "In this issue"));
+  PAGES.forEach((page, i) => {
+    if (i === current) return;
+    const item = el("button");
+    item.append(el("span", "", String(i + 1).padStart(2, "0")), el("span", "", page.name));
+    item.addEventListener("click", () => go(i));
+    toc.append(item);
+  });
+  return toc;
+}
+
+function shownMessages(evidence) {
+  if (evidence.length <= maxMessages) return evidence;
+  const keyIndexes = evidence.map((m, i) => m.isKey ? i : -1).filter(i => i >= 0);
+  if (!keyIndexes.length) return evidence.slice(0, maxMessages);
+  const distance = i => Math.min(...keyIndexes.map(k => Math.abs(k - i)));
+  const fillers = evidence.map((m, i) => i).filter(i => !evidence[i].isKey).sort((a, b) => distance(a) - distance(b) || a - b);
+  const chosen = new Set([...keyIndexes, ...fillers.slice(0, Math.max(0, maxMessages - keyIndexes.length))]);
+  return evidence.filter((m, i) => chosen.has(i));
+}
+function needsSeparator(previous, message) {
+  if (!previous) return true;
+  const a = new Date(previous.timestamp), b = new Date(message.timestamp);
+  return a.toISOString().slice(0, 10) !== b.toISOString().slice(0, 10) || (b - a) >= gapHours * 3600000;
+}
+function renderMessage(message, previous, card) {
+  const nodes = [];
+  const date = new Date(message.timestamp);
+  const isBreak = needsSeparator(previous, message);
+  if (isBreak) nodes.push(el("div", "sep", dayFormat.format(date) + " · " + timeFormat.format(date)));
+  const isOtherChat = message.threadName !== card.friend.name;
+  const hasOtherChats = card.evidence.some(m => m.threadName !== card.friend.name);
+  if (hasOtherChats && (isBreak || previous.threadName !== message.threadName)) {
+    const label = isOtherChat ? "From a different chat: yours with " + message.threadName : "From your chat with " + message.threadName;
+    nodes.push(el("div", "from" + (isOtherChat ? " other" : "") + (message.isFromOwner ? " me" : ""), label));
+  }
+  const row = el("div", "row " + (message.isFromOwner ? "me" : "them") + (message.isKey ? " key" : ""));
+  const isRunStart = isBreak || previous.isFromOwner !== message.isFromOwner;
+  row.append(el("span", "who", isRunStart ? (message.isFromOwner ? "You" : initials(message.sender)) : ""), el("div", "bub", message.text));
+  nodes.push(row);
+  return nodes;
+}
+function renderTranscript(card, messages) {
+  const talk = el("section", "talk");
+  talk.append(el("h5", "", "The transcript"));
+  messages.forEach((message, i) => talk.append(...renderMessage(message, messages[i - 1], card)));
+  return talk;
+}
+
+function renderStats(stats) {
+  const list = el("dl", "numbers");
+  list.append(el("h5", "", "By the numbers"));
+  stats.forEach(stat => {
+    const line = el("div");
+    line.append(el("dt", "", stat.label), el("dd", "", stat.value));
+    list.append(line);
+  });
+  return list;
+}
+function renderNews(context) {
+  const box = el("aside", "news"), inner = el("div");
+  inner.append(el("h5", "", "In the news · why now"), el("p", "", context.text));
+  const credit = el("footer");
+  const date = dayFormat.format(new Date(context.date + "T00:00:00Z"));
+  credit.append(el("span", "", context.source + " · " + date));
+  const link = el("a");
+  link.href = context.url; link.target = "_blank"; link.rel = "noopener";
+  link.innerHTML = "Read the story " + ARROW_OUT;
+  credit.append(link);
+  inner.append(credit);
+  box.append(inner);
+  return box;
+}
+function renderHead(card) {
+  const nodes = [];
+  if (card.rank != null) {
+    const rank = el("div", "rank" + (card.rank === 1 ? " first" : ""), String(card.rank));
+    nodes.push(rank);
+  }
+  const byline = el("div", "byline");
+  byline.append(ring(card.friend.name));
+  if (card.title !== card.friend.name) byline.append(el("span", "", "With " + card.friend.name));
+  nodes.push(byline, el("h2", "title", card.title), el("p", "lede", card.body));
+  return nodes;
+}
+function renderArticle(card) {
+  const style = KIND_STYLE[card.kind] || {};
+  const article = el("article", "art" + (card.rank != null ? " ranked" : ""));
+  article.append(...renderHead(card));
+  let stats = card.stats || [];
+  if (style.hasBigStat && stats.length) {
+    const big = el("div", "bigstat");
+    big.append(el("b", "", stats[0].value), el("span", "", stats[0].label));
+    article.children[article.children.length - 2].after(big);
+    stats = stats.slice(1);
+  }
+  if (card.context) article.append(renderNews(card.context));
+  if (stats.length) article.append(renderStats(stats));
+  if (card.evidence.length) article.append(...renderEvidence(card));
+  if (card.action) article.append(renderAction(card));
+  return article;
+}
+function renderEvidence(card) {
+  const messages = shownMessages(card.evidence);
+  const nodes = [renderTranscript(card, messages)];
+  const omitted = card.evidence.length - messages.length;
+  if (!omitted) return nodes;
+  const more = el("button", "more");
+  more.innerHTML = "+" + omitted + " more in the full transcript " + ARROW;
+  more.addEventListener("click", () => openConversation(card));
+  nodes[0].append(more);
+  return nodes;
+}
+function renderAction(card) {
+  const wrap = el("div", "pillwrap");
+  const pill = el("button", "pill");
+  pill.innerHTML = "<span></span>" + ARROW;
+  pill.firstChild.textContent = card.action.label;
+  pill.addEventListener("click", () => openAction(card));
+  wrap.append(pill);
+  return wrap;
+}
+
+function renderPage(page, index) {
+  const {all, shown} = cardsOf(page);
+  const count = shown.length;
+  const section = el("section", "page" + (count <= 2 ? " wideopen" : "") + (count === 1 ? " solo" : ""));
+  section.dataset.count = count;
+  const articles = el("div", "articles");
+  shown.forEach(card => articles.append(renderArticle(card)));
+  if (count === 2) weighColumns(articles, shown);
+  section.append(renderOpener(page, index, all, shown), articles);
+  return section;
+}
+function weighColumns(articles, shown) {
+  const hasUneven = shown.some(c => c.evidence.length) && shown.some(c => !c.evidence.length);
+  if (!hasUneven) return;
+  articles.style.gridAutoColumns = "auto";
+  articles.style.gridTemplateColumns = shown.map(c => c.evidence.length ? "1.45fr" : "1fr").join(" ");
+  [...articles.children].forEach((node, i) => { if (!shown[i].evidence.length) node.classList.add("brief"); });
+}
+
+const startScale = {1: 1.5, 2: 1.3, 3: 1.25, 5: 1.4};
+function isOverflowing(node) {
+  return node.scrollHeight > node.clientHeight + 1 || node.scrollWidth > node.clientWidth + 1;
+}
+function fit(section) {
+  const articles = section.querySelector(".articles");
+  const boxes = [articles, ...articles.children];
+  let scale = startScale[section.dataset.count] || 1;
+  articles.style.setProperty("--k", scale);
+  while (scale > 0.7 && boxes.some(isOverflowing)) {
+    scale -= 0.02;
+    articles.style.setProperty("--k", scale.toFixed(2));
+  }
+}
+function fitAll() {
+  if (innerWidth <= 900) return;
+  fit(pagesRoot.children[current]);
+}
+
+let current = 0;
+const pagesRoot = document.getElementById("pages");
+const segs = document.getElementById("segs");
+function go(index) {
+  if (index < 0 || index >= PAGES.length) return;
+  [...pagesRoot.children].forEach((node, i) => {
+    node.classList.toggle("back", index < current);
+    node.classList.toggle("active", i === index);
+  });
+  current = index;
+  fitAll();
+  [...segs.children].forEach((node, i) => node.classList.toggle("on", i <= index));
+  document.getElementById("section").textContent = PAGES[index].name;
+  document.getElementById("count").textContent = (index + 1) + " / " + PAGES.length;
+  document.getElementById("pg").textContent = "p. " + String(index + 1).padStart(2, "0");
+  if (location.hash.includes("&")) return;
+  history.replaceState(null, "", "#" + (index + 1));
+}
+
+const modal = document.getElementById("modal"), sheet = document.getElementById("sheet");
+function openModal(...nodes) {
+  sheet.replaceChildren(...nodes);
+  modal.classList.add("open");
+}
+function closeModal() { modal.classList.remove("open"); }
+function copyButton(label, text) {
+  const button = el("button", "go", label);
+  button.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(text()); button.textContent = "Copied"; }
+    catch (error) { console.warn("clipboard unavailable", error); button.textContent = "Press Cmd+C to copy"; }
+    setTimeout(() => button.textContent = label, 1600);
+  });
+  return button;
+}
+function openAction(card) {
+  if (card.action.draft == null) return openShare(card);
+  const area = el("textarea");
+  area.value = card.action.draft;
+  const buttons = el("div", "btns");
+  const regenerate = el("button", "", "Regenerate");
+  regenerate.disabled = true; regenerate.title = "Needs the live backend, coming soon";
+  buttons.append(copyButton("Copy message", () => area.value), regenerate, el("small", "", "Edit freely, then paste it into your chat."));
+  openModal(el("div", "k", card.action.label + " · a draft for " + card.friend.name), el("h3", "", card.title), area, buttons);
+  area.focus();
+}
+function openShare(card) {
+  const cover = el("div", "cover");
+  const stats = el("dl");
+  card.stats.forEach(stat => { const cell = el("div"); cell.append(el("dt", "", stat.label), el("dd", "", stat.value)); stats.append(cell); });
+  cover.append(el("div", "k", "Your DMs, in review"), el("h3", "", card.title), el("p", "", card.body));
+  if (card.stats.length) cover.append(stats);
+  const summary = () => [card.title, card.body, ...card.stats.map(s => s.label + ": " + s.value)].join("\n");
+  const buttons = el("div", "btns");
+  buttons.append(copyButton("Copy summary", summary), el("small", "", "Made for Instagram DMs."));
+  openModal(el("div", "k", card.action.label), cover, buttons);
+}
+function openConversation(card) {
+  openModal(el("div", "k", "The full transcript · " + card.friend.name), el("h3", "", card.title), renderTranscript(card, card.evidence));
+}
+
+function isClipCandidate(node) {
+  if (node.closest(".modal") || node.closest(".page:not(.active)")) return false;
+  if (!node.clientHeight && !node.clientWidth) return false;
+  return getComputedStyle(node).visibility !== "hidden";
+}
+function describe(node) {
+  return node.tagName.toLowerCase() + (node.className ? "." + String(node.className).split(" ").join(".") : "") + ": " + node.textContent.trim().slice(0, 30);
+}
+function writeReport() {
+  const nodes = [...document.querySelectorAll("#stage, #stage *")].filter(isClipCandidate);
+  const report = {
+    page: current + 1,
+    viewport: [innerWidth, innerHeight],
+    pageScrolls: document.documentElement.scrollHeight > innerHeight + 1,
+    clipped: nodes.filter(isOverflowing).map(describe)
+  };
+  const pre = el("pre", "", JSON.stringify(report));
+  pre.id = "overflow-report";
+  document.body.append(pre);
+}
+
+const isCheck = /&check$/.test(location.hash);
+function bind() {
+  document.getElementById("prev").addEventListener("click", () => go(current - 1));
+  document.getElementById("next").addEventListener("click", () => go(current + 1));
+  document.getElementById("close").addEventListener("click", closeModal);
+  modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
+  pagesRoot.addEventListener("click", event => {
+    if (event.target.closest("button, a, textarea, .talk, .news")) return;
+    const x = event.clientX / innerWidth;
+    if (x < 0.16) go(current - 1);
+    if (x > 0.86) go(current + 1);
+  });
+  addEventListener("keydown", event => {
+    if (event.key === "Escape") return closeModal();
+    if (modal.classList.contains("open")) return;
+    if (event.key === "ArrowRight") go(current + 1);
+    if (event.key === "ArrowLeft") go(current - 1);
+  });
+  addEventListener("resize", fitAll);
+}
+async function start() {
+  PAGES.forEach((page, i) => {
+    pagesRoot.append(renderPage(page, i));
+    const seg = el("button", "seg");
+    seg.style.setProperty("--i", i);
+    seg.title = page.name;
+    seg.addEventListener("click", () => go(i));
+    segs.append(seg);
+  });
+  document.getElementById("issue").textContent = "The Friendship Issue · " + new Date(DATA.generatedAt).getUTCFullYear();
+  bind();
+  const requested = parseInt(location.hash.slice(1), 10);
+  go(requested >= 1 && requested <= PAGES.length ? requested - 1 : 0);
+  await document.fonts.ready;
+  fitAll();
+  if (isCheck) setTimeout(writeReport, 900);
+  const demo = {"&sheet": ".pill", "&talk": ".more"};
+  Object.keys(demo).filter(flag => location.hash.includes(flag)).forEach(flag => pagesRoot.children[current].querySelector(demo[flag])?.click());
+}
+start();
+</script>
+</body>
+</html>
